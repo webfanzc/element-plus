@@ -77,7 +77,7 @@
             :class="[
               ns.e('stop'),
               ns.e('marks-stop'),
-              !range && ((modelValue as number) >= item.point)
+              !range && (modelValue as number) >= item.point
                 ? ns.e('marks-stop__reached')
                 : '',
             ]"

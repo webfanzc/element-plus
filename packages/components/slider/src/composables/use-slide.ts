@@ -171,6 +171,13 @@ export const useSlide = (
   }
 
   const onSliderDown = async (event: MouseEvent | TouchEvent) => {
+    if (
+      (event?.target as HTMLElement)?.classList?.contains(
+        'el-slider__marks-stop'
+      )
+    )
+      return (event.target as HTMLElement)?.click?.()
+
     const buttonRef = handleSliderPointerEvent(event)
     if (buttonRef) {
       await nextTick()

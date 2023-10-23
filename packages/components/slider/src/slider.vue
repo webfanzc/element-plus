@@ -77,7 +77,7 @@
             :class="[
               ns.e('stop'),
               ns.e('marks-stop'),
-              !range && ((modelValue as number) >= item.point)
+              !range && (modelValue as number) >= item.point
                 ? ns.e('marks-stop__reached')
                 : '',
             ]"
@@ -131,6 +131,7 @@ import {
   useStops,
   useWatch,
 } from './composables'
+
 import type { Mark } from './composables'
 import type { SliderInitData } from './slider'
 

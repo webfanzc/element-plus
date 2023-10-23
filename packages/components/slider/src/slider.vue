@@ -74,7 +74,14 @@
             v-for="(item, key) in markList"
             :key="key"
             :style="getStopStyle(item.position)"
-            :class="[ns.e('stop'), ns.e('marks-stop')]"
+            :class="[
+              ns.e('stop'),
+              ns.e('marks-stop'),
+              !range && ((modelValue as number) >= item.point)
+                ? ns.e('marks-stop__reached')
+                : '',
+            ]"
+            @click="onStopClick(item)"
           />
         </div>
         <div :class="ns.e('marks')">
@@ -108,7 +115,8 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, provide, reactive, toRefs } from 'vue'
+import { computed, nextTick, provide, reactive, toRefs } from 'vue'
+import { CHANGE_EVENT } from '@element-plus/constants'
 import { useEventListener } from '@vueuse/core'
 import ElInputNumber from '@element-plus/components/input-number'
 import { useFormItemInputId, useFormSize } from '@element-plus/components/form'
@@ -124,6 +132,7 @@ import {
   useStops,
   useWatch,
 } from './composables'
+import type { Mark } from './composables'
 import type { SliderInitData } from './slider'
 
 defineOptions({
@@ -242,6 +251,13 @@ useEventListener(sliderWrapper, 'touchstart', onSliderWrapperPrevent, {
 useEventListener(sliderWrapper, 'touchmove', onSliderWrapperPrevent, {
   passive: false,
 })
+
+const onStopClick = async (item: Mark) => {
+  if (props.range) return
+
+  await nextTick()
+  emit(CHANGE_EVENT, item.point)
+}
 
 provide(sliderContextKey, {
   ...toRefs(props),

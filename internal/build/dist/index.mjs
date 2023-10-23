@@ -1,0 +1,2 @@
+import jiti from "file:///D:/OneDrive/%E6%A1%8C%E9%9D%A2/bhopMain/element-plus/node_modules/.pnpm/jiti@1.13.0/node_modules/jiti/lib/index.js";
+export default jiti(null, { interopDefault: true })('D:/OneDrive/桌面/bhopMain/element-plus/internal/build/src/index');

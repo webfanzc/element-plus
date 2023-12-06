@@ -14007,8 +14007,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                 handleBlur: (event: FocusEvent) => void;
                 needStatusIcon: import("vue").ComputedRef<boolean>;
                 validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-                validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-                passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+                validateIcon: import("vue").ComputedRef<any>;
+                passwordIcon: import("vue").ComputedRef<any>;
                 containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
                 textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
                 nativeInputValue: import("vue").ComputedRef<string>;
@@ -14100,7 +14100,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                         __epPropKey: true;
                     };
                 }>>, {}>> & Record<string, any>;
-                CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+                CircleClose: any;
                 NOOP: () => void;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                 "update:modelValue": (value: string) => boolean;
@@ -14376,8 +14376,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             handleBlur: (event: FocusEvent) => void;
             needStatusIcon: import("vue").ComputedRef<boolean>;
             validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-            validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-            passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+            validateIcon: import("vue").ComputedRef<any>;
+            passwordIcon: import("vue").ComputedRef<any>;
             containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             nativeInputValue: import("vue").ComputedRef<string>;
@@ -14469,7 +14469,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     __epPropKey: true;
                 };
             }>>, {}>> & Record<string, any>;
-            CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            CircleClose: any;
             NOOP: () => void;
         }> & {} & import("vue").ComponentCustomProperties) | undefined>;
         data: {
@@ -14708,8 +14708,8 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             handleBlur: (event: FocusEvent) => void;
             needStatusIcon: import("vue").ComputedRef<boolean>;
             validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-            validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-            passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+            validateIcon: import("vue").ComputedRef<any>;
+            passwordIcon: import("vue").ComputedRef<any>;
             containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             nativeInputValue: import("vue").ComputedRef<string>;
@@ -14801,7 +14801,7 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
                     __epPropKey: true;
                 };
             }>>, {}>> & Record<string, any>;
-            CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            CircleClose: any;
             NOOP: () => void;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "update:modelValue": (value: string) => boolean;
@@ -14976,10 +14976,10 @@ export declare const ElSlider: import("element-plus/es/utils").SFCWithInstall<im
             };
         }>>, {}>> & Record<string, any>;
         vRepeatClick: import("vue").ObjectDirective<HTMLElement, import("../../directives/repeat-click").RepeatClickOptions | ((...args: unknown[]) => unknown)>;
-        ArrowDown: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-        ArrowUp: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-        Minus: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-        Plus: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        ArrowDown: any;
+        ArrowUp: any;
+        Minus: any;
+        Plus: any;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         change: (cur: number | undefined, prev: number | undefined) => boolean;
         blur: (e: FocusEvent) => boolean;

@@ -48,6 +48,8 @@ export declare const ElWatermark: import("element-plus/es/utils").SFCWithInstall
     fontWeight: import("vue").ComputedRef<number | "light" | "normal" | "weight">;
     fontStyle: import("vue").ComputedRef<"none" | "normal" | "italic" | "oblique">;
     fontFamily: import("vue").ComputedRef<string>;
+    textAlign: import("vue").ComputedRef<"center" | "right" | "left" | "end" | "start">;
+    textBaseline: import("vue").ComputedRef<"top" | "bottom" | "middle" | "alphabetic" | "hanging" | "ideographic">;
     gapX: import("vue").ComputedRef<number>;
     gapY: import("vue").ComputedRef<number>;
     gapXCenter: import("vue").ComputedRef<number>;

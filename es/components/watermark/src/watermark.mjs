@@ -36,6 +36,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       var _a, _b;
       return (_b = (_a = props.font) == null ? void 0 : _a.fontFamily) != null ? _b : "sans-serif";
     });
+    const textAlign = computed(() => {
+      var _a, _b;
+      return (_b = (_a = props.font) == null ? void 0 : _a.textAlign) != null ? _b : "center";
+    });
+    const textBaseline = computed(() => {
+      var _a, _b;
+      return (_b = (_a = props.font) == null ? void 0 : _a.textBaseline) != null ? _b : "top";
+    });
     const gapX = computed(() => props.gap[0]);
     const gapY = computed(() => props.gap[1]);
     const gapXCenter = computed(() => gapX.value / 2);
@@ -139,7 +147,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             fontSize: fontSize.value,
             fontStyle: fontStyle.value,
             fontWeight: fontWeight.value,
-            fontFamily: fontFamily.value
+            fontFamily: fontFamily.value,
+            textAlign: textAlign.value,
+            textBaseline: textBaseline.value
           }, gapX.value, gapY.value);
           appendWatermark(textClips, clipWidth);
         };

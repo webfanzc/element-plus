@@ -6726,8 +6726,8 @@ declare const _Cascader: SFCWithInstall<import("vue").DefineComponent<{
             handleBlur: (event: FocusEvent) => void;
             needStatusIcon: import("vue").ComputedRef<boolean>;
             validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-            validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-            passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+            validateIcon: import("vue").ComputedRef<any>;
+            passwordIcon: import("vue").ComputedRef<any>;
             containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             nativeInputValue: import("vue").ComputedRef<string>;
@@ -6819,7 +6819,7 @@ declare const _Cascader: SFCWithInstall<import("vue").DefineComponent<{
                     __epPropKey: true;
                 };
             }>>, {}>> & Record<string, any>;
-            CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            CircleClose: any;
             NOOP: () => void;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "update:modelValue": (value: string) => boolean;
@@ -7095,8 +7095,8 @@ declare const _Cascader: SFCWithInstall<import("vue").DefineComponent<{
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: import("vue").ComputedRef<boolean>;
         validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-        validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-        passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+        validateIcon: import("vue").ComputedRef<any>;
+        passwordIcon: import("vue").ComputedRef<any>;
         containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         nativeInputValue: import("vue").ComputedRef<string>;
@@ -7188,7 +7188,7 @@ declare const _Cascader: SFCWithInstall<import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        CircleClose: any;
         NOOP: () => void;
     }> & {} & import("vue").ComponentCustomProperties) | null>;
     tagWrapper: import("vue").Ref<null>;
@@ -9151,8 +9151,8 @@ declare const _Cascader: SFCWithInstall<import("vue").DefineComponent<{
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: import("vue").ComputedRef<boolean>;
         validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-        validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-        passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+        validateIcon: import("vue").ComputedRef<any>;
+        passwordIcon: import("vue").ComputedRef<any>;
         containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         nativeInputValue: import("vue").ComputedRef<string>;
@@ -9244,7 +9244,7 @@ declare const _Cascader: SFCWithInstall<import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        CircleClose: any;
         NOOP: () => void;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         "update:modelValue": (value: string) => boolean;
@@ -13275,7 +13275,7 @@ declare const _Cascader: SFCWithInstall<import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        Close: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        Close: any;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         close: (evt: MouseEvent) => boolean;
         click: (evt: MouseEvent) => boolean;
@@ -13365,9 +13365,9 @@ declare const _Cascader: SFCWithInstall<import("vue").DefineComponent<{
         };
     }>>, {}>> & Record<string, any>;
     vClickoutside: import("vue").ObjectDirective<any, any>;
-    ArrowDown: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-    Check: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-    CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+    ArrowDown: any;
+    Check: any;
+    CircleClose: any;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (val: import("..").CascaderValue) => boolean;
     change: (val: import("..").CascaderValue) => boolean;
@@ -20184,8 +20184,8 @@ export declare const ElCascader: SFCWithInstall<import("vue").DefineComponent<{
             handleBlur: (event: FocusEvent) => void;
             needStatusIcon: import("vue").ComputedRef<boolean>;
             validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-            validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-            passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+            validateIcon: import("vue").ComputedRef<any>;
+            passwordIcon: import("vue").ComputedRef<any>;
             containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             nativeInputValue: import("vue").ComputedRef<string>;
@@ -20277,7 +20277,7 @@ export declare const ElCascader: SFCWithInstall<import("vue").DefineComponent<{
                     __epPropKey: true;
                 };
             }>>, {}>> & Record<string, any>;
-            CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            CircleClose: any;
             NOOP: () => void;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "update:modelValue": (value: string) => boolean;
@@ -20553,8 +20553,8 @@ export declare const ElCascader: SFCWithInstall<import("vue").DefineComponent<{
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: import("vue").ComputedRef<boolean>;
         validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-        validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-        passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+        validateIcon: import("vue").ComputedRef<any>;
+        passwordIcon: import("vue").ComputedRef<any>;
         containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         nativeInputValue: import("vue").ComputedRef<string>;
@@ -20646,7 +20646,7 @@ export declare const ElCascader: SFCWithInstall<import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        CircleClose: any;
         NOOP: () => void;
     }> & {} & import("vue").ComponentCustomProperties) | null>;
     tagWrapper: import("vue").Ref<null>;
@@ -22609,8 +22609,8 @@ export declare const ElCascader: SFCWithInstall<import("vue").DefineComponent<{
         handleBlur: (event: FocusEvent) => void;
         needStatusIcon: import("vue").ComputedRef<boolean>;
         validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-        validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-        passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+        validateIcon: import("vue").ComputedRef<any>;
+        passwordIcon: import("vue").ComputedRef<any>;
         containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
         nativeInputValue: import("vue").ComputedRef<string>;
@@ -22702,7 +22702,7 @@ export declare const ElCascader: SFCWithInstall<import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        CircleClose: any;
         NOOP: () => void;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         "update:modelValue": (value: string) => boolean;
@@ -26733,7 +26733,7 @@ export declare const ElCascader: SFCWithInstall<import("vue").DefineComponent<{
                 __epPropKey: true;
             };
         }>>, {}>> & Record<string, any>;
-        Close: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        Close: any;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         close: (evt: MouseEvent) => boolean;
         click: (evt: MouseEvent) => boolean;
@@ -26823,9 +26823,9 @@ export declare const ElCascader: SFCWithInstall<import("vue").DefineComponent<{
         };
     }>>, {}>> & Record<string, any>;
     vClickoutside: import("vue").ObjectDirective<any, any>;
-    ArrowDown: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-    Check: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-    CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+    ArrowDown: any;
+    Check: any;
+    CircleClose: any;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (val: import("..").CascaderValue) => boolean;
     change: (val: import("..").CascaderValue) => boolean;

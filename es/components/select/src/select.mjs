@@ -19,7 +19,7 @@ import ElOptions from './options.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import ClickOutside from '../../../directives/click-outside/index.mjs';
 import { isValidComponentSize } from '../../../utils/vue/validator.mjs';
-import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
+import { useTooltipContentProps } from '../../tooltip/src/content.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { tagProps } from '../../tag/src/tag.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
@@ -263,7 +263,7 @@ const _sfc_main = defineComponent({
       nsSelect.is("empty", !props.allowCreate && Boolean(unref(query)) && unref(filteredOptionsCount) === 0)
     ]);
     const tagTextStyle = computed(() => {
-      const maxWidth = unref(inputWidth) > 123 ? unref(inputWidth) - 123 : unref(inputWidth) - 75;
+      const maxWidth = unref(inputWidth) > 123 && unref(selected).length > props.maxCollapseTags ? unref(inputWidth) - 123 : unref(inputWidth) - 75;
       return { maxWidth: `${maxWidth}px` };
     });
     const inputStyle = computed(() => ({
@@ -699,7 +699,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         ];
       }),
       content: withCtx(() => [
-        createVNode(_component_el_select_menu, null, {
+        createVNode(_component_el_select_menu, null, createSlots({
           default: withCtx(() => [
             withDirectives(createVNode(_component_el_scrollbar, {
               id: _ctx.contentId,
@@ -736,8 +736,21 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               }, toDisplayString(_ctx.emptyText), 3))
             ], 64)) : createCommentVNode("v-if", true)
           ]),
-          _: 3
-        })
+          _: 2
+        }, [
+          _ctx.$slots.header ? {
+            name: "header",
+            fn: withCtx(() => [
+              renderSlot(_ctx.$slots, "header")
+            ])
+          } : void 0,
+          _ctx.$slots.footer ? {
+            name: "footer",
+            fn: withCtx(() => [
+              renderSlot(_ctx.$slots, "footer")
+            ])
+          } : void 0
+        ]), 1024)
       ]),
       _: 3
     }, 8, ["visible", "placement", "teleported", "popper-class", "popper-options", "effect", "transition", "persistent", "onShow"])

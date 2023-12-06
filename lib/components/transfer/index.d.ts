@@ -1042,8 +1042,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 handleBlur: (event: FocusEvent) => void;
                 needStatusIcon: import("vue").ComputedRef<boolean>;
                 validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-                validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-                passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+                validateIcon: import("vue").ComputedRef<any>;
+                passwordIcon: import("vue").ComputedRef<any>;
                 containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
                 textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
                 nativeInputValue: import("vue").ComputedRef<string>;
@@ -1135,7 +1135,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                         __epPropKey: true;
                     };
                 }>>, {}>> & Record<string, any>;
-                CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+                CircleClose: any;
                 NOOP: () => void;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                 "update:modelValue": (value: string) => boolean;
@@ -1246,7 +1246,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 readonly inputStyle: import("vue").StyleValue;
                 readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             }>> & Record<string, any>;
-            Search: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            Search: any;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "checked-change": (value: import("./src/transfer").TransferKey[], movedKeys?: import("./src/transfer").TransferKey[] | undefined) => boolean;
         }, string, {
@@ -2162,8 +2162,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             handleBlur: (event: FocusEvent) => void;
             needStatusIcon: import("vue").ComputedRef<boolean>;
             validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-            validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-            passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+            validateIcon: import("vue").ComputedRef<any>;
+            passwordIcon: import("vue").ComputedRef<any>;
             containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             nativeInputValue: import("vue").ComputedRef<string>;
@@ -2255,7 +2255,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
             }>>, {}>> & Record<string, any>;
-            CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            CircleClose: any;
             NOOP: () => void;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "update:modelValue": (value: string) => boolean;
@@ -2366,7 +2366,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             readonly inputStyle: import("vue").StyleValue;
             readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         }>> & Record<string, any>;
-        Search: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        Search: any;
     }> & {} & import("vue").ComponentCustomProperties) | undefined>;
     rightPanel: import("vue").Ref<({
         $: import("vue").ComponentInternalInstance;
@@ -3308,8 +3308,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 handleBlur: (event: FocusEvent) => void;
                 needStatusIcon: import("vue").ComputedRef<boolean>;
                 validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-                validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-                passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+                validateIcon: import("vue").ComputedRef<any>;
+                passwordIcon: import("vue").ComputedRef<any>;
                 containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
                 textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
                 nativeInputValue: import("vue").ComputedRef<string>;
@@ -3401,7 +3401,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                         __epPropKey: true;
                     };
                 }>>, {}>> & Record<string, any>;
-                CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+                CircleClose: any;
                 NOOP: () => void;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                 "update:modelValue": (value: string) => boolean;
@@ -3512,7 +3512,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                 readonly inputStyle: import("vue").StyleValue;
                 readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             }>> & Record<string, any>;
-            Search: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            Search: any;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "checked-change": (value: import("./src/transfer").TransferKey[], movedKeys?: import("./src/transfer").TransferKey[] | undefined) => boolean;
         }, string, {
@@ -4428,8 +4428,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             handleBlur: (event: FocusEvent) => void;
             needStatusIcon: import("vue").ComputedRef<boolean>;
             validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-            validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-            passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+            validateIcon: import("vue").ComputedRef<any>;
+            passwordIcon: import("vue").ComputedRef<any>;
             containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             nativeInputValue: import("vue").ComputedRef<string>;
@@ -4521,7 +4521,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
             }>>, {}>> & Record<string, any>;
-            CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            CircleClose: any;
             NOOP: () => void;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "update:modelValue": (value: string) => boolean;
@@ -4632,7 +4632,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             readonly inputStyle: import("vue").StyleValue;
             readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         }>> & Record<string, any>;
-        Search: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        Search: any;
     }> & {} & import("vue").ComponentCustomProperties) | undefined>;
     clearQuery: (which: import("./src/transfer").TransferDirection) => void;
     hasButtonTexts: import("vue").ComputedRef<boolean>;
@@ -4663,7 +4663,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
         };
         readonly nativeType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
         readonly loading: BooleanConstructor;
-        readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>, boolean>;
+        readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
         readonly plain: BooleanConstructor;
         readonly text: BooleanConstructor;
         readonly link: BooleanConstructor;
@@ -4693,7 +4693,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             };
             readonly nativeType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
             readonly loading: BooleanConstructor;
-            readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>, boolean>;
+            readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
             readonly plain: BooleanConstructor;
             readonly text: BooleanConstructor;
             readonly link: BooleanConstructor;
@@ -4827,7 +4827,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
         };
         readonly nativeType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "button" | "reset" | "submit", unknown, "button", boolean>;
         readonly loading: BooleanConstructor;
-        readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>, boolean>;
+        readonly loadingIcon: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown, () => any, boolean>;
         readonly plain: BooleanConstructor;
         readonly text: BooleanConstructor;
         readonly link: BooleanConstructor;
@@ -4971,8 +4971,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             __epPropKey: true;
         };
     }>>, {}>> & Record<string, any>;
-    ArrowLeft: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
-    ArrowRight: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+    ArrowLeft: any;
+    ArrowRight: any;
     TransferPanel: import("vue").DefineComponent<{
         readonly data: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/transfer").TransferDataItem[]) | (() => import("./src/transfer").TransferDataItem[]) | ((new (...args: any[]) => import("./src/transfer").TransferDataItem[]) | (() => import("./src/transfer").TransferDataItem[]))[], unknown, unknown, () => never[], boolean>;
         readonly optionRender: {
@@ -5858,8 +5858,8 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             handleBlur: (event: FocusEvent) => void;
             needStatusIcon: import("vue").ComputedRef<boolean>;
             validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-            validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-            passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+            validateIcon: import("vue").ComputedRef<any>;
+            passwordIcon: import("vue").ComputedRef<any>;
             containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
             nativeInputValue: import("vue").ComputedRef<string>;
@@ -5951,7 +5951,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
             }>>, {}>> & Record<string, any>;
-            CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+            CircleClose: any;
             NOOP: () => void;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             "update:modelValue": (value: string) => boolean;
@@ -6062,7 +6062,7 @@ export declare const ElTransfer: import("element-plus/es/utils").SFCWithInstall<
             readonly inputStyle: import("vue").StyleValue;
             readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         }>> & Record<string, any>;
-        Search: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+        Search: any;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         "checked-change": (value: import("./src/transfer").TransferKey[], movedKeys?: import("./src/transfer").TransferKey[] | undefined) => boolean;
     }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{

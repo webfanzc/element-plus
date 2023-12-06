@@ -42,14 +42,8 @@ const timePickerDefaultProps = buildProps({
     default: ""
   },
   size: useSizeProp,
-  readonly: {
-    type: Boolean,
-    default: false
-  },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
+  readonly: Boolean,
+  disabled: Boolean,
   placeholder: {
     type: String,
     default: ""
@@ -74,10 +68,7 @@ const timePickerDefaultProps = buildProps({
   defaultTime: {
     type: definePropType([Date, Array])
   },
-  isRange: {
-    type: Boolean,
-    default: false
-  },
+  isRange: Boolean,
   ...disabledTimeListsProps,
   disabledDate: {
     type: Function
@@ -89,10 +80,7 @@ const timePickerDefaultProps = buildProps({
     type: Array,
     default: () => []
   },
-  arrowControl: {
-    type: Boolean,
-    default: false
-  },
+  arrowControl: Boolean,
   label: {
     type: String,
     default: void 0

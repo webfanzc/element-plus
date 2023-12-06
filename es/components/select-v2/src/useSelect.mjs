@@ -8,8 +8,8 @@ import '../../../utils/index.mjs';
 import '../../form/index.mjs';
 import { ArrowUp } from '@element-plus/icons-vue';
 import { useAllowCreate } from './useAllowCreate.mjs';
-import { flattenOptions } from './util.mjs';
 import { useInput } from './useInput.mjs';
+import { useProps } from './useProps.mjs';
 import { useLocale } from '../../../hooks/use-locale/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useFormItem } from '../../form/src/hooks/use-form-item.mjs';
@@ -31,6 +31,7 @@ const useSelect = (props, emit) => {
   const nsSelectV2 = useNamespace("select-v2");
   const nsInput = useNamespace("input");
   const { form: elForm, formItem: elFormItem } = useFormItem();
+  const { getLabel, getValue, getDisabled, getOptions } = useProps(props);
   const states = reactive({
     inputValue: DEFAULT_INPUT_PLACEHOLDER,
     displayInputValue: DEFAULT_INPUT_PLACEHOLDER,
@@ -104,37 +105,37 @@ const useSelect = (props, emit) => {
     const isValidOption = (o) => {
       const query = states.inputValue;
       const regexp = new RegExp(escapeStringRegexp(query), "i");
-      const containsQueryString = query ? regexp.test(o.label || "") : true;
+      const containsQueryString = query ? regexp.test(getLabel(o) || "") : true;
       return containsQueryString;
     };
     if (props.loading) {
       return [];
     }
-    return flattenOptions(props.options.concat(states.createdOptions).map((v) => {
-      if (isArray(v.options)) {
-        const filtered = v.options.filter(isValidOption);
+    return [...props.options, ...states.createdOptions].reduce((all, item) => {
+      const options = getOptions(item);
+      if (isArray(options)) {
+        const filtered = options.filter(isValidOption);
         if (filtered.length > 0) {
-          return {
-            ...v,
-            options: filtered
-          };
+          all.push({
+            label: getLabel(item),
+            isTitle: true,
+            type: "Group"
+          }, ...filtered, { type: "Group" });
         }
-      } else {
-        if (props.remote || isValidOption(v)) {
-          return v;
-        }
+      } else if (props.remote || isValidOption(item)) {
+        all.push(item);
       }
-      return null;
-    }).filter((v) => v !== null));
+      return all;
+    }, []);
   });
   const filteredOptionsValueMap = computed(() => {
     const valueMap = /* @__PURE__ */ new Map();
     filteredOptions.value.forEach((option, index) => {
-      valueMap.set(getValueKey(option.value), { option, index });
+      valueMap.set(getValueKey(getValue(option)), { option, index });
     });
     return valueMap;
   });
-  const optionsAllDisabled = computed(() => filteredOptions.value.every((option) => option.disabled));
+  const optionsAllDisabled = computed(() => filteredOptions.value.every((option) => getDisabled(option)));
   const selectSize = useFormSize();
   const collapseTagSize = computed(() => selectSize.value === "small" ? "small" : "default");
   const tagMaxWidth = computed(() => {
@@ -250,7 +251,7 @@ const useSelect = (props, emit) => {
   const update = (val) => {
     emit(UPDATE_MODEL_EVENT, val);
     emitChange(val);
-    states.previousValue = val == null ? void 0 : val.toString();
+    states.previousValue = String(val);
   };
   const getValueIndex = (arr = [], value) => {
     if (!isObject(value)) {
@@ -269,9 +270,6 @@ const useSelect = (props, emit) => {
   };
   const getValueKey = (item) => {
     return isObject(item) ? get(item, props.valueKey) : item;
-  };
-  const getLabel = (item) => {
-    return isObject(item) ? item.label : item;
   };
   const resetInputHeight = () => {
     return nextTick(() => {
@@ -304,7 +302,7 @@ const useSelect = (props, emit) => {
     var _a, _b;
     if (props.multiple) {
       let selectedOptions = props.modelValue.slice();
-      const index = getValueIndex(selectedOptions, option.value);
+      const index = getValueIndex(selectedOptions, getValue(option));
       if (index > -1) {
         selectedOptions = [
           ...selectedOptions.slice(0, index),
@@ -313,7 +311,7 @@ const useSelect = (props, emit) => {
         states.cachedOptions.splice(index, 1);
         removeNewOption(option);
       } else if (props.multipleLimit <= 0 || selectedOptions.length < props.multipleLimit) {
-        selectedOptions = [...selectedOptions, option.value];
+        selectedOptions = [...selectedOptions, getValue(option)];
         states.cachedOptions.push(option);
         selectNewOption(option);
         updateHoveringIndex(idx);
@@ -335,8 +333,8 @@ const useSelect = (props, emit) => {
       setSoftFocus();
     } else {
       selectedIndex.value = idx;
-      states.selectedLabel = option.label;
-      update(option.value);
+      states.selectedLabel = getLabel(option);
+      update(getValue(option));
       expanded.value = false;
       states.isComposing = false;
       states.isSilentBlur = byClick;
@@ -349,7 +347,7 @@ const useSelect = (props, emit) => {
   };
   const deleteTag = (event, option) => {
     let selectedOptions = props.modelValue.slice();
-    const index = getValueIndex(selectedOptions, option.value);
+    const index = getValueIndex(selectedOptions, getValue(option));
     if (index > -1 && !selectDisabled.value) {
       selectedOptions = [
         ...props.modelValue.slice(0, index),
@@ -357,7 +355,7 @@ const useSelect = (props, emit) => {
       ];
       states.cachedOptions.splice(index, 1);
       update(selectedOptions);
-      emit("remove-tag", option.value);
+      emit("remove-tag", getValue(option));
       states.softFocus = true;
       removeNewOption(option);
       return nextTick(focusAndUpdatePopup);
@@ -455,7 +453,7 @@ const useSelect = (props, emit) => {
       }
     }
     const option = options[newIndex];
-    if (option.disabled || option.type === "Group") {
+    if (getDisabled(option) || option.type === "Group") {
       return onKeyboardNavigate(direction, newIndex);
     } else {
       updateHoveringIndex(newIndex);
@@ -540,12 +538,12 @@ const useSelect = (props, emit) => {
       if (hasModelValue.value) {
         states.previousValue = props.modelValue;
         const options = filteredOptions.value;
-        const selectedItemIndex = options.findIndex((option) => getValueKey(option.value) === getValueKey(props.modelValue));
+        const selectedItemIndex = options.findIndex((option) => getValueKey(getValue(option)) === getValueKey(props.modelValue));
         if (~selectedItemIndex) {
-          states.selectedLabel = options[selectedItemIndex].label;
+          states.selectedLabel = getLabel(options[selectedItemIndex]);
           updateHoveringIndex(selectedItemIndex);
         } else {
-          states.selectedLabel = `${props.modelValue}`;
+          states.selectedLabel = getValueKey(props.modelValue);
         }
       } else {
         states.selectedLabel = "";
@@ -634,6 +632,8 @@ const useSelect = (props, emit) => {
     debouncedOnInputChange,
     deleteTag,
     getLabel,
+    getValue,
+    getDisabled,
     getValueKey,
     handleBlur,
     handleClear,

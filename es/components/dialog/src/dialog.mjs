@@ -77,8 +77,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _cache) => {
       return openBlock(), createBlock(Teleport, {
-        to: "body",
-        disabled: !_ctx.appendToBody
+        to: _ctx.appendTo,
+        disabled: _ctx.appendTo !== "body" ? false : !_ctx.appendToBody
       }, [
         createVNode(Transition, {
           name: "dialog-fade",
@@ -165,7 +165,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           ]),
           _: 3
         }, 8, ["onAfterEnter", "onAfterLeave", "onBeforeLeave"])
-      ], 8, ["disabled"]);
+      ], 8, ["to", "disabled"]);
     };
   }
 });

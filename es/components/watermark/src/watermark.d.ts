@@ -6,6 +6,8 @@ export interface WatermarkFontType {
     fontWeight?: 'normal' | 'light' | 'weight' | number;
     fontStyle?: 'none' | 'normal' | 'italic' | 'oblique';
     fontFamily?: string;
+    textAlign?: 'start' | 'end' | 'left' | 'right' | 'center';
+    textBaseline?: 'top' | 'hanging' | 'middle' | 'alphabetic' | 'ideographic' | 'bottom';
 }
 export declare const watermarkProps: {
     readonly zIndex: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 9, boolean>;

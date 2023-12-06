@@ -6,6 +6,7 @@ import '../../../hooks/index.mjs';
 import '../../../constants/index.mjs';
 import GroupItem from './group-item.mjs';
 import OptionItem from './option-item.mjs';
+import { useProps } from './useProps.mjs';
 import { selectV2InjectionKey } from './token.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { isUndefined } from '../../../utils/types.mjs';
@@ -30,6 +31,11 @@ var ElSelectMenu = defineComponent({
   }) {
     const select = inject(selectV2InjectionKey);
     const ns = useNamespace("select");
+    const {
+      getLabel,
+      getValue,
+      getDisabled
+    } = useProps(select.props);
     const cachedHeights = ref([]);
     const listRef = ref();
     const size = computed(() => props.data.length);
@@ -74,9 +80,9 @@ var ElSelectMenu = defineComponent({
     };
     const isItemSelected = (modelValue, target) => {
       if (select.props.multiple) {
-        return contains(modelValue, target.value);
+        return contains(modelValue, getValue(target));
       }
-      return isEqual(modelValue, target.value);
+      return isEqual(modelValue, getValue(target));
     };
     const isItemDisabled = (modelValue, selected) => {
       const {
@@ -139,7 +145,7 @@ var ElSelectMenu = defineComponent({
       const isHovering = isItemHovering(index);
       return createVNode(OptionItem, mergeProps(itemProps, {
         "selected": isSelected,
-        "disabled": item.disabled || isDisabled,
+        "disabled": getDisabled(item) || isDisabled,
         "created": !!item.created,
         "hovering": isHovering,
         "item": item,
@@ -148,7 +154,7 @@ var ElSelectMenu = defineComponent({
       }), {
         default: (props2) => {
           var _a;
-          return ((_a = slots.default) == null ? void 0 : _a.call(slots, props2)) || createVNode("span", null, [item.label]);
+          return ((_a = slots.default) == null ? void 0 : _a.call(slots, props2)) || createVNode("span", null, [getLabel(item)]);
         }
       });
     };

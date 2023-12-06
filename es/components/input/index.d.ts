@@ -209,8 +209,8 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
     handleBlur: (event: FocusEvent) => void;
     needStatusIcon: import("vue").ComputedRef<boolean>;
     validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
-    validateIcon: import("vue").ComputedRef<"" | import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
-    passwordIcon: import("vue").ComputedRef<import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>>;
+    validateIcon: import("vue").ComputedRef<any>;
+    passwordIcon: import("vue").ComputedRef<any>;
     containerStyle: import("vue").ComputedRef<import("vue").StyleValue>;
     textareaStyle: import("vue").ComputedRef<import("vue").StyleValue>;
     nativeInputValue: import("vue").ComputedRef<string>;
@@ -302,7 +302,7 @@ export declare const ElInput: import("element-plus/es/utils").SFCWithInstall<imp
             __epPropKey: true;
         };
     }>>, {}>> & Record<string, any>;
-    CircleClose: import("vue").DefineComponent<{}, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{}>>, {}>;
+    CircleClose: any;
     NOOP: () => void;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (value: string) => boolean;

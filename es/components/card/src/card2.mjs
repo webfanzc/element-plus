@@ -29,7 +29,15 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           style: normalizeStyle(_ctx.bodyStyle)
         }, [
           renderSlot(_ctx.$slots, "default")
-        ], 6)
+        ], 6),
+        _ctx.$slots.footer || _ctx.footer ? (openBlock(), createElementBlock("div", {
+          key: 1,
+          class: normalizeClass(unref(ns).e("footer"))
+        }, [
+          renderSlot(_ctx.$slots, "footer", {}, () => [
+            createTextVNode(toDisplayString(_ctx.footer), 1)
+          ])
+        ], 2)) : createCommentVNode("v-if", true)
       ], 2);
     };
   }

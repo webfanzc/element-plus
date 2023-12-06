@@ -365,7 +365,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
             cssVarBlockName: (name: string) => string;
         };
         indent: import("vue").ComputedRef<number>;
-        icon: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+        icon: import("vue").ComputedRef<any>;
         handleClick: (e: MouseEvent) => void;
         handleExpandIconClick: () => void;
         handleCheckChange: (value: import("..").CheckboxValueType) => void;

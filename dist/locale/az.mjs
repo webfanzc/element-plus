@@ -1,4 +1,4 @@
-/*! Element Plus v0.0.0-dev.1 */
+/*! Element Plus v2.4.3 */
 
 var az = {
   name: "az",

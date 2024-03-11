@@ -19,7 +19,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Main = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\container\\src\\main.vue"]]);
+var Main = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "main.vue"]]);
 
 export { Main as default };
 //# sourceMappingURL=main.mjs.map

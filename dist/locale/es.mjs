@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var es = {
   name: "es",
@@ -122,6 +122,11 @@ var es = {
     popconfirm: {
       confirmButtonText: "Si",
       cancelButtonText: "No"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

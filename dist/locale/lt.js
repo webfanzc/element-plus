@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -109,6 +109,11 @@
         clearFilter: "I\u0161valyti",
         sumText: "Suma"
       },
+      tour: {
+        next: "Kitas",
+        previous: "Ankstesnis",
+        finish: "Baigti"
+      },
       tree: {
         emptyText: "N\u0117ra duomen\u0173"
       },
@@ -129,6 +134,11 @@
       popconfirm: {
         confirmButtonText: "Yes",
         cancelButtonText: "No"
+      },
+      carousel: {
+        leftArrow: "Carousel arrow left",
+        rightArrow: "Carousel arrow right",
+        indicator: "Carousel switch to index {index}"
       }
     }
   };

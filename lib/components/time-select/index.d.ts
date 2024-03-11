@@ -50,15 +50,13 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
             cssVarBlockName: (name: string) => string;
         };
         id: import("vue").Ref<string>;
-        containerKls: import("vue").ComputedRef<(string | {
-            selected: boolean;
-            hover: boolean;
-        })[]>;
+        containerKls: import("vue").ComputedRef<string[]>;
         currentLabel: import("vue").ComputedRef<any>;
         itemSelected: import("vue").ComputedRef<boolean>;
         isDisabled: import("vue").ComputedRef<any>;
         select: import("..").SelectContext | undefined;
         hoverItem: () => void;
+        updateOption: (query: string) => void;
         visible: import("vue").Ref<boolean>;
         hover: import("vue").Ref<boolean>;
         selectOptionClick: () => void;
@@ -66,7 +64,6 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
             index: number;
             groupDisabled: boolean;
             visible: boolean;
-            hitState: boolean;
             hover: boolean;
         };
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -130,36 +127,23 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
     select: import("vue").Ref<(SFCWithInstall<import("vue").DefineComponent<{
         name: StringConstructor;
         id: StringConstructor;
-        modelValue: {
-            type: (ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[];
-            default: undefined;
-        };
-        autocomplete: {
-            type: StringConstructor;
-            default: string;
-        };
+        modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
+        autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         automaticDropdown: BooleanConstructor;
         size: {
-            type: import("vue").PropType<"" | "default" | "small" | "large">;
-            validator: (val: string) => val is "" | "default" | "small" | "large";
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
-        effect: {
-            type: import("vue").PropType<string>;
-            default: string;
-        };
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, string, boolean>;
         disabled: BooleanConstructor;
         clearable: BooleanConstructor;
         filterable: BooleanConstructor;
         allowCreate: BooleanConstructor;
         loading: BooleanConstructor;
-        popperClass: {
-            type: StringConstructor;
-            default: string;
-        };
-        popperOptions: {
-            type: import("vue").PropType<Options>;
-            default: () => Options;
-        };
+        popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
+        popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
         remote: BooleanConstructor;
         loadingText: StringConstructor;
         noMatchText: StringConstructor;
@@ -167,131 +151,163 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
         remoteMethod: FunctionConstructor;
         filterMethod: FunctionConstructor;
         multiple: BooleanConstructor;
-        multipleLimit: {
-            type: NumberConstructor;
-            default: number;
-        };
+        multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         placeholder: {
-            type: StringConstructor;
+            readonly type: import("vue").PropType<string>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         defaultFirstOption: BooleanConstructor;
-        reserveKeyword: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        valueKey: {
-            type: StringConstructor;
-            default: string;
-        };
+        reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+        valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         collapseTags: BooleanConstructor;
         collapseTagsTooltip: BooleanConstructor;
-        maxCollapseTags: {
-            type: NumberConstructor;
-            default: number;
-        };
+        maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        persistent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         clearIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         fitInputWidth: BooleanConstructor;
         suffixIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        validateEvent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         remoteShowSuffix: BooleanConstructor;
-        suffixTransition: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            values: import("@popperjs/core").Placement[];
-            default: string;
-        };
-        ariaLabel: {
-            type: StringConstructor;
-            default: undefined;
-        };
+        placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, string, boolean>;
+        fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, string[], boolean>;
+        ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }, {
-        isIOS: boolean | "";
-        onOptionsRendered: (v: any) => void;
-        prefixWidth: import("vue").Ref<number>;
+        inputId: import("vue").Ref<string | undefined>;
+        contentId: import("vue").Ref<string>;
+        nsSelect: {
+            namespace: import("vue").ComputedRef<string>;
+            b: (blockSuffix?: string) => string;
+            e: (element?: string | undefined) => string;
+            m: (modifier?: string | undefined) => string;
+            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
+            em: (element?: string | undefined, modifier?: string | undefined) => string;
+            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
+            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
+            is: {
+                (name: string, state: boolean | undefined): string;
+                (name: string): string;
+            };
+            cssVar: (object: Record<string, string>) => Record<string, string>;
+            cssVarName: (name: string) => string;
+            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+            cssVarBlockName: (name: string) => string;
+        };
+        nsInput: {
+            namespace: import("vue").ComputedRef<string>;
+            b: (blockSuffix?: string) => string;
+            e: (element?: string | undefined) => string;
+            m: (modifier?: string | undefined) => string;
+            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
+            em: (element?: string | undefined, modifier?: string | undefined) => string;
+            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
+            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
+            is: {
+                (name: string, state: boolean | undefined): string;
+                (name: string): string;
+            };
+            cssVar: (object: Record<string, string>) => Record<string, string>;
+            cssVarName: (name: string) => string;
+            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+            cssVarBlockName: (name: string) => string;
+        };
+        states: {
+            inputValue: string;
+            options: Map<any, any>;
+            cachedOptions: Map<any, any>;
+            disabledOptions: Map<any, any>;
+            optionValues: any[];
+            selected: any;
+            selectionWidth: number;
+            calculatorWidth: number;
+            collapseItemWidth: number;
+            selectedLabel: string;
+            hoveringIndex: number;
+            previousQuery: null;
+            inputHovering: boolean;
+            menuVisibleOnFocus: boolean;
+            isBeforeHide: boolean;
+        };
+        isFocused: import("vue").Ref<boolean>;
+        expanded: import("vue").Ref<boolean>;
+        optionsArray: import("vue").ComputedRef<any[]>;
+        hoverOption: import("vue").Ref<any>;
         selectSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
-        readonly: import("vue").ComputedRef<any>;
-        handleResize: () => void;
-        collapseTagSize: import("vue").ComputedRef<"default" | "small">;
+        filteredOptionsCount: import("vue").ComputedRef<number>;
+        resetCalculatorWidth: () => void;
+        updateTooltip: () => void;
+        updateTagTooltip: () => void;
         debouncedOnInputChange: import("lodash").DebouncedFunc<() => void>;
-        debouncedQueryChange: import("lodash").DebouncedFunc<(e: any) => void>;
+        onInput: (event: any) => void;
         deletePrevTag: (e: any) => void;
         deleteTag: (event: any, tag: any) => void;
-        handleDeleteTooltipTag: (event: any, tag: any) => void;
         deleteSelected: (event: any) => void;
         handleOptionSelect: (option: any) => void;
         scrollToOption: (option: any) => void;
-        inputWidth: import("vue").Ref<number>;
-        selected: import("vue").Ref<any>;
-        inputLength: import("vue").Ref<number>;
-        filteredOptionsCount: import("vue").Ref<number>;
-        visible: import("vue").Ref<boolean>;
-        selectedLabel: import("vue").Ref<string>;
-        hoverIndex: import("vue").Ref<number>;
-        query: import("vue").Ref<string>;
-        inputHovering: import("vue").Ref<boolean>;
-        currentPlaceholder: import("vue").Ref<string | (() => string)>;
-        menuVisibleOnFocus: import("vue").Ref<boolean>;
-        isOnComposition: import("vue").Ref<boolean>;
-        options: import("vue").Ref<Map<any, any>>;
-        resetInputHeight: () => void;
-        managePlaceholder: () => void;
-        showClose: import("vue").ComputedRef<any>;
-        selectDisabled: import("vue").ComputedRef<any>;
-        iconComponent: import("vue").ComputedRef<any>;
+        hasModelValue: import("vue").ComputedRef<boolean>;
+        shouldShowPlaceholder: import("vue").ComputedRef<boolean>;
+        currentPlaceholder: import("vue").ComputedRef<string>;
+        showClose: import("vue").ComputedRef<boolean>;
+        iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown> | undefined>;
         iconReverse: import("vue").ComputedRef<string>;
-        showNewOption: import("vue").ComputedRef<any>;
-        emptyText: import("vue").ComputedRef<any>;
-        toggleLastOptionHitState: (hit?: boolean | undefined) => any;
-        resetInputState: (e: KeyboardEvent) => void;
-        handleComposition: (event: any) => void;
+        validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
+        validateIcon: import("vue").ComputedRef<any>;
+        showNewOption: import("vue").ComputedRef<boolean>;
+        updateOptions: () => void;
+        collapseTagSize: import("vue").ComputedRef<"default" | "small">;
+        setSelected: () => void;
+        selectDisabled: import("vue").ComputedRef<boolean | undefined>;
+        emptyText: import("vue").ComputedRef<string | false | null>;
+        handleCompositionStart: () => void;
+        handleCompositionUpdate: (event: any) => void;
+        handleCompositionEnd: (event: any) => void;
+        onOptionCreate: (vm: import("..").SelectOptionProxy) => void;
+        onOptionDestroy: (key: any, vm: import("..").SelectOptionProxy) => void;
         handleMenuEnter: () => void;
         handleFocus: (event: FocusEvent) => void;
         focus: () => void;
         blur: () => void;
         handleBlur: (event: FocusEvent) => void;
         handleClearClick: (event: Event) => void;
-        handleClose: () => void;
-        handleKeydownEscape: (event: KeyboardEvent) => void;
-        toggleMenu: (e?: PointerEvent | undefined) => void;
+        handleClickOutside: (event: Event) => void;
+        handleEsc: () => void;
+        toggleMenu: () => void;
         selectOption: () => void;
         getValueKey: (item: any) => any;
         navigateOptions: (direction: any) => void;
-        dropMenuVisible: import("vue").WritableComputedRef<boolean>;
-        reference: import("vue").Ref<import("vue").ComponentPublicInstance<{
-            focus: () => void;
-            blur: () => void;
-            input: HTMLInputElement;
-        }, {}, {}, {}, {}, {}, {
-            focus: () => void;
-            blur: () => void;
-            input: HTMLInputElement;
-        }, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null>;
-        input: import("vue").Ref<HTMLInputElement | null>;
-        iOSInput: import("vue").Ref<HTMLInputElement | null>;
+        dropdownMenuVisible: import("vue").WritableComputedRef<boolean>;
+        showTagList: import("vue").ComputedRef<any>;
+        collapseTagList: import("vue").ComputedRef<any>;
+        tagStyle: import("vue").ComputedRef<{
+            maxWidth: string;
+        }>;
+        collapseTagStyle: import("vue").ComputedRef<{
+            maxWidth: string;
+        }>;
+        inputStyle: import("vue").ComputedRef<{
+            width: string;
+        }>;
+        popperRef: import("vue").ComputedRef<HTMLElement | undefined>;
+        inputRef: import("vue").Ref<HTMLInputElement | null>;
         tooltipRef: import("vue").Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
@@ -2915,7 +2931,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                         }>>;
-                        focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                        focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                         trapped: import("vue").Ref<boolean>;
                         onFocusAfterReleased: (event: CustomEvent<any>) => void;
                         onFocusAfterTrapped: () => void;
@@ -2977,7 +2993,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }, {
@@ -2987,7 +3003,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }>> & {
@@ -3000,7 +3016,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         }, {
                             trapped: boolean;
                             loop: boolean;
-                            focusStartEl: HTMLElement | "first" | "container";
+                            focusStartEl: HTMLElement | "container" | "first";
                         }>;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                         mouseenter: (evt: MouseEvent) => boolean;
@@ -5868,7 +5884,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: import("vue").Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -5930,7 +5946,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -5940,7 +5956,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -5953,7 +5969,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -6520,55 +6536,6 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                 readonly disabled: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | null>;
-        popperPaneRef: import("vue").ComputedRef<HTMLElement | undefined>;
-        tags: import("vue").Ref<HTMLElement | null>;
-        selectWrapper: import("vue").Ref<HTMLElement | null>;
-        scrollbar: import("vue").Ref<{
-            handleScroll: () => void;
-        } | null>;
-        wrapperKls: import("vue").ComputedRef<string[]>;
-        tagsKls: import("vue").ComputedRef<string[]>;
-        tagWrapperKls: import("vue").ComputedRef<(string | {
-            'has-prefix': any;
-        })[]>;
-        inputKls: import("vue").ComputedRef<string[]>;
-        iOSInputKls: import("vue").ComputedRef<string[]>;
-        scrollbarKls: import("vue").ComputedRef<string[]>;
-        selectTagsStyle: import("vue").ComputedRef<{
-            maxWidth: string;
-            width: string;
-        }>;
-        nsSelect: {
-            namespace: import("vue").ComputedRef<string>;
-            b: (blockSuffix?: string) => string;
-            e: (element?: string | undefined) => string;
-            m: (modifier?: string | undefined) => string;
-            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
-            em: (element?: string | undefined, modifier?: string | undefined) => string;
-            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
-            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
-            is: {
-                (name: string, state: boolean | undefined): string;
-                (name: string): string;
-            };
-            cssVar: (object: Record<string, string>) => Record<string, string>;
-            cssVarName: (name: string) => string;
-            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
-            cssVarBlockName: (name: string) => string;
-        };
-        tagTextStyle: import("vue").ComputedRef<{
-            maxWidth: string;
-        }>;
-        inputStyle: import("vue").ComputedRef<{
-            marginLeft: string;
-            flexGrow: number;
-            width: string;
-            maxWidth: string;
-        }>;
-        handleMouseEnter: () => void;
-        handleMouseLeave: () => void;
-        showTagList: import("vue").ComputedRef<any>;
-        collapseTagList: import("vue").ComputedRef<any>;
         tagTooltipRef: import("vue").Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
@@ -9192,7 +9159,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                         }>>;
-                        focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                        focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                         trapped: import("vue").Ref<boolean>;
                         onFocusAfterReleased: (event: CustomEvent<any>) => void;
                         onFocusAfterTrapped: () => void;
@@ -9254,7 +9221,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }, {
@@ -9264,7 +9231,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }>> & {
@@ -9277,7 +9244,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         }, {
                             trapped: boolean;
                             loop: boolean;
-                            focusStartEl: HTMLElement | "first" | "container";
+                            focusStartEl: HTMLElement | "container" | "first";
                         }>;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                         mouseenter: (evt: MouseEvent) => boolean;
@@ -12145,7 +12112,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: import("vue").Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -12207,7 +12174,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -12217,7 +12184,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -12230,7 +12197,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -12797,41 +12764,38 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                 readonly disabled: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | null>;
-        contentId: import("vue").Ref<string>;
-        hoverOption: import("vue").Ref<any>;
+        calculatorRef: import("vue").Ref<HTMLElement>;
+        prefixRef: import("vue").Ref<HTMLElement>;
+        suffixRef: import("vue").Ref<HTMLElement>;
+        selectRef: import("vue").Ref<HTMLElement>;
+        wrapperRef: import("vue").ShallowRef<HTMLElement | undefined>;
+        selectionRef: import("vue").Ref<HTMLElement>;
+        scrollbarRef: import("vue").Ref<{
+            handleScroll: () => void;
+        } | null>;
+        menuRef: import("vue").Ref<HTMLElement>;
+        tagMenuRef: import("vue").Ref<HTMLElement>;
+        collapseItemRef: import("vue").Ref<HTMLElement>;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change" | "focus" | "clear" | "visible-change" | "remove-tag" | "blur")[], "update:modelValue" | "change" | "focus" | "blur" | "clear" | "visible-change" | "remove-tag", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         name: StringConstructor;
         id: StringConstructor;
-        modelValue: {
-            type: (ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[];
-            default: undefined;
-        };
-        autocomplete: {
-            type: StringConstructor;
-            default: string;
-        };
+        modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
+        autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         automaticDropdown: BooleanConstructor;
         size: {
-            type: import("vue").PropType<"" | "default" | "small" | "large">;
-            validator: (val: string) => val is "" | "default" | "small" | "large";
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
-        effect: {
-            type: import("vue").PropType<string>;
-            default: string;
-        };
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, string, boolean>;
         disabled: BooleanConstructor;
         clearable: BooleanConstructor;
         filterable: BooleanConstructor;
         allowCreate: BooleanConstructor;
         loading: BooleanConstructor;
-        popperClass: {
-            type: StringConstructor;
-            default: string;
-        };
-        popperOptions: {
-            type: import("vue").PropType<Options>;
-            default: () => Options;
-        };
+        popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
+        popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
         remote: BooleanConstructor;
         loadingText: StringConstructor;
         noMatchText: StringConstructor;
@@ -12839,67 +12803,46 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
         remoteMethod: FunctionConstructor;
         filterMethod: FunctionConstructor;
         multiple: BooleanConstructor;
-        multipleLimit: {
-            type: NumberConstructor;
-            default: number;
-        };
+        multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         placeholder: {
-            type: StringConstructor;
+            readonly type: import("vue").PropType<string>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         defaultFirstOption: BooleanConstructor;
-        reserveKeyword: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        valueKey: {
-            type: StringConstructor;
-            default: string;
-        };
+        reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+        valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         collapseTags: BooleanConstructor;
         collapseTagsTooltip: BooleanConstructor;
-        maxCollapseTags: {
-            type: NumberConstructor;
-            default: number;
-        };
+        maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        persistent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         clearIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         fitInputWidth: BooleanConstructor;
         suffixIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        validateEvent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         remoteShowSuffix: BooleanConstructor;
-        suffixTransition: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            values: import("@popperjs/core").Placement[];
-            default: string;
-        };
-        ariaLabel: {
-            type: StringConstructor;
-            default: undefined;
-        };
+        placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, string, boolean>;
+        fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, string[], boolean>;
+        ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }>> & {
         onChange?: ((...args: any[]) => any) | undefined;
         "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
@@ -12911,35 +12854,33 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
     }, {
         effect: string;
         valueKey: string;
-        modelValue: string | number | boolean | Record<string, any> | unknown[];
-        placement: string;
+        modelValue: import("element-plus/es/utils").EpPropMergeType<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+        placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown>;
         popperClass: string;
-        popperOptions: Options;
+        fallbackPlacements: import("@popperjs/core").Placement[];
+        popperOptions: Partial<import("@popperjs/core").Options>;
         ariaLabel: string;
         teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        persistent: boolean;
+        persistent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         disabled: boolean;
         fitInputWidth: boolean;
         clearable: boolean;
         autocomplete: string;
-        suffixIcon: string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>;
-        validateEvent: boolean;
+        validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         multiple: boolean;
         loading: boolean;
         filterable: boolean;
         collapseTags: boolean;
         maxCollapseTags: number;
         collapseTagsTooltip: boolean;
-        tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>;
-        clearIcon: string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>;
+        tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
         automaticDropdown: boolean;
         allowCreate: boolean;
         remote: boolean;
         multipleLimit: number;
         defaultFirstOption: boolean;
-        reserveKeyword: boolean;
+        reserveKeyword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         remoteShowSuffix: boolean;
-        suffixTransition: boolean;
     }>> & {
         Option: import("vue").DefineComponent<{
             value: {
@@ -12969,15 +12910,13 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                 cssVarBlockName: (name: string) => string;
             };
             id: import("vue").Ref<string>;
-            containerKls: import("vue").ComputedRef<(string | {
-                selected: boolean;
-                hover: boolean;
-            })[]>;
+            containerKls: import("vue").ComputedRef<string[]>;
             currentLabel: import("vue").ComputedRef<any>;
             itemSelected: import("vue").ComputedRef<boolean>;
             isDisabled: import("vue").ComputedRef<any>;
             select: import("..").SelectContext | undefined;
             hoverItem: () => void;
+            updateOption: (query: string) => void;
             visible: import("vue").Ref<boolean>;
             hover: import("vue").Ref<boolean>;
             selectOptionClick: () => void;
@@ -12985,7 +12924,6 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                 index: number;
                 groupDisabled: boolean;
                 visible: boolean;
-                hitState: boolean;
                 hover: boolean;
             };
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -13004,7 +12942,8 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
             label: StringConstructor;
             disabled: BooleanConstructor;
         }, {
-            visible: import("vue").Ref<boolean>;
+            groupRef: import("vue").Ref<null>;
+            visible: import("vue").ComputedRef<boolean>;
             ns: {
                 namespace: import("vue").ComputedRef<string>;
                 b: (blockSuffix?: string) => string;
@@ -13047,36 +12986,23 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
     ElSelect: SFCWithInstall<import("vue").DefineComponent<{
         name: StringConstructor;
         id: StringConstructor;
-        modelValue: {
-            type: (ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[];
-            default: undefined;
-        };
-        autocomplete: {
-            type: StringConstructor;
-            default: string;
-        };
+        modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
+        autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         automaticDropdown: BooleanConstructor;
         size: {
-            type: import("vue").PropType<"" | "default" | "small" | "large">;
-            validator: (val: string) => val is "" | "default" | "small" | "large";
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
-        effect: {
-            type: import("vue").PropType<string>;
-            default: string;
-        };
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, string, boolean>;
         disabled: BooleanConstructor;
         clearable: BooleanConstructor;
         filterable: BooleanConstructor;
         allowCreate: BooleanConstructor;
         loading: BooleanConstructor;
-        popperClass: {
-            type: StringConstructor;
-            default: string;
-        };
-        popperOptions: {
-            type: import("vue").PropType<Options>;
-            default: () => Options;
-        };
+        popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
+        popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
         remote: BooleanConstructor;
         loadingText: StringConstructor;
         noMatchText: StringConstructor;
@@ -13084,131 +13010,163 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
         remoteMethod: FunctionConstructor;
         filterMethod: FunctionConstructor;
         multiple: BooleanConstructor;
-        multipleLimit: {
-            type: NumberConstructor;
-            default: number;
-        };
+        multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         placeholder: {
-            type: StringConstructor;
+            readonly type: import("vue").PropType<string>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         defaultFirstOption: BooleanConstructor;
-        reserveKeyword: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        valueKey: {
-            type: StringConstructor;
-            default: string;
-        };
+        reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+        valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         collapseTags: BooleanConstructor;
         collapseTagsTooltip: BooleanConstructor;
-        maxCollapseTags: {
-            type: NumberConstructor;
-            default: number;
-        };
+        maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        persistent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         clearIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         fitInputWidth: BooleanConstructor;
         suffixIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        validateEvent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         remoteShowSuffix: BooleanConstructor;
-        suffixTransition: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            values: import("@popperjs/core").Placement[];
-            default: string;
-        };
-        ariaLabel: {
-            type: StringConstructor;
-            default: undefined;
-        };
+        placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, string, boolean>;
+        fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, string[], boolean>;
+        ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }, {
-        isIOS: boolean | "";
-        onOptionsRendered: (v: any) => void;
-        prefixWidth: import("vue").Ref<number>;
+        inputId: import("vue").Ref<string | undefined>;
+        contentId: import("vue").Ref<string>;
+        nsSelect: {
+            namespace: import("vue").ComputedRef<string>;
+            b: (blockSuffix?: string) => string;
+            e: (element?: string | undefined) => string;
+            m: (modifier?: string | undefined) => string;
+            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
+            em: (element?: string | undefined, modifier?: string | undefined) => string;
+            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
+            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
+            is: {
+                (name: string, state: boolean | undefined): string;
+                (name: string): string;
+            };
+            cssVar: (object: Record<string, string>) => Record<string, string>;
+            cssVarName: (name: string) => string;
+            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+            cssVarBlockName: (name: string) => string;
+        };
+        nsInput: {
+            namespace: import("vue").ComputedRef<string>;
+            b: (blockSuffix?: string) => string;
+            e: (element?: string | undefined) => string;
+            m: (modifier?: string | undefined) => string;
+            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
+            em: (element?: string | undefined, modifier?: string | undefined) => string;
+            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
+            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
+            is: {
+                (name: string, state: boolean | undefined): string;
+                (name: string): string;
+            };
+            cssVar: (object: Record<string, string>) => Record<string, string>;
+            cssVarName: (name: string) => string;
+            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+            cssVarBlockName: (name: string) => string;
+        };
+        states: {
+            inputValue: string;
+            options: Map<any, any>;
+            cachedOptions: Map<any, any>;
+            disabledOptions: Map<any, any>;
+            optionValues: any[];
+            selected: any;
+            selectionWidth: number;
+            calculatorWidth: number;
+            collapseItemWidth: number;
+            selectedLabel: string;
+            hoveringIndex: number;
+            previousQuery: null;
+            inputHovering: boolean;
+            menuVisibleOnFocus: boolean;
+            isBeforeHide: boolean;
+        };
+        isFocused: import("vue").Ref<boolean>;
+        expanded: import("vue").Ref<boolean>;
+        optionsArray: import("vue").ComputedRef<any[]>;
+        hoverOption: import("vue").Ref<any>;
         selectSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
-        readonly: import("vue").ComputedRef<any>;
-        handleResize: () => void;
-        collapseTagSize: import("vue").ComputedRef<"default" | "small">;
+        filteredOptionsCount: import("vue").ComputedRef<number>;
+        resetCalculatorWidth: () => void;
+        updateTooltip: () => void;
+        updateTagTooltip: () => void;
         debouncedOnInputChange: import("lodash").DebouncedFunc<() => void>;
-        debouncedQueryChange: import("lodash").DebouncedFunc<(e: any) => void>;
+        onInput: (event: any) => void;
         deletePrevTag: (e: any) => void;
         deleteTag: (event: any, tag: any) => void;
-        handleDeleteTooltipTag: (event: any, tag: any) => void;
         deleteSelected: (event: any) => void;
         handleOptionSelect: (option: any) => void;
         scrollToOption: (option: any) => void;
-        inputWidth: import("vue").Ref<number>;
-        selected: import("vue").Ref<any>;
-        inputLength: import("vue").Ref<number>;
-        filteredOptionsCount: import("vue").Ref<number>;
-        visible: import("vue").Ref<boolean>;
-        selectedLabel: import("vue").Ref<string>;
-        hoverIndex: import("vue").Ref<number>;
-        query: import("vue").Ref<string>;
-        inputHovering: import("vue").Ref<boolean>;
-        currentPlaceholder: import("vue").Ref<string | (() => string)>;
-        menuVisibleOnFocus: import("vue").Ref<boolean>;
-        isOnComposition: import("vue").Ref<boolean>;
-        options: import("vue").Ref<Map<any, any>>;
-        resetInputHeight: () => void;
-        managePlaceholder: () => void;
-        showClose: import("vue").ComputedRef<any>;
-        selectDisabled: import("vue").ComputedRef<any>;
-        iconComponent: import("vue").ComputedRef<any>;
+        hasModelValue: import("vue").ComputedRef<boolean>;
+        shouldShowPlaceholder: import("vue").ComputedRef<boolean>;
+        currentPlaceholder: import("vue").ComputedRef<string>;
+        showClose: import("vue").ComputedRef<boolean>;
+        iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown> | undefined>;
         iconReverse: import("vue").ComputedRef<string>;
-        showNewOption: import("vue").ComputedRef<any>;
-        emptyText: import("vue").ComputedRef<any>;
-        toggleLastOptionHitState: (hit?: boolean | undefined) => any;
-        resetInputState: (e: KeyboardEvent) => void;
-        handleComposition: (event: any) => void;
+        validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
+        validateIcon: import("vue").ComputedRef<any>;
+        showNewOption: import("vue").ComputedRef<boolean>;
+        updateOptions: () => void;
+        collapseTagSize: import("vue").ComputedRef<"default" | "small">;
+        setSelected: () => void;
+        selectDisabled: import("vue").ComputedRef<boolean | undefined>;
+        emptyText: import("vue").ComputedRef<string | false | null>;
+        handleCompositionStart: () => void;
+        handleCompositionUpdate: (event: any) => void;
+        handleCompositionEnd: (event: any) => void;
+        onOptionCreate: (vm: import("..").SelectOptionProxy) => void;
+        onOptionDestroy: (key: any, vm: import("..").SelectOptionProxy) => void;
         handleMenuEnter: () => void;
         handleFocus: (event: FocusEvent) => void;
         focus: () => void;
         blur: () => void;
         handleBlur: (event: FocusEvent) => void;
         handleClearClick: (event: Event) => void;
-        handleClose: () => void;
-        handleKeydownEscape: (event: KeyboardEvent) => void;
-        toggleMenu: (e?: PointerEvent | undefined) => void;
+        handleClickOutside: (event: Event) => void;
+        handleEsc: () => void;
+        toggleMenu: () => void;
         selectOption: () => void;
         getValueKey: (item: any) => any;
         navigateOptions: (direction: any) => void;
-        dropMenuVisible: import("vue").WritableComputedRef<boolean>;
-        reference: import("vue").Ref<import("vue").ComponentPublicInstance<{
-            focus: () => void;
-            blur: () => void;
-            input: HTMLInputElement;
-        }, {}, {}, {}, {}, {}, {
-            focus: () => void;
-            blur: () => void;
-            input: HTMLInputElement;
-        }, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null>;
-        input: import("vue").Ref<HTMLInputElement | null>;
-        iOSInput: import("vue").Ref<HTMLInputElement | null>;
+        dropdownMenuVisible: import("vue").WritableComputedRef<boolean>;
+        showTagList: import("vue").ComputedRef<any>;
+        collapseTagList: import("vue").ComputedRef<any>;
+        tagStyle: import("vue").ComputedRef<{
+            maxWidth: string;
+        }>;
+        collapseTagStyle: import("vue").ComputedRef<{
+            maxWidth: string;
+        }>;
+        inputStyle: import("vue").ComputedRef<{
+            width: string;
+        }>;
+        popperRef: import("vue").ComputedRef<HTMLElement | undefined>;
+        inputRef: import("vue").Ref<HTMLInputElement | null>;
         tooltipRef: import("vue").Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
@@ -15832,7 +15790,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                         }>>;
-                        focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                        focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                         trapped: import("vue").Ref<boolean>;
                         onFocusAfterReleased: (event: CustomEvent<any>) => void;
                         onFocusAfterTrapped: () => void;
@@ -15894,7 +15852,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }, {
@@ -15904,7 +15862,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }>> & {
@@ -15917,7 +15875,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         }, {
                             trapped: boolean;
                             loop: boolean;
-                            focusStartEl: HTMLElement | "first" | "container";
+                            focusStartEl: HTMLElement | "container" | "first";
                         }>;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                         mouseenter: (evt: MouseEvent) => boolean;
@@ -18785,7 +18743,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: import("vue").Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -18847,7 +18805,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -18857,7 +18815,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -18870,7 +18828,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -19437,55 +19395,6 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                 readonly disabled: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | null>;
-        popperPaneRef: import("vue").ComputedRef<HTMLElement | undefined>;
-        tags: import("vue").Ref<HTMLElement | null>;
-        selectWrapper: import("vue").Ref<HTMLElement | null>;
-        scrollbar: import("vue").Ref<{
-            handleScroll: () => void;
-        } | null>;
-        wrapperKls: import("vue").ComputedRef<string[]>;
-        tagsKls: import("vue").ComputedRef<string[]>;
-        tagWrapperKls: import("vue").ComputedRef<(string | {
-            'has-prefix': any;
-        })[]>;
-        inputKls: import("vue").ComputedRef<string[]>;
-        iOSInputKls: import("vue").ComputedRef<string[]>;
-        scrollbarKls: import("vue").ComputedRef<string[]>;
-        selectTagsStyle: import("vue").ComputedRef<{
-            maxWidth: string;
-            width: string;
-        }>;
-        nsSelect: {
-            namespace: import("vue").ComputedRef<string>;
-            b: (blockSuffix?: string) => string;
-            e: (element?: string | undefined) => string;
-            m: (modifier?: string | undefined) => string;
-            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
-            em: (element?: string | undefined, modifier?: string | undefined) => string;
-            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
-            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
-            is: {
-                (name: string, state: boolean | undefined): string;
-                (name: string): string;
-            };
-            cssVar: (object: Record<string, string>) => Record<string, string>;
-            cssVarName: (name: string) => string;
-            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
-            cssVarBlockName: (name: string) => string;
-        };
-        tagTextStyle: import("vue").ComputedRef<{
-            maxWidth: string;
-        }>;
-        inputStyle: import("vue").ComputedRef<{
-            marginLeft: string;
-            flexGrow: number;
-            width: string;
-            maxWidth: string;
-        }>;
-        handleMouseEnter: () => void;
-        handleMouseLeave: () => void;
-        showTagList: import("vue").ComputedRef<any>;
-        collapseTagList: import("vue").ComputedRef<any>;
         tagTooltipRef: import("vue").Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
@@ -22109,7 +22018,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                         }>>;
-                        focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                        focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                         trapped: import("vue").Ref<boolean>;
                         onFocusAfterReleased: (event: CustomEvent<any>) => void;
                         onFocusAfterTrapped: () => void;
@@ -22171,7 +22080,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }, {
@@ -22181,7 +22090,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }>> & {
@@ -22194,7 +22103,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         }, {
                             trapped: boolean;
                             loop: boolean;
-                            focusStartEl: HTMLElement | "first" | "container";
+                            focusStartEl: HTMLElement | "container" | "first";
                         }>;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                         mouseenter: (evt: MouseEvent) => boolean;
@@ -25062,7 +24971,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: import("vue").Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -25124,7 +25033,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -25134,7 +25043,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -25147,7 +25056,7 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -25714,41 +25623,38 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                 readonly disabled: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | null>;
-        contentId: import("vue").Ref<string>;
-        hoverOption: import("vue").Ref<any>;
+        calculatorRef: import("vue").Ref<HTMLElement>;
+        prefixRef: import("vue").Ref<HTMLElement>;
+        suffixRef: import("vue").Ref<HTMLElement>;
+        selectRef: import("vue").Ref<HTMLElement>;
+        wrapperRef: import("vue").ShallowRef<HTMLElement | undefined>;
+        selectionRef: import("vue").Ref<HTMLElement>;
+        scrollbarRef: import("vue").Ref<{
+            handleScroll: () => void;
+        } | null>;
+        menuRef: import("vue").Ref<HTMLElement>;
+        tagMenuRef: import("vue").Ref<HTMLElement>;
+        collapseItemRef: import("vue").Ref<HTMLElement>;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change" | "focus" | "clear" | "visible-change" | "remove-tag" | "blur")[], "update:modelValue" | "change" | "focus" | "blur" | "clear" | "visible-change" | "remove-tag", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         name: StringConstructor;
         id: StringConstructor;
-        modelValue: {
-            type: (ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[];
-            default: undefined;
-        };
-        autocomplete: {
-            type: StringConstructor;
-            default: string;
-        };
+        modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
+        autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         automaticDropdown: BooleanConstructor;
         size: {
-            type: import("vue").PropType<"" | "default" | "small" | "large">;
-            validator: (val: string) => val is "" | "default" | "small" | "large";
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
-        effect: {
-            type: import("vue").PropType<string>;
-            default: string;
-        };
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, string, boolean>;
         disabled: BooleanConstructor;
         clearable: BooleanConstructor;
         filterable: BooleanConstructor;
         allowCreate: BooleanConstructor;
         loading: BooleanConstructor;
-        popperClass: {
-            type: StringConstructor;
-            default: string;
-        };
-        popperOptions: {
-            type: import("vue").PropType<Options>;
-            default: () => Options;
-        };
+        popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
+        popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
         remote: BooleanConstructor;
         loadingText: StringConstructor;
         noMatchText: StringConstructor;
@@ -25756,67 +25662,46 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
         remoteMethod: FunctionConstructor;
         filterMethod: FunctionConstructor;
         multiple: BooleanConstructor;
-        multipleLimit: {
-            type: NumberConstructor;
-            default: number;
-        };
+        multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         placeholder: {
-            type: StringConstructor;
+            readonly type: import("vue").PropType<string>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         defaultFirstOption: BooleanConstructor;
-        reserveKeyword: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        valueKey: {
-            type: StringConstructor;
-            default: string;
-        };
+        reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+        valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         collapseTags: BooleanConstructor;
         collapseTagsTooltip: BooleanConstructor;
-        maxCollapseTags: {
-            type: NumberConstructor;
-            default: number;
-        };
+        maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        persistent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         clearIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         fitInputWidth: BooleanConstructor;
         suffixIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        validateEvent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         remoteShowSuffix: BooleanConstructor;
-        suffixTransition: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            values: import("@popperjs/core").Placement[];
-            default: string;
-        };
-        ariaLabel: {
-            type: StringConstructor;
-            default: undefined;
-        };
+        placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, string, boolean>;
+        fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, string[], boolean>;
+        ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }>> & {
         onChange?: ((...args: any[]) => any) | undefined;
         "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
@@ -25828,35 +25713,33 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
     }, {
         effect: string;
         valueKey: string;
-        modelValue: string | number | boolean | Record<string, any> | unknown[];
-        placement: string;
+        modelValue: import("element-plus/es/utils").EpPropMergeType<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+        placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown>;
         popperClass: string;
-        popperOptions: Options;
+        fallbackPlacements: import("@popperjs/core").Placement[];
+        popperOptions: Partial<import("@popperjs/core").Options>;
         ariaLabel: string;
         teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        persistent: boolean;
+        persistent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         disabled: boolean;
         fitInputWidth: boolean;
         clearable: boolean;
         autocomplete: string;
-        suffixIcon: string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>;
-        validateEvent: boolean;
+        validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         multiple: boolean;
         loading: boolean;
         filterable: boolean;
         collapseTags: boolean;
         maxCollapseTags: number;
         collapseTagsTooltip: boolean;
-        tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>;
-        clearIcon: string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>;
+        tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
         automaticDropdown: boolean;
         allowCreate: boolean;
         remote: boolean;
         multipleLimit: number;
         defaultFirstOption: boolean;
-        reserveKeyword: boolean;
+        reserveKeyword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         remoteShowSuffix: boolean;
-        suffixTransition: boolean;
     }>> & {
         Option: import("vue").DefineComponent<{
             value: {
@@ -25886,15 +25769,13 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                 cssVarBlockName: (name: string) => string;
             };
             id: import("vue").Ref<string>;
-            containerKls: import("vue").ComputedRef<(string | {
-                selected: boolean;
-                hover: boolean;
-            })[]>;
+            containerKls: import("vue").ComputedRef<string[]>;
             currentLabel: import("vue").ComputedRef<any>;
             itemSelected: import("vue").ComputedRef<boolean>;
             isDisabled: import("vue").ComputedRef<any>;
             select: import("..").SelectContext | undefined;
             hoverItem: () => void;
+            updateOption: (query: string) => void;
             visible: import("vue").Ref<boolean>;
             hover: import("vue").Ref<boolean>;
             selectOptionClick: () => void;
@@ -25902,7 +25783,6 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
                 index: number;
                 groupDisabled: boolean;
                 visible: boolean;
-                hitState: boolean;
                 hover: boolean;
             };
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -25921,7 +25801,8 @@ declare const _TimeSelect: SFCWithInstall<import("vue").DefineComponent<{
             label: StringConstructor;
             disabled: BooleanConstructor;
         }, {
-            visible: import("vue").Ref<boolean>;
+            groupRef: import("vue").Ref<null>;
+            visible: import("vue").ComputedRef<boolean>;
             ns: {
                 namespace: import("vue").ComputedRef<string>;
                 b: (blockSuffix?: string) => string;
@@ -26101,15 +25982,13 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
             cssVarBlockName: (name: string) => string;
         };
         id: import("vue").Ref<string>;
-        containerKls: import("vue").ComputedRef<(string | {
-            selected: boolean;
-            hover: boolean;
-        })[]>;
+        containerKls: import("vue").ComputedRef<string[]>;
         currentLabel: import("vue").ComputedRef<any>;
         itemSelected: import("vue").ComputedRef<boolean>;
         isDisabled: import("vue").ComputedRef<any>;
         select: import("..").SelectContext | undefined;
         hoverItem: () => void;
+        updateOption: (query: string) => void;
         visible: import("vue").Ref<boolean>;
         hover: import("vue").Ref<boolean>;
         selectOptionClick: () => void;
@@ -26117,7 +25996,6 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
             index: number;
             groupDisabled: boolean;
             visible: boolean;
-            hitState: boolean;
             hover: boolean;
         };
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -26181,36 +26059,23 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
     select: import("vue").Ref<(SFCWithInstall<import("vue").DefineComponent<{
         name: StringConstructor;
         id: StringConstructor;
-        modelValue: {
-            type: (ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[];
-            default: undefined;
-        };
-        autocomplete: {
-            type: StringConstructor;
-            default: string;
-        };
+        modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
+        autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         automaticDropdown: BooleanConstructor;
         size: {
-            type: import("vue").PropType<"" | "default" | "small" | "large">;
-            validator: (val: string) => val is "" | "default" | "small" | "large";
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
-        effect: {
-            type: import("vue").PropType<string>;
-            default: string;
-        };
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, string, boolean>;
         disabled: BooleanConstructor;
         clearable: BooleanConstructor;
         filterable: BooleanConstructor;
         allowCreate: BooleanConstructor;
         loading: BooleanConstructor;
-        popperClass: {
-            type: StringConstructor;
-            default: string;
-        };
-        popperOptions: {
-            type: import("vue").PropType<Options>;
-            default: () => Options;
-        };
+        popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
+        popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
         remote: BooleanConstructor;
         loadingText: StringConstructor;
         noMatchText: StringConstructor;
@@ -26218,131 +26083,163 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
         remoteMethod: FunctionConstructor;
         filterMethod: FunctionConstructor;
         multiple: BooleanConstructor;
-        multipleLimit: {
-            type: NumberConstructor;
-            default: number;
-        };
+        multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         placeholder: {
-            type: StringConstructor;
+            readonly type: import("vue").PropType<string>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         defaultFirstOption: BooleanConstructor;
-        reserveKeyword: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        valueKey: {
-            type: StringConstructor;
-            default: string;
-        };
+        reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+        valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         collapseTags: BooleanConstructor;
         collapseTagsTooltip: BooleanConstructor;
-        maxCollapseTags: {
-            type: NumberConstructor;
-            default: number;
-        };
+        maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        persistent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         clearIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         fitInputWidth: BooleanConstructor;
         suffixIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        validateEvent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         remoteShowSuffix: BooleanConstructor;
-        suffixTransition: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            values: import("@popperjs/core").Placement[];
-            default: string;
-        };
-        ariaLabel: {
-            type: StringConstructor;
-            default: undefined;
-        };
+        placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, string, boolean>;
+        fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, string[], boolean>;
+        ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }, {
-        isIOS: boolean | "";
-        onOptionsRendered: (v: any) => void;
-        prefixWidth: import("vue").Ref<number>;
+        inputId: import("vue").Ref<string | undefined>;
+        contentId: import("vue").Ref<string>;
+        nsSelect: {
+            namespace: import("vue").ComputedRef<string>;
+            b: (blockSuffix?: string) => string;
+            e: (element?: string | undefined) => string;
+            m: (modifier?: string | undefined) => string;
+            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
+            em: (element?: string | undefined, modifier?: string | undefined) => string;
+            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
+            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
+            is: {
+                (name: string, state: boolean | undefined): string;
+                (name: string): string;
+            };
+            cssVar: (object: Record<string, string>) => Record<string, string>;
+            cssVarName: (name: string) => string;
+            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+            cssVarBlockName: (name: string) => string;
+        };
+        nsInput: {
+            namespace: import("vue").ComputedRef<string>;
+            b: (blockSuffix?: string) => string;
+            e: (element?: string | undefined) => string;
+            m: (modifier?: string | undefined) => string;
+            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
+            em: (element?: string | undefined, modifier?: string | undefined) => string;
+            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
+            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
+            is: {
+                (name: string, state: boolean | undefined): string;
+                (name: string): string;
+            };
+            cssVar: (object: Record<string, string>) => Record<string, string>;
+            cssVarName: (name: string) => string;
+            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+            cssVarBlockName: (name: string) => string;
+        };
+        states: {
+            inputValue: string;
+            options: Map<any, any>;
+            cachedOptions: Map<any, any>;
+            disabledOptions: Map<any, any>;
+            optionValues: any[];
+            selected: any;
+            selectionWidth: number;
+            calculatorWidth: number;
+            collapseItemWidth: number;
+            selectedLabel: string;
+            hoveringIndex: number;
+            previousQuery: null;
+            inputHovering: boolean;
+            menuVisibleOnFocus: boolean;
+            isBeforeHide: boolean;
+        };
+        isFocused: import("vue").Ref<boolean>;
+        expanded: import("vue").Ref<boolean>;
+        optionsArray: import("vue").ComputedRef<any[]>;
+        hoverOption: import("vue").Ref<any>;
         selectSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
-        readonly: import("vue").ComputedRef<any>;
-        handleResize: () => void;
-        collapseTagSize: import("vue").ComputedRef<"default" | "small">;
+        filteredOptionsCount: import("vue").ComputedRef<number>;
+        resetCalculatorWidth: () => void;
+        updateTooltip: () => void;
+        updateTagTooltip: () => void;
         debouncedOnInputChange: import("lodash").DebouncedFunc<() => void>;
-        debouncedQueryChange: import("lodash").DebouncedFunc<(e: any) => void>;
+        onInput: (event: any) => void;
         deletePrevTag: (e: any) => void;
         deleteTag: (event: any, tag: any) => void;
-        handleDeleteTooltipTag: (event: any, tag: any) => void;
         deleteSelected: (event: any) => void;
         handleOptionSelect: (option: any) => void;
         scrollToOption: (option: any) => void;
-        inputWidth: import("vue").Ref<number>;
-        selected: import("vue").Ref<any>;
-        inputLength: import("vue").Ref<number>;
-        filteredOptionsCount: import("vue").Ref<number>;
-        visible: import("vue").Ref<boolean>;
-        selectedLabel: import("vue").Ref<string>;
-        hoverIndex: import("vue").Ref<number>;
-        query: import("vue").Ref<string>;
-        inputHovering: import("vue").Ref<boolean>;
-        currentPlaceholder: import("vue").Ref<string | (() => string)>;
-        menuVisibleOnFocus: import("vue").Ref<boolean>;
-        isOnComposition: import("vue").Ref<boolean>;
-        options: import("vue").Ref<Map<any, any>>;
-        resetInputHeight: () => void;
-        managePlaceholder: () => void;
-        showClose: import("vue").ComputedRef<any>;
-        selectDisabled: import("vue").ComputedRef<any>;
-        iconComponent: import("vue").ComputedRef<any>;
+        hasModelValue: import("vue").ComputedRef<boolean>;
+        shouldShowPlaceholder: import("vue").ComputedRef<boolean>;
+        currentPlaceholder: import("vue").ComputedRef<string>;
+        showClose: import("vue").ComputedRef<boolean>;
+        iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown> | undefined>;
         iconReverse: import("vue").ComputedRef<string>;
-        showNewOption: import("vue").ComputedRef<any>;
-        emptyText: import("vue").ComputedRef<any>;
-        toggleLastOptionHitState: (hit?: boolean | undefined) => any;
-        resetInputState: (e: KeyboardEvent) => void;
-        handleComposition: (event: any) => void;
+        validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
+        validateIcon: import("vue").ComputedRef<any>;
+        showNewOption: import("vue").ComputedRef<boolean>;
+        updateOptions: () => void;
+        collapseTagSize: import("vue").ComputedRef<"default" | "small">;
+        setSelected: () => void;
+        selectDisabled: import("vue").ComputedRef<boolean | undefined>;
+        emptyText: import("vue").ComputedRef<string | false | null>;
+        handleCompositionStart: () => void;
+        handleCompositionUpdate: (event: any) => void;
+        handleCompositionEnd: (event: any) => void;
+        onOptionCreate: (vm: import("..").SelectOptionProxy) => void;
+        onOptionDestroy: (key: any, vm: import("..").SelectOptionProxy) => void;
         handleMenuEnter: () => void;
         handleFocus: (event: FocusEvent) => void;
         focus: () => void;
         blur: () => void;
         handleBlur: (event: FocusEvent) => void;
         handleClearClick: (event: Event) => void;
-        handleClose: () => void;
-        handleKeydownEscape: (event: KeyboardEvent) => void;
-        toggleMenu: (e?: PointerEvent | undefined) => void;
+        handleClickOutside: (event: Event) => void;
+        handleEsc: () => void;
+        toggleMenu: () => void;
         selectOption: () => void;
         getValueKey: (item: any) => any;
         navigateOptions: (direction: any) => void;
-        dropMenuVisible: import("vue").WritableComputedRef<boolean>;
-        reference: import("vue").Ref<import("vue").ComponentPublicInstance<{
-            focus: () => void;
-            blur: () => void;
-            input: HTMLInputElement;
-        }, {}, {}, {}, {}, {}, {
-            focus: () => void;
-            blur: () => void;
-            input: HTMLInputElement;
-        }, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null>;
-        input: import("vue").Ref<HTMLInputElement | null>;
-        iOSInput: import("vue").Ref<HTMLInputElement | null>;
+        dropdownMenuVisible: import("vue").WritableComputedRef<boolean>;
+        showTagList: import("vue").ComputedRef<any>;
+        collapseTagList: import("vue").ComputedRef<any>;
+        tagStyle: import("vue").ComputedRef<{
+            maxWidth: string;
+        }>;
+        collapseTagStyle: import("vue").ComputedRef<{
+            maxWidth: string;
+        }>;
+        inputStyle: import("vue").ComputedRef<{
+            width: string;
+        }>;
+        popperRef: import("vue").ComputedRef<HTMLElement | undefined>;
+        inputRef: import("vue").Ref<HTMLInputElement | null>;
         tooltipRef: import("vue").Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
@@ -28966,7 +28863,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                         }>>;
-                        focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                        focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                         trapped: import("vue").Ref<boolean>;
                         onFocusAfterReleased: (event: CustomEvent<any>) => void;
                         onFocusAfterTrapped: () => void;
@@ -29028,7 +28925,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }, {
@@ -29038,7 +28935,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }>> & {
@@ -29051,7 +28948,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         }, {
                             trapped: boolean;
                             loop: boolean;
-                            focusStartEl: HTMLElement | "first" | "container";
+                            focusStartEl: HTMLElement | "container" | "first";
                         }>;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                         mouseenter: (evt: MouseEvent) => boolean;
@@ -31919,7 +31816,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: import("vue").Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -31981,7 +31878,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -31991,7 +31888,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -32004,7 +31901,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -32571,55 +32468,6 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                 readonly disabled: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | null>;
-        popperPaneRef: import("vue").ComputedRef<HTMLElement | undefined>;
-        tags: import("vue").Ref<HTMLElement | null>;
-        selectWrapper: import("vue").Ref<HTMLElement | null>;
-        scrollbar: import("vue").Ref<{
-            handleScroll: () => void;
-        } | null>;
-        wrapperKls: import("vue").ComputedRef<string[]>;
-        tagsKls: import("vue").ComputedRef<string[]>;
-        tagWrapperKls: import("vue").ComputedRef<(string | {
-            'has-prefix': any;
-        })[]>;
-        inputKls: import("vue").ComputedRef<string[]>;
-        iOSInputKls: import("vue").ComputedRef<string[]>;
-        scrollbarKls: import("vue").ComputedRef<string[]>;
-        selectTagsStyle: import("vue").ComputedRef<{
-            maxWidth: string;
-            width: string;
-        }>;
-        nsSelect: {
-            namespace: import("vue").ComputedRef<string>;
-            b: (blockSuffix?: string) => string;
-            e: (element?: string | undefined) => string;
-            m: (modifier?: string | undefined) => string;
-            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
-            em: (element?: string | undefined, modifier?: string | undefined) => string;
-            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
-            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
-            is: {
-                (name: string, state: boolean | undefined): string;
-                (name: string): string;
-            };
-            cssVar: (object: Record<string, string>) => Record<string, string>;
-            cssVarName: (name: string) => string;
-            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
-            cssVarBlockName: (name: string) => string;
-        };
-        tagTextStyle: import("vue").ComputedRef<{
-            maxWidth: string;
-        }>;
-        inputStyle: import("vue").ComputedRef<{
-            marginLeft: string;
-            flexGrow: number;
-            width: string;
-            maxWidth: string;
-        }>;
-        handleMouseEnter: () => void;
-        handleMouseLeave: () => void;
-        showTagList: import("vue").ComputedRef<any>;
-        collapseTagList: import("vue").ComputedRef<any>;
         tagTooltipRef: import("vue").Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
@@ -35243,7 +35091,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                         }>>;
-                        focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                        focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                         trapped: import("vue").Ref<boolean>;
                         onFocusAfterReleased: (event: CustomEvent<any>) => void;
                         onFocusAfterTrapped: () => void;
@@ -35305,7 +35153,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }, {
@@ -35315,7 +35163,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }>> & {
@@ -35328,7 +35176,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         }, {
                             trapped: boolean;
                             loop: boolean;
-                            focusStartEl: HTMLElement | "first" | "container";
+                            focusStartEl: HTMLElement | "container" | "first";
                         }>;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                         mouseenter: (evt: MouseEvent) => boolean;
@@ -38196,7 +38044,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: import("vue").Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -38258,7 +38106,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -38268,7 +38116,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -38281,7 +38129,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -38848,41 +38696,38 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                 readonly disabled: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | null>;
-        contentId: import("vue").Ref<string>;
-        hoverOption: import("vue").Ref<any>;
+        calculatorRef: import("vue").Ref<HTMLElement>;
+        prefixRef: import("vue").Ref<HTMLElement>;
+        suffixRef: import("vue").Ref<HTMLElement>;
+        selectRef: import("vue").Ref<HTMLElement>;
+        wrapperRef: import("vue").ShallowRef<HTMLElement | undefined>;
+        selectionRef: import("vue").Ref<HTMLElement>;
+        scrollbarRef: import("vue").Ref<{
+            handleScroll: () => void;
+        } | null>;
+        menuRef: import("vue").Ref<HTMLElement>;
+        tagMenuRef: import("vue").Ref<HTMLElement>;
+        collapseItemRef: import("vue").Ref<HTMLElement>;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change" | "focus" | "clear" | "visible-change" | "remove-tag" | "blur")[], "update:modelValue" | "change" | "focus" | "blur" | "clear" | "visible-change" | "remove-tag", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         name: StringConstructor;
         id: StringConstructor;
-        modelValue: {
-            type: (ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[];
-            default: undefined;
-        };
-        autocomplete: {
-            type: StringConstructor;
-            default: string;
-        };
+        modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
+        autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         automaticDropdown: BooleanConstructor;
         size: {
-            type: import("vue").PropType<"" | "default" | "small" | "large">;
-            validator: (val: string) => val is "" | "default" | "small" | "large";
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
-        effect: {
-            type: import("vue").PropType<string>;
-            default: string;
-        };
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, string, boolean>;
         disabled: BooleanConstructor;
         clearable: BooleanConstructor;
         filterable: BooleanConstructor;
         allowCreate: BooleanConstructor;
         loading: BooleanConstructor;
-        popperClass: {
-            type: StringConstructor;
-            default: string;
-        };
-        popperOptions: {
-            type: import("vue").PropType<Options>;
-            default: () => Options;
-        };
+        popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
+        popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
         remote: BooleanConstructor;
         loadingText: StringConstructor;
         noMatchText: StringConstructor;
@@ -38890,67 +38735,46 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
         remoteMethod: FunctionConstructor;
         filterMethod: FunctionConstructor;
         multiple: BooleanConstructor;
-        multipleLimit: {
-            type: NumberConstructor;
-            default: number;
-        };
+        multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         placeholder: {
-            type: StringConstructor;
+            readonly type: import("vue").PropType<string>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         defaultFirstOption: BooleanConstructor;
-        reserveKeyword: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        valueKey: {
-            type: StringConstructor;
-            default: string;
-        };
+        reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+        valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         collapseTags: BooleanConstructor;
         collapseTagsTooltip: BooleanConstructor;
-        maxCollapseTags: {
-            type: NumberConstructor;
-            default: number;
-        };
+        maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        persistent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         clearIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         fitInputWidth: BooleanConstructor;
         suffixIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        validateEvent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         remoteShowSuffix: BooleanConstructor;
-        suffixTransition: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            values: import("@popperjs/core").Placement[];
-            default: string;
-        };
-        ariaLabel: {
-            type: StringConstructor;
-            default: undefined;
-        };
+        placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, string, boolean>;
+        fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, string[], boolean>;
+        ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }>> & {
         onChange?: ((...args: any[]) => any) | undefined;
         "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
@@ -38962,35 +38786,33 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
     }, {
         effect: string;
         valueKey: string;
-        modelValue: string | number | boolean | Record<string, any> | unknown[];
-        placement: string;
+        modelValue: import("element-plus/es/utils").EpPropMergeType<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+        placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown>;
         popperClass: string;
-        popperOptions: Options;
+        fallbackPlacements: import("@popperjs/core").Placement[];
+        popperOptions: Partial<import("@popperjs/core").Options>;
         ariaLabel: string;
         teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        persistent: boolean;
+        persistent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         disabled: boolean;
         fitInputWidth: boolean;
         clearable: boolean;
         autocomplete: string;
-        suffixIcon: string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>;
-        validateEvent: boolean;
+        validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         multiple: boolean;
         loading: boolean;
         filterable: boolean;
         collapseTags: boolean;
         maxCollapseTags: number;
         collapseTagsTooltip: boolean;
-        tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>;
-        clearIcon: string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>;
+        tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
         automaticDropdown: boolean;
         allowCreate: boolean;
         remote: boolean;
         multipleLimit: number;
         defaultFirstOption: boolean;
-        reserveKeyword: boolean;
+        reserveKeyword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         remoteShowSuffix: boolean;
-        suffixTransition: boolean;
     }>> & {
         Option: import("vue").DefineComponent<{
             value: {
@@ -39020,15 +38842,13 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                 cssVarBlockName: (name: string) => string;
             };
             id: import("vue").Ref<string>;
-            containerKls: import("vue").ComputedRef<(string | {
-                selected: boolean;
-                hover: boolean;
-            })[]>;
+            containerKls: import("vue").ComputedRef<string[]>;
             currentLabel: import("vue").ComputedRef<any>;
             itemSelected: import("vue").ComputedRef<boolean>;
             isDisabled: import("vue").ComputedRef<any>;
             select: import("..").SelectContext | undefined;
             hoverItem: () => void;
+            updateOption: (query: string) => void;
             visible: import("vue").Ref<boolean>;
             hover: import("vue").Ref<boolean>;
             selectOptionClick: () => void;
@@ -39036,7 +38856,6 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                 index: number;
                 groupDisabled: boolean;
                 visible: boolean;
-                hitState: boolean;
                 hover: boolean;
             };
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -39055,7 +38874,8 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
             label: StringConstructor;
             disabled: BooleanConstructor;
         }, {
-            visible: import("vue").Ref<boolean>;
+            groupRef: import("vue").Ref<null>;
+            visible: import("vue").ComputedRef<boolean>;
             ns: {
                 namespace: import("vue").ComputedRef<string>;
                 b: (blockSuffix?: string) => string;
@@ -39098,36 +38918,23 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
     ElSelect: SFCWithInstall<import("vue").DefineComponent<{
         name: StringConstructor;
         id: StringConstructor;
-        modelValue: {
-            type: (ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[];
-            default: undefined;
-        };
-        autocomplete: {
-            type: StringConstructor;
-            default: string;
-        };
+        modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
+        autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         automaticDropdown: BooleanConstructor;
         size: {
-            type: import("vue").PropType<"" | "default" | "small" | "large">;
-            validator: (val: string) => val is "" | "default" | "small" | "large";
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
-        effect: {
-            type: import("vue").PropType<string>;
-            default: string;
-        };
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, string, boolean>;
         disabled: BooleanConstructor;
         clearable: BooleanConstructor;
         filterable: BooleanConstructor;
         allowCreate: BooleanConstructor;
         loading: BooleanConstructor;
-        popperClass: {
-            type: StringConstructor;
-            default: string;
-        };
-        popperOptions: {
-            type: import("vue").PropType<Options>;
-            default: () => Options;
-        };
+        popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
+        popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
         remote: BooleanConstructor;
         loadingText: StringConstructor;
         noMatchText: StringConstructor;
@@ -39135,131 +38942,163 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
         remoteMethod: FunctionConstructor;
         filterMethod: FunctionConstructor;
         multiple: BooleanConstructor;
-        multipleLimit: {
-            type: NumberConstructor;
-            default: number;
-        };
+        multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         placeholder: {
-            type: StringConstructor;
+            readonly type: import("vue").PropType<string>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         defaultFirstOption: BooleanConstructor;
-        reserveKeyword: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        valueKey: {
-            type: StringConstructor;
-            default: string;
-        };
+        reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+        valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         collapseTags: BooleanConstructor;
         collapseTagsTooltip: BooleanConstructor;
-        maxCollapseTags: {
-            type: NumberConstructor;
-            default: number;
-        };
+        maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        persistent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         clearIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         fitInputWidth: BooleanConstructor;
         suffixIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        validateEvent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         remoteShowSuffix: BooleanConstructor;
-        suffixTransition: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            values: import("@popperjs/core").Placement[];
-            default: string;
-        };
-        ariaLabel: {
-            type: StringConstructor;
-            default: undefined;
-        };
+        placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, string, boolean>;
+        fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, string[], boolean>;
+        ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }, {
-        isIOS: boolean | "";
-        onOptionsRendered: (v: any) => void;
-        prefixWidth: import("vue").Ref<number>;
+        inputId: import("vue").Ref<string | undefined>;
+        contentId: import("vue").Ref<string>;
+        nsSelect: {
+            namespace: import("vue").ComputedRef<string>;
+            b: (blockSuffix?: string) => string;
+            e: (element?: string | undefined) => string;
+            m: (modifier?: string | undefined) => string;
+            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
+            em: (element?: string | undefined, modifier?: string | undefined) => string;
+            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
+            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
+            is: {
+                (name: string, state: boolean | undefined): string;
+                (name: string): string;
+            };
+            cssVar: (object: Record<string, string>) => Record<string, string>;
+            cssVarName: (name: string) => string;
+            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+            cssVarBlockName: (name: string) => string;
+        };
+        nsInput: {
+            namespace: import("vue").ComputedRef<string>;
+            b: (blockSuffix?: string) => string;
+            e: (element?: string | undefined) => string;
+            m: (modifier?: string | undefined) => string;
+            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
+            em: (element?: string | undefined, modifier?: string | undefined) => string;
+            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
+            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
+            is: {
+                (name: string, state: boolean | undefined): string;
+                (name: string): string;
+            };
+            cssVar: (object: Record<string, string>) => Record<string, string>;
+            cssVarName: (name: string) => string;
+            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
+            cssVarBlockName: (name: string) => string;
+        };
+        states: {
+            inputValue: string;
+            options: Map<any, any>;
+            cachedOptions: Map<any, any>;
+            disabledOptions: Map<any, any>;
+            optionValues: any[];
+            selected: any;
+            selectionWidth: number;
+            calculatorWidth: number;
+            collapseItemWidth: number;
+            selectedLabel: string;
+            hoveringIndex: number;
+            previousQuery: null;
+            inputHovering: boolean;
+            menuVisibleOnFocus: boolean;
+            isBeforeHide: boolean;
+        };
+        isFocused: import("vue").Ref<boolean>;
+        expanded: import("vue").Ref<boolean>;
+        optionsArray: import("vue").ComputedRef<any[]>;
+        hoverOption: import("vue").Ref<any>;
         selectSize: import("vue").ComputedRef<"" | "default" | "small" | "large">;
-        readonly: import("vue").ComputedRef<any>;
-        handleResize: () => void;
-        collapseTagSize: import("vue").ComputedRef<"default" | "small">;
+        filteredOptionsCount: import("vue").ComputedRef<number>;
+        resetCalculatorWidth: () => void;
+        updateTooltip: () => void;
+        updateTagTooltip: () => void;
         debouncedOnInputChange: import("lodash").DebouncedFunc<() => void>;
-        debouncedQueryChange: import("lodash").DebouncedFunc<(e: any) => void>;
+        onInput: (event: any) => void;
         deletePrevTag: (e: any) => void;
         deleteTag: (event: any, tag: any) => void;
-        handleDeleteTooltipTag: (event: any, tag: any) => void;
         deleteSelected: (event: any) => void;
         handleOptionSelect: (option: any) => void;
         scrollToOption: (option: any) => void;
-        inputWidth: import("vue").Ref<number>;
-        selected: import("vue").Ref<any>;
-        inputLength: import("vue").Ref<number>;
-        filteredOptionsCount: import("vue").Ref<number>;
-        visible: import("vue").Ref<boolean>;
-        selectedLabel: import("vue").Ref<string>;
-        hoverIndex: import("vue").Ref<number>;
-        query: import("vue").Ref<string>;
-        inputHovering: import("vue").Ref<boolean>;
-        currentPlaceholder: import("vue").Ref<string | (() => string)>;
-        menuVisibleOnFocus: import("vue").Ref<boolean>;
-        isOnComposition: import("vue").Ref<boolean>;
-        options: import("vue").Ref<Map<any, any>>;
-        resetInputHeight: () => void;
-        managePlaceholder: () => void;
-        showClose: import("vue").ComputedRef<any>;
-        selectDisabled: import("vue").ComputedRef<any>;
-        iconComponent: import("vue").ComputedRef<any>;
+        hasModelValue: import("vue").ComputedRef<boolean>;
+        shouldShowPlaceholder: import("vue").ComputedRef<boolean>;
+        currentPlaceholder: import("vue").ComputedRef<string>;
+        showClose: import("vue").ComputedRef<boolean>;
+        iconComponent: import("vue").ComputedRef<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown> | undefined>;
         iconReverse: import("vue").ComputedRef<string>;
-        showNewOption: import("vue").ComputedRef<any>;
-        emptyText: import("vue").ComputedRef<any>;
-        toggleLastOptionHitState: (hit?: boolean | undefined) => any;
-        resetInputState: (e: KeyboardEvent) => void;
-        handleComposition: (event: any) => void;
+        validateState: import("vue").ComputedRef<"" | "success" | "error" | "validating">;
+        validateIcon: import("vue").ComputedRef<any>;
+        showNewOption: import("vue").ComputedRef<boolean>;
+        updateOptions: () => void;
+        collapseTagSize: import("vue").ComputedRef<"default" | "small">;
+        setSelected: () => void;
+        selectDisabled: import("vue").ComputedRef<boolean | undefined>;
+        emptyText: import("vue").ComputedRef<string | false | null>;
+        handleCompositionStart: () => void;
+        handleCompositionUpdate: (event: any) => void;
+        handleCompositionEnd: (event: any) => void;
+        onOptionCreate: (vm: import("..").SelectOptionProxy) => void;
+        onOptionDestroy: (key: any, vm: import("..").SelectOptionProxy) => void;
         handleMenuEnter: () => void;
         handleFocus: (event: FocusEvent) => void;
         focus: () => void;
         blur: () => void;
         handleBlur: (event: FocusEvent) => void;
         handleClearClick: (event: Event) => void;
-        handleClose: () => void;
-        handleKeydownEscape: (event: KeyboardEvent) => void;
-        toggleMenu: (e?: PointerEvent | undefined) => void;
+        handleClickOutside: (event: Event) => void;
+        handleEsc: () => void;
+        toggleMenu: () => void;
         selectOption: () => void;
         getValueKey: (item: any) => any;
         navigateOptions: (direction: any) => void;
-        dropMenuVisible: import("vue").WritableComputedRef<boolean>;
-        reference: import("vue").Ref<import("vue").ComponentPublicInstance<{
-            focus: () => void;
-            blur: () => void;
-            input: HTMLInputElement;
-        }, {}, {}, {}, {}, {}, {
-            focus: () => void;
-            blur: () => void;
-            input: HTMLInputElement;
-        }, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null>;
-        input: import("vue").Ref<HTMLInputElement | null>;
-        iOSInput: import("vue").Ref<HTMLInputElement | null>;
+        dropdownMenuVisible: import("vue").WritableComputedRef<boolean>;
+        showTagList: import("vue").ComputedRef<any>;
+        collapseTagList: import("vue").ComputedRef<any>;
+        tagStyle: import("vue").ComputedRef<{
+            maxWidth: string;
+        }>;
+        collapseTagStyle: import("vue").ComputedRef<{
+            maxWidth: string;
+        }>;
+        inputStyle: import("vue").ComputedRef<{
+            width: string;
+        }>;
+        popperRef: import("vue").ComputedRef<HTMLElement | undefined>;
+        inputRef: import("vue").Ref<HTMLInputElement | null>;
         tooltipRef: import("vue").Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
@@ -41883,7 +41722,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                         }>>;
-                        focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                        focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                         trapped: import("vue").Ref<boolean>;
                         onFocusAfterReleased: (event: CustomEvent<any>) => void;
                         onFocusAfterTrapped: () => void;
@@ -41945,7 +41784,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }, {
@@ -41955,7 +41794,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }>> & {
@@ -41968,7 +41807,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         }, {
                             trapped: boolean;
                             loop: boolean;
-                            focusStartEl: HTMLElement | "first" | "container";
+                            focusStartEl: HTMLElement | "container" | "first";
                         }>;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                         mouseenter: (evt: MouseEvent) => boolean;
@@ -44836,7 +44675,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: import("vue").Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -44898,7 +44737,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -44908,7 +44747,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -44921,7 +44760,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -45488,55 +45327,6 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                 readonly disabled: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | null>;
-        popperPaneRef: import("vue").ComputedRef<HTMLElement | undefined>;
-        tags: import("vue").Ref<HTMLElement | null>;
-        selectWrapper: import("vue").Ref<HTMLElement | null>;
-        scrollbar: import("vue").Ref<{
-            handleScroll: () => void;
-        } | null>;
-        wrapperKls: import("vue").ComputedRef<string[]>;
-        tagsKls: import("vue").ComputedRef<string[]>;
-        tagWrapperKls: import("vue").ComputedRef<(string | {
-            'has-prefix': any;
-        })[]>;
-        inputKls: import("vue").ComputedRef<string[]>;
-        iOSInputKls: import("vue").ComputedRef<string[]>;
-        scrollbarKls: import("vue").ComputedRef<string[]>;
-        selectTagsStyle: import("vue").ComputedRef<{
-            maxWidth: string;
-            width: string;
-        }>;
-        nsSelect: {
-            namespace: import("vue").ComputedRef<string>;
-            b: (blockSuffix?: string) => string;
-            e: (element?: string | undefined) => string;
-            m: (modifier?: string | undefined) => string;
-            be: (blockSuffix?: string | undefined, element?: string | undefined) => string;
-            em: (element?: string | undefined, modifier?: string | undefined) => string;
-            bm: (blockSuffix?: string | undefined, modifier?: string | undefined) => string;
-            bem: (blockSuffix?: string | undefined, element?: string | undefined, modifier?: string | undefined) => string;
-            is: {
-                (name: string, state: boolean | undefined): string;
-                (name: string): string;
-            };
-            cssVar: (object: Record<string, string>) => Record<string, string>;
-            cssVarName: (name: string) => string;
-            cssVarBlock: (object: Record<string, string>) => Record<string, string>;
-            cssVarBlockName: (name: string) => string;
-        };
-        tagTextStyle: import("vue").ComputedRef<{
-            maxWidth: string;
-        }>;
-        inputStyle: import("vue").ComputedRef<{
-            marginLeft: string;
-            flexGrow: number;
-            width: string;
-            maxWidth: string;
-        }>;
-        handleMouseEnter: () => void;
-        handleMouseLeave: () => void;
-        showTagList: import("vue").ComputedRef<any>;
-        collapseTagList: import("vue").ComputedRef<any>;
         tagTooltipRef: import("vue").Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
@@ -48160,7 +47950,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                             onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                         }>>;
-                        focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                        focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                         trapped: import("vue").Ref<boolean>;
                         onFocusAfterReleased: (event: CustomEvent<any>) => void;
                         onFocusAfterTrapped: () => void;
@@ -48222,7 +48012,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }, {
@@ -48232,7 +48022,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                             trapped: BooleanConstructor;
                             focusTrapEl: import("vue").PropType<HTMLElement>;
                             focusStartEl: {
-                                type: import("vue").PropType<HTMLElement | "first" | "container">;
+                                type: import("vue").PropType<HTMLElement | "container" | "first">;
                                 default: string;
                             };
                         }>> & {
@@ -48245,7 +48035,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         }, {
                             trapped: boolean;
                             loop: boolean;
-                            focusStartEl: HTMLElement | "first" | "container";
+                            focusStartEl: HTMLElement | "container" | "first";
                         }>;
                     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                         mouseenter: (evt: MouseEvent) => boolean;
@@ -51113,7 +50903,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: import("vue").Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: import("vue").Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: import("vue").Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -51175,7 +50965,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -51185,7 +50975,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -51198,7 +50988,7 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -51765,41 +51555,38 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                 readonly disabled: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | null>;
-        contentId: import("vue").Ref<string>;
-        hoverOption: import("vue").Ref<any>;
+        calculatorRef: import("vue").Ref<HTMLElement>;
+        prefixRef: import("vue").Ref<HTMLElement>;
+        suffixRef: import("vue").Ref<HTMLElement>;
+        selectRef: import("vue").Ref<HTMLElement>;
+        wrapperRef: import("vue").ShallowRef<HTMLElement | undefined>;
+        selectionRef: import("vue").Ref<HTMLElement>;
+        scrollbarRef: import("vue").Ref<{
+            handleScroll: () => void;
+        } | null>;
+        menuRef: import("vue").Ref<HTMLElement>;
+        tagMenuRef: import("vue").Ref<HTMLElement>;
+        collapseItemRef: import("vue").Ref<HTMLElement>;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:modelValue" | "change" | "focus" | "clear" | "visible-change" | "remove-tag" | "blur")[], "update:modelValue" | "change" | "focus" | "blur" | "clear" | "visible-change" | "remove-tag", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         name: StringConstructor;
         id: StringConstructor;
-        modelValue: {
-            type: (ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[];
-            default: undefined;
-        };
-        autocomplete: {
-            type: StringConstructor;
-            default: string;
-        };
+        modelValue: import("element-plus/es/utils").EpPropFinalized<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown, undefined, boolean>;
+        autocomplete: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         automaticDropdown: BooleanConstructor;
         size: {
-            type: import("vue").PropType<"" | "default" | "small" | "large">;
-            validator: (val: string) => val is "" | "default" | "small" | "large";
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
-        effect: {
-            type: import("vue").PropType<string>;
-            default: string;
-        };
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => string & {}) | (() => string) | ((new (...args: any[]) => string & {}) | (() => string))[], unknown, unknown, string, boolean>;
         disabled: BooleanConstructor;
         clearable: BooleanConstructor;
         filterable: BooleanConstructor;
         allowCreate: BooleanConstructor;
         loading: BooleanConstructor;
-        popperClass: {
-            type: StringConstructor;
-            default: string;
-        };
-        popperOptions: {
-            type: import("vue").PropType<Options>;
-            default: () => Options;
-        };
+        popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
+        popperOptions: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>) | ((new (...args: any[]) => Partial<import("@popperjs/core").Options>) | (() => Partial<import("@popperjs/core").Options>))[], unknown, unknown, () => Partial<import("@popperjs/core").Options>, boolean>;
         remote: BooleanConstructor;
         loadingText: StringConstructor;
         noMatchText: StringConstructor;
@@ -51807,67 +51594,46 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
         remoteMethod: FunctionConstructor;
         filterMethod: FunctionConstructor;
         multiple: BooleanConstructor;
-        multipleLimit: {
-            type: NumberConstructor;
-            default: number;
-        };
+        multipleLimit: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         placeholder: {
-            type: StringConstructor;
+            readonly type: import("vue").PropType<string>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         defaultFirstOption: BooleanConstructor;
-        reserveKeyword: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        valueKey: {
-            type: StringConstructor;
-            default: string;
-        };
+        reserveKeyword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+        valueKey: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
         collapseTags: BooleanConstructor;
         collapseTagsTooltip: BooleanConstructor;
-        maxCollapseTags: {
-            type: NumberConstructor;
-            default: number;
-        };
+        maxCollapseTags: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, number, boolean>;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        persistent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         clearIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         fitInputWidth: BooleanConstructor;
         suffixIcon: {
-            type: import("vue").PropType<string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>>;
-            default: any;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
         };
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        validateEvent: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+        validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
         remoteShowSuffix: BooleanConstructor;
-        suffixTransition: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            values: import("@popperjs/core").Placement[];
-            default: string;
-        };
-        ariaLabel: {
-            type: StringConstructor;
-            default: undefined;
-        };
+        placement: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown, string, boolean>;
+        fallbackPlacements: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]) | ((new (...args: any[]) => import("@popperjs/core").Placement[]) | (() => import("@popperjs/core").Placement[]))[], unknown, unknown, string[], boolean>;
+        ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     }>> & {
         onChange?: ((...args: any[]) => any) | undefined;
         "onUpdate:modelValue"?: ((...args: any[]) => any) | undefined;
@@ -51879,35 +51645,33 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
     }, {
         effect: string;
         valueKey: string;
-        modelValue: string | number | boolean | Record<string, any> | unknown[];
-        placement: string;
+        modelValue: import("element-plus/es/utils").EpPropMergeType<(ArrayConstructor | ObjectConstructor | NumberConstructor | BooleanConstructor | StringConstructor)[], unknown, unknown>;
+        placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], import("@popperjs/core").Placement, unknown>;
         popperClass: string;
-        popperOptions: Options;
+        fallbackPlacements: import("@popperjs/core").Placement[];
+        popperOptions: Partial<import("@popperjs/core").Options>;
         ariaLabel: string;
         teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        persistent: boolean;
+        persistent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         disabled: boolean;
         fitInputWidth: boolean;
         clearable: boolean;
         autocomplete: string;
-        suffixIcon: string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>;
-        validateEvent: boolean;
+        validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         multiple: boolean;
         loading: boolean;
         filterable: boolean;
         collapseTags: boolean;
         maxCollapseTags: number;
         collapseTagsTooltip: boolean;
-        tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>;
-        clearIcon: string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>;
+        tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
         automaticDropdown: boolean;
         allowCreate: boolean;
         remote: boolean;
         multipleLimit: number;
         defaultFirstOption: boolean;
-        reserveKeyword: boolean;
+        reserveKeyword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         remoteShowSuffix: boolean;
-        suffixTransition: boolean;
     }>> & {
         Option: import("vue").DefineComponent<{
             value: {
@@ -51937,15 +51701,13 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                 cssVarBlockName: (name: string) => string;
             };
             id: import("vue").Ref<string>;
-            containerKls: import("vue").ComputedRef<(string | {
-                selected: boolean;
-                hover: boolean;
-            })[]>;
+            containerKls: import("vue").ComputedRef<string[]>;
             currentLabel: import("vue").ComputedRef<any>;
             itemSelected: import("vue").ComputedRef<boolean>;
             isDisabled: import("vue").ComputedRef<any>;
             select: import("..").SelectContext | undefined;
             hoverItem: () => void;
+            updateOption: (query: string) => void;
             visible: import("vue").Ref<boolean>;
             hover: import("vue").Ref<boolean>;
             selectOptionClick: () => void;
@@ -51953,7 +51715,6 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
                 index: number;
                 groupDisabled: boolean;
                 visible: boolean;
-                hitState: boolean;
                 hover: boolean;
             };
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
@@ -51972,7 +51733,8 @@ export declare const ElTimeSelect: SFCWithInstall<import("vue").DefineComponent<
             label: StringConstructor;
             disabled: BooleanConstructor;
         }, {
-            visible: import("vue").Ref<boolean>;
+            groupRef: import("vue").Ref<null>;
+            visible: import("vue").ComputedRef<boolean>;
             ns: {
                 namespace: import("vue").ComputedRef<string>;
                 b: (blockSuffix?: string) => string;

@@ -37,7 +37,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Next = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\pagination\\src\\components\\next.vue"]]);
+var Next = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "next.vue"]]);
 
 export { Next as default };
 //# sourceMappingURL=next.mjs.map

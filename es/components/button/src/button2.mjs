@@ -76,7 +76,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Button = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\button\\src\\button.vue"]]);
+var Button = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "button.vue"]]);
 
 export { Button as default };
 //# sourceMappingURL=button2.mjs.map

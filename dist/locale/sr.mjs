@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var sr = {
   name: "sr",
@@ -124,6 +124,11 @@ var sr = {
     popconfirm: {
       confirmButtonText: "\u0414\u0430",
       cancelButtonText: "\u041D\u0435"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

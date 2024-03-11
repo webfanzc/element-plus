@@ -1,6 +1,6 @@
 import { NOOP } from '@vue/shared';
 import '../../../utils/index.mjs';
-import { uploadListTypes } from './upload2.mjs';
+import { uploadListTypes } from './upload.mjs';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { mutable } from '../../../utils/typescript.mjs';
 
@@ -21,6 +21,9 @@ const uploadListProps = buildProps({
     type: String,
     values: uploadListTypes,
     default: "text"
+  },
+  crossorigin: {
+    type: definePropType(String)
   }
 });
 const uploadListEmits = {

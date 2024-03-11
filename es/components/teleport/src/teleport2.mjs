@@ -43,7 +43,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Teleport = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\teleport\\src\\teleport.vue"]]);
+var Teleport = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "teleport.vue"]]);
 
 export { Teleport as default };
 //# sourceMappingURL=teleport2.mjs.map

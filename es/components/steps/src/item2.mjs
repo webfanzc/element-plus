@@ -191,7 +191,7 @@ const _sfc_main = defineComponent({
     };
   }
 });
-var Step = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\steps\\src\\item.vue"]]);
+var Step = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "item.vue"]]);
 
 export { Step as default };
 //# sourceMappingURL=item2.mjs.map

@@ -1,14 +1,14 @@
 import { defineComponent, toRefs, reactive, openBlock, createBlock, normalizeProps, guardReactiveProps, withCtx, createVNode, mergeProps, renderSlot, Teleport, Transition, createCommentVNode, createElementBlock, Fragment } from 'vue';
 import { pick } from 'lodash-unified';
-import { tooltipV2ArrowProps } from './arrow2.mjs';
+import { tooltipV2ArrowProps } from './arrow.mjs';
 import { tooltipV2ContentProps } from './content.mjs';
 import { tooltipV2RootProps } from './root.mjs';
 import { tooltipV2Props } from './tooltip.mjs';
-import { tooltipV2TriggerProps } from './trigger.mjs';
+import { tooltipV2TriggerProps } from './trigger2.mjs';
 import TooltipV2Root from './root2.mjs';
-import TooltipV2Arrow from './arrow.mjs';
+import TooltipV2Arrow from './arrow2.mjs';
 import TooltipV2Content from './content2.mjs';
-import TooltipV2Trigger from './trigger2.mjs';
+import TooltipV2Trigger from './trigger.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 
 const __default__ = defineComponent({
@@ -74,7 +74,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var TooltipV2 = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\tooltip-v2\\src\\tooltip.vue"]]);
+var TooltipV2 = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "tooltip.vue"]]);
 
 export { TooltipV2 as default };
 //# sourceMappingURL=tooltip2.mjs.map

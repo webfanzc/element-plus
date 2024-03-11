@@ -121,6 +121,11 @@ var tr = {
     popconfirm: {
       confirmButtonText: "Evet",
       cancelButtonText: "Hay\u0131r"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -165,6 +165,11 @@
       popconfirm: {
         confirmButtonText: "\u0628\u06D5\u06B5\u06CE",
         cancelButtonText: "\u0646\u06D5\u062E\u06CE\u0631"
+      },
+      carousel: {
+        leftArrow: "Carousel arrow left",
+        rightArrow: "Carousel arrow right",
+        indicator: "Carousel switch to index {index}"
       }
     }
   };

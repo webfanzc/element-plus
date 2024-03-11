@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var mg = {
   name: "mg",
@@ -125,6 +125,11 @@ var mg = {
     popconfirm: {
       confirmButtonText: "Eny",
       cancelButtonText: "Tsy"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

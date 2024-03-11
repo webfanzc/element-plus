@@ -126,6 +126,11 @@ var ko = {
       clearFilter: "\uC804\uCCB4",
       sumText: "\uD569\uACC4"
     },
+    tour: {
+      next: "\uB2E4\uC74C",
+      previous: "\uC774\uC804",
+      finish: "\uC885\uB8CC"
+    },
     tree: {
       emptyText: "\uB370\uC774\uD130 \uC5C6\uC74C"
     },
@@ -146,6 +151,11 @@ var ko = {
     popconfirm: {
       confirmButtonText: "\uC608",
       cancelButtonText: "\uC544\uB2C8\uC624"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

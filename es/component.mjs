@@ -70,6 +70,8 @@ import { ElTreeSelect } from './components/tree-select/index.mjs';
 import { ElTreeV2 } from './components/tree-v2/index.mjs';
 import { ElUpload } from './components/upload/index.mjs';
 import { ElWatermark } from './components/watermark/index.mjs';
+import { ElTour, ElTourStep } from './components/tour/index.mjs';
+import { ElAnchor, ElAnchorLink } from './components/anchor/index.mjs';
 
 var Components = [
   ElAffix,
@@ -170,7 +172,11 @@ var Components = [
   ElTreeSelect,
   ElTreeV2,
   ElUpload,
-  ElWatermark
+  ElWatermark,
+  ElTour,
+  ElTourStep,
+  ElAnchor,
+  ElAnchorLink
 ];
 
 export { Components as default };

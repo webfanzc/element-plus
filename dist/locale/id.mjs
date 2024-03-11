@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var id = {
   name: "id",
@@ -125,6 +125,11 @@ var id = {
     popconfirm: {
       confirmButtonText: "Ya",
       cancelButtonText: "Tidak"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

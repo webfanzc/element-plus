@@ -113,7 +113,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Descriptions = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\descriptions\\src\\description.vue"]]);
+var Descriptions = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "description.vue"]]);
 
 export { Descriptions as default };
 //# sourceMappingURL=description2.mjs.map

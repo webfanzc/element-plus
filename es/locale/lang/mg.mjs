@@ -123,6 +123,11 @@ var mg = {
     popconfirm: {
       confirmButtonText: "Eny",
       cancelButtonText: "Tsy"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

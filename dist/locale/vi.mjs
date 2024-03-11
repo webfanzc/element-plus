@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var vi = {
   name: "vi",
@@ -103,6 +103,11 @@ var vi = {
       clearFilter: "X\xF3a h\u1EBFt",
       sumText: "T\u1ED5ng"
     },
+    tour: {
+      next: "Ti\u1EBFp",
+      previous: "Tr\u01B0\u1EDBc",
+      finish: "Ho\xE0n th\xE0nh"
+    },
     tree: {
       emptyText: "Kh\xF4ng c\xF3 d\u1EEF li\u1EC7u"
     },
@@ -123,6 +128,11 @@ var vi = {
     popconfirm: {
       confirmButtonText: "Ok",
       cancelButtonText: "Hu\u1EF7"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

@@ -44,8 +44,8 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly customClass: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly draggable: BooleanConstructor;
+    readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly title: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -97,8 +97,8 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly customClass: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly draggable: BooleanConstructor;
+        readonly overflow: BooleanConstructor;
         readonly fullscreen: BooleanConstructor;
         readonly showClose: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         readonly title: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -203,7 +203,7 @@ declare const _default: import("vue").DefineComponent<{
         trapped: BooleanConstructor;
         focusTrapEl: import("vue").PropType<HTMLElement>;
         focusStartEl: {
-            type: import("vue").PropType<HTMLElement | "first" | "container">;
+            type: import("vue").PropType<HTMLElement | "container" | "first">;
             default: string;
         };
     }, {
@@ -213,7 +213,7 @@ declare const _default: import("vue").DefineComponent<{
         trapped: BooleanConstructor;
         focusTrapEl: import("vue").PropType<HTMLElement>;
         focusStartEl: {
-            type: import("vue").PropType<HTMLElement | "first" | "container">;
+            type: import("vue").PropType<HTMLElement | "container" | "first">;
             default: string;
         };
     }>> & {
@@ -226,7 +226,7 @@ declare const _default: import("vue").DefineComponent<{
     }, {
         trapped: boolean;
         loop: boolean;
-        focusStartEl: HTMLElement | "first" | "container";
+        focusStartEl: HTMLElement | "container" | "first";
     }>;
     ElDialogContent: import("vue").DefineComponent<{
         readonly center: BooleanConstructor;
@@ -237,8 +237,8 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly customClass: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly draggable: BooleanConstructor;
+        readonly overflow: BooleanConstructor;
         readonly fullscreen: BooleanConstructor;
         readonly showClose: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         readonly title: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -255,8 +255,8 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly customClass: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
             readonly draggable: BooleanConstructor;
+            readonly overflow: BooleanConstructor;
             readonly fullscreen: BooleanConstructor;
             readonly showClose: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly title: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -292,6 +292,7 @@ declare const _default: import("vue").DefineComponent<{
         })[]>;
         composedDialogRef: (el: Element | import("vue").ComponentPublicInstance<{}, {}, {}, {}, {}, {}, {}, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}>> | null) => void;
         draggable: import("vue").ComputedRef<boolean>;
+        overflow: import("vue").ComputedRef<boolean>;
         ElIcon: import("../../../utils").SFCWithInstall<import("vue").DefineComponent<{
             readonly size: {
                 readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown>>;
@@ -366,8 +367,8 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly customClass: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
         readonly draggable: BooleanConstructor;
+        readonly overflow: BooleanConstructor;
         readonly fullscreen: BooleanConstructor;
         readonly showClose: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         readonly title: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -377,7 +378,7 @@ declare const _default: import("vue").DefineComponent<{
     }, {
         readonly title: string;
         readonly center: boolean;
-        readonly customClass: string;
+        readonly overflow: boolean;
         readonly showClose: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly ariaLevel: string;
         readonly alignCenter: boolean;
@@ -438,8 +439,8 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly customClass: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly draggable: BooleanConstructor;
+    readonly overflow: BooleanConstructor;
     readonly fullscreen: BooleanConstructor;
     readonly showClose: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly title: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -457,7 +458,7 @@ declare const _default: import("vue").DefineComponent<{
     readonly center: boolean;
     readonly modelValue: boolean;
     readonly appendTo: string;
-    readonly customClass: string;
+    readonly overflow: boolean;
     readonly showClose: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly ariaLevel: string;
     readonly alignCenter: boolean;

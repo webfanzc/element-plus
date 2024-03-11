@@ -124,6 +124,11 @@ declare const _default: {
             confirmButtonText: string;
             cancelButtonText: string;
         };
+        carousel: {
+            leftArrow: string;
+            rightArrow: string;
+            indicator: string;
+        };
     };
 };
 export default _default;

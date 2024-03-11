@@ -123,6 +123,11 @@ var id = {
     popconfirm: {
       confirmButtonText: "Ya",
       cancelButtonText: "Tidak"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

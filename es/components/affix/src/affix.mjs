@@ -117,7 +117,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Affix = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\affix\\src\\affix.vue"]]);
+var Affix = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "affix.vue"]]);
 
 export { Affix as default };
 //# sourceMappingURL=affix.mjs.map

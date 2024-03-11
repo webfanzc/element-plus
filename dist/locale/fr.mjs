@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var fr = {
   name: "fr",
@@ -156,6 +156,11 @@ var fr = {
     popconfirm: {
       confirmButtonText: "Oui",
       cancelButtonText: "Non"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

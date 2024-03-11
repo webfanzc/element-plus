@@ -103,6 +103,11 @@ declare const _default: {
             clearFilter: string;
             sumText: string;
         };
+        tour: {
+            next: string;
+            previous: string;
+            finish: string;
+        };
         tree: {
             emptyText: string;
         };
@@ -123,6 +128,11 @@ declare const _default: {
         popconfirm: {
             confirmButtonText: string;
             cancelButtonText: string;
+        };
+        carousel: {
+            leftArrow: string;
+            rightArrow: string;
+            indicator: string;
         };
     };
 };

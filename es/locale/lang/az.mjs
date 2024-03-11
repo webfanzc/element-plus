@@ -125,6 +125,11 @@ var az = {
     },
     empty: {
       description: "M\u0259lumat yoxdur"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

@@ -403,7 +403,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var ColorPicker = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\color-picker\\src\\color-picker.vue"]]);
+var ColorPicker = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "color-picker.vue"]]);
 
 export { ColorPicker as default };
 //# sourceMappingURL=color-picker2.mjs.map

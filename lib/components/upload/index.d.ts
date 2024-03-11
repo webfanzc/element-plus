@@ -77,6 +77,12 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         new (): any;
         readonly prototype: any;
     })[], unknown, unknown, () => void, boolean>;
+    readonly crossorigin: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly action: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#", boolean>;
     readonly headers: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => Record<string, any> | Headers) | (() => Record<string, any> | Headers) | ((new (...args: any[]) => Record<string, any> | Headers) | (() => Record<string, any> | Headers))[], unknown, unknown>>;
@@ -186,6 +192,12 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             new (): any;
             readonly prototype: any;
         })[], unknown, unknown, () => void, boolean>;
+        readonly crossorigin: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
         readonly action: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#", boolean>;
         readonly headers: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => Record<string, any> | Headers) | (() => Record<string, any> | Headers) | ((new (...args: any[]) => Record<string, any> | Headers) | (() => Record<string, any> | Headers))[], unknown, unknown>>;
@@ -951,6 +963,12 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly prototype: any;
         })[], unknown, unknown, () => void, boolean>;
         readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly crossorigin: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
     }, {
         props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
             readonly files: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/upload").UploadFiles) | (() => import("./src/upload").UploadFiles) | ((new (...args: any[]) => import("./src/upload").UploadFiles) | (() => import("./src/upload").UploadFiles))[], unknown, unknown, () => never[], boolean>;
@@ -965,6 +983,12 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
                 readonly prototype: any;
             })[], unknown, unknown, () => void, boolean>;
             readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+            readonly crossorigin: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
         }>> & {
             onRemove?: ((file: import("./src/upload").UploadFile) => any) | undefined;
         }>>;
@@ -1271,13 +1295,13 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "circle" | "line" | "dashboard", unknown>;
             readonly width: number;
             readonly color: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("..").ProgressFn | import("..").ProgressColor[]) & {}) | (() => string | import("..").ProgressFn | import("..").ProgressColor[]) | ((new (...args: any[]) => (string | import("..").ProgressFn | import("..").ProgressColor[]) & {}) | (() => string | import("..").ProgressFn | import("..").ProgressColor[]))[], unknown, unknown>;
+            readonly duration: number;
             readonly strokeLinecap: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown>;
             readonly strokeWidth: number;
             readonly indeterminate: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly format: import("..").ProgressFn;
             readonly percentage: number;
             readonly status: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "exception", unknown>;
-            readonly duration: number;
             readonly textInside: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly showText: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly striped: boolean;
@@ -1298,6 +1322,12 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
             readonly prototype: any;
         })[], unknown, unknown, () => void, boolean>;
         readonly listType: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly crossorigin: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
     }>> & {
         onRemove?: ((file: import("./src/upload").UploadFile) => any) | undefined;
     }, {
@@ -1757,6 +1787,12 @@ export declare const ElUpload: import("element-plus/es/utils").SFCWithInstall<im
         new (): any;
         readonly prototype: any;
     })[], unknown, unknown, () => void, boolean>;
+    readonly crossorigin: {
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     readonly action: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "#", boolean>;
     readonly headers: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => Record<string, any> | Headers) | (() => Record<string, any> | Headers) | ((new (...args: any[]) => Record<string, any> | Headers) | (() => Record<string, any> | Headers))[], unknown, unknown>>;

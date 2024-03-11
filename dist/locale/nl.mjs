@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var nl = {
   name: "nl",
@@ -123,6 +123,11 @@ var nl = {
     popconfirm: {
       confirmButtonText: "Ja",
       cancelButtonText: "Nee"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

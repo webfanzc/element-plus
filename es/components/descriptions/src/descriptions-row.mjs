@@ -63,7 +63,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var ElDescriptionsRow = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\descriptions\\src\\descriptions-row.vue"]]);
+var ElDescriptionsRow = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "descriptions-row.vue"]]);
 
 export { ElDescriptionsRow as default };
 //# sourceMappingURL=descriptions-row.mjs.map

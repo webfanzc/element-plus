@@ -37,7 +37,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Prev = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\pagination\\src\\components\\prev.vue"]]);
+var Prev = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "prev.vue"]]);
 
 export { Prev as default };
 //# sourceMappingURL=prev.mjs.map

@@ -126,6 +126,11 @@ declare const _default: {
         empty: {
             description: string;
         };
+        carousel: {
+            leftArrow: string;
+            rightArrow: string;
+            indicator: string;
+        };
     };
 };
 export default _default;

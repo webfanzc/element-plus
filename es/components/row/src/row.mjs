@@ -44,7 +44,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Row = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\row\\src\\row.vue"]]);
+var Row = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "row.vue"]]);
 
 export { Row as default };
 //# sourceMappingURL=row.mjs.map

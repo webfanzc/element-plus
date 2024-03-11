@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var pl = {
   name: "pl",
@@ -104,6 +104,11 @@ var pl = {
       clearFilter: "Wszystko",
       sumText: "Razem"
     },
+    tour: {
+      next: "Dalej",
+      previous: "Wr\xF3\u0107",
+      finish: "Zako\u0144cz"
+    },
     tree: {
       emptyText: "Brak danych"
     },
@@ -124,6 +129,11 @@ var pl = {
     popconfirm: {
       confirmButtonText: "Tak",
       cancelButtonText: "Nie"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

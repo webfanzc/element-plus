@@ -118,7 +118,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var ElPopperTrigger = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\popper\\src\\trigger.vue"]]);
+var ElPopperTrigger = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "trigger.vue"]]);
 
 export { ElPopperTrigger as default };
 //# sourceMappingURL=trigger2.mjs.map

@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var sw = {
   name: "sw",
@@ -159,6 +159,11 @@ var sw = {
     popconfirm: {
       confirmButtonText: "ndio",
       cancelButtonText: "hapana"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

@@ -121,6 +121,11 @@ var et = {
     popconfirm: {
       confirmButtonText: "Jah",
       cancelButtonText: "Ei"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

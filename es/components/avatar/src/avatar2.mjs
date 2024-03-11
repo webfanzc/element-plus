@@ -68,7 +68,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Avatar = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\avatar\\src\\avatar.vue"]]);
+var Avatar = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "avatar.vue"]]);
 
 export { Avatar as default };
 //# sourceMappingURL=avatar2.mjs.map

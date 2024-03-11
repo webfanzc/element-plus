@@ -55,7 +55,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var BreadcrumbItem = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\breadcrumb\\src\\breadcrumb-item.vue"]]);
+var BreadcrumbItem = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "breadcrumb-item.vue"]]);
 
 export { BreadcrumbItem as default };
 //# sourceMappingURL=breadcrumb-item2.mjs.map

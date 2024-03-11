@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -110,6 +110,11 @@
         clearFilter: "Wszystko",
         sumText: "Razem"
       },
+      tour: {
+        next: "Dalej",
+        previous: "Wr\xF3\u0107",
+        finish: "Zako\u0144cz"
+      },
       tree: {
         emptyText: "Brak danych"
       },
@@ -130,6 +135,11 @@
       popconfirm: {
         confirmButtonText: "Tak",
         cancelButtonText: "Nie"
+      },
+      carousel: {
+        leftArrow: "Carousel arrow left",
+        rightArrow: "Carousel arrow right",
+        indicator: "Carousel switch to index {index}"
       }
     }
   };

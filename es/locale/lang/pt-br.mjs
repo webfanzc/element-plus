@@ -101,6 +101,11 @@ var ptBr = {
       clearFilter: "Todos",
       sumText: "Total"
     },
+    tour: {
+      next: "Pr\xF3ximo",
+      previous: "Anterior",
+      finish: "Finalizar"
+    },
     tree: {
       emptyText: "Sem dados"
     },
@@ -121,6 +126,11 @@ var ptBr = {
     popconfirm: {
       confirmButtonText: "Sim",
       cancelButtonText: "N\xE3o"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

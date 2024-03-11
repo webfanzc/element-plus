@@ -126,7 +126,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var TreeV2 = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\tree-v2\\src\\tree.vue"]]);
+var TreeV2 = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "tree.vue"]]);
 
 export { TreeV2 as default };
 //# sourceMappingURL=tree.mjs.map

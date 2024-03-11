@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var eu = {
   name: "eu",
@@ -103,6 +103,11 @@ var eu = {
       clearFilter: "Guztia",
       sumText: "Batura"
     },
+    tour: {
+      next: "Hurrengoa",
+      previous: "Aurrekoa",
+      finish: "Bukatu"
+    },
     tree: {
       emptyText: "Daturik ez"
     },
@@ -123,6 +128,11 @@ var eu = {
     popconfirm: {
       confirmButtonText: "Yes",
       cancelButtonText: "No"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

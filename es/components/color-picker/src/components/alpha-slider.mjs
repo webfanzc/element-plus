@@ -44,7 +44,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var AlphaSlider = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\color-picker\\src\\components\\alpha-slider.vue"]]);
+var AlphaSlider = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "alpha-slider.vue"]]);
 
 export { AlphaSlider as default };
 //# sourceMappingURL=alpha-slider.mjs.map

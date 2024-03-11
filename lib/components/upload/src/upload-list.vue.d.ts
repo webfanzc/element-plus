@@ -12,6 +12,12 @@ declare const _default: import("vue").DefineComponent<{
         readonly prototype: any;
     })[], unknown, unknown, () => void, boolean>;
     readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+    readonly crossorigin: {
+        readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 }, {
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
         readonly files: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("./upload").UploadFiles) | (() => import("./upload").UploadFiles) | ((new (...args: any[]) => import("./upload").UploadFiles) | (() => import("./upload").UploadFiles))[], unknown, unknown, () => never[], boolean>;
@@ -26,6 +32,12 @@ declare const _default: import("vue").DefineComponent<{
             readonly prototype: any;
         })[], unknown, unknown, () => void, boolean>;
         readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+        readonly crossorigin: {
+            readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
     }>> & {
         onRemove?: ((file: UploadFile) => any) | undefined;
     }>>;
@@ -332,13 +344,13 @@ declare const _default: import("vue").DefineComponent<{
         readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "circle" | "line" | "dashboard", unknown>;
         readonly width: number;
         readonly color: import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | import("element-plus/es/components/progress").ProgressFn | import("element-plus/es/components/progress").ProgressColor[]) & {}) | (() => string | import("element-plus/es/components/progress").ProgressFn | import("element-plus/es/components/progress").ProgressColor[]) | ((new (...args: any[]) => (string | import("element-plus/es/components/progress").ProgressFn | import("element-plus/es/components/progress").ProgressColor[]) & {}) | (() => string | import("element-plus/es/components/progress").ProgressFn | import("element-plus/es/components/progress").ProgressColor[]))[], unknown, unknown>;
+        readonly duration: number;
         readonly strokeLinecap: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square") | ((new (...args: any[]) => ("inherit" | "round" | "butt" | "square") & {}) | (() => "inherit" | "round" | "butt" | "square"))[], unknown, unknown>;
         readonly strokeWidth: number;
         readonly indeterminate: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly format: import("element-plus/es/components/progress").ProgressFn;
         readonly percentage: number;
         readonly status: import("../../../utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "exception", unknown>;
-        readonly duration: number;
         readonly textInside: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly showText: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         readonly striped: boolean;
@@ -359,6 +371,12 @@ declare const _default: import("vue").DefineComponent<{
         readonly prototype: any;
     })[], unknown, unknown, () => void, boolean>;
     readonly listType: import("../../../utils").EpPropFinalized<StringConstructor, "text" | "picture" | "picture-card", unknown, "text", boolean>;
+    readonly crossorigin: {
+        readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials") | ((new (...args: any[]) => ("" | "anonymous" | "use-credentials") & {}) | (() => "" | "anonymous" | "use-credentials"))[], unknown, unknown>>;
+        readonly required: false;
+        readonly validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
 }>> & {
     onRemove?: ((file: UploadFile) => any) | undefined;
 }, {

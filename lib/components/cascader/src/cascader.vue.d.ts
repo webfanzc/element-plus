@@ -41,7 +41,7 @@ declare const _default: import("vue").DefineComponent<{
     teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     tagType: {
         default: string;
-        type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+        type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
         required: false;
         validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -97,7 +97,7 @@ declare const _default: import("vue").DefineComponent<{
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         tagType: {
             default: string;
-            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+            type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
             required: false;
             validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -2788,7 +2788,7 @@ declare const _default: import("vue").DefineComponent<{
                         onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                         onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                     }>>;
-                    focusStartRef: Ref<HTMLElement | "first" | "container" | undefined>;
+                    focusStartRef: Ref<HTMLElement | "container" | "first" | undefined>;
                     trapped: Ref<boolean>;
                     onFocusAfterReleased: (event: CustomEvent<any>) => void;
                     onFocusAfterTrapped: () => void;
@@ -2850,7 +2850,7 @@ declare const _default: import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }, {
@@ -2860,7 +2860,7 @@ declare const _default: import("vue").DefineComponent<{
                         trapped: BooleanConstructor;
                         focusTrapEl: import("vue").PropType<HTMLElement>;
                         focusStartEl: {
-                            type: import("vue").PropType<HTMLElement | "first" | "container">;
+                            type: import("vue").PropType<HTMLElement | "container" | "first">;
                             default: string;
                         };
                     }>> & {
@@ -2873,7 +2873,7 @@ declare const _default: import("vue").DefineComponent<{
                     }, {
                         trapped: boolean;
                         loop: boolean;
-                        focusStartEl: HTMLElement | "first" | "container";
+                        focusStartEl: HTMLElement | "container" | "first";
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                     mouseenter: (evt: MouseEvent) => boolean;
@@ -5741,7 +5741,7 @@ declare const _default: import("vue").DefineComponent<{
                     onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                     onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 }>>;
-                focusStartRef: Ref<HTMLElement | "first" | "container" | undefined>;
+                focusStartRef: Ref<HTMLElement | "container" | "first" | undefined>;
                 trapped: Ref<boolean>;
                 onFocusAfterReleased: (event: CustomEvent<any>) => void;
                 onFocusAfterTrapped: () => void;
@@ -5803,7 +5803,7 @@ declare const _default: import("vue").DefineComponent<{
                     trapped: BooleanConstructor;
                     focusTrapEl: import("vue").PropType<HTMLElement>;
                     focusStartEl: {
-                        type: import("vue").PropType<HTMLElement | "first" | "container">;
+                        type: import("vue").PropType<HTMLElement | "container" | "first">;
                         default: string;
                     };
                 }, {
@@ -5813,7 +5813,7 @@ declare const _default: import("vue").DefineComponent<{
                     trapped: BooleanConstructor;
                     focusTrapEl: import("vue").PropType<HTMLElement>;
                     focusStartEl: {
-                        type: import("vue").PropType<HTMLElement | "first" | "container">;
+                        type: import("vue").PropType<HTMLElement | "container" | "first">;
                         default: string;
                     };
                 }>> & {
@@ -5826,7 +5826,7 @@ declare const _default: import("vue").DefineComponent<{
                 }, {
                     trapped: boolean;
                     loop: boolean;
-                    focusStartEl: HTMLElement | "first" | "container";
+                    focusStartEl: HTMLElement | "container" | "first";
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                 mouseenter: (evt: MouseEvent) => boolean;
@@ -6423,9 +6423,21 @@ declare const _default: import("vue").DefineComponent<{
             };
             readonly disabled: BooleanConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown, "", boolean>;
+            readonly maxlength: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
+            readonly minlength: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
             readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
             readonly resize: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "both" | "horizontal" | "vertical", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -6515,9 +6527,21 @@ declare const _default: import("vue").DefineComponent<{
             };
             readonly disabled: BooleanConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown, "", boolean>;
+            readonly maxlength: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
+            readonly minlength: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
             readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
             readonly resize: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "both" | "horizontal" | "vertical", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -6594,9 +6618,21 @@ declare const _default: import("vue").DefineComponent<{
                 };
                 readonly disabled: BooleanConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown, "", boolean>;
+                readonly maxlength: {
+                    readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                    readonly required: false;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
+                readonly minlength: {
+                    readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                    readonly required: false;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
                 readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
                 readonly resize: {
-                    readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "both" | "horizontal" | "vertical", unknown>>;
+                    readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
                     readonly required: false;
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
@@ -6674,8 +6710,8 @@ declare const _default: import("vue").DefineComponent<{
             containerKls: ComputedRef<unknown[]>;
             wrapperKls: ComputedRef<string[]>;
             attrs: ComputedRef<Record<string, unknown>>;
-            form: import("element-plus/es/components/form").FormContext | undefined;
-            formItem: import("element-plus/es/components/form").FormItemContext | undefined;
+            elForm: import("element-plus/es/components/form").FormContext | undefined;
+            elFormItem: import("element-plus/es/components/form").FormItemContext | undefined;
             inputId: Ref<string | undefined>;
             inputSize: ComputedRef<"" | "default" | "small" | "large">;
             inputDisabled: ComputedRef<boolean>;
@@ -6884,9 +6920,21 @@ declare const _default: import("vue").DefineComponent<{
         };
         readonly disabled: BooleanConstructor;
         readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown, "", boolean>;
+        readonly maxlength: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
+        readonly minlength: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
         readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
         readonly resize: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "both" | "horizontal" | "vertical", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -6963,9 +7011,21 @@ declare const _default: import("vue").DefineComponent<{
             };
             readonly disabled: BooleanConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown, "", boolean>;
+            readonly maxlength: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
+            readonly minlength: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
             readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
             readonly resize: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "both" | "horizontal" | "vertical", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -7043,8 +7103,8 @@ declare const _default: import("vue").DefineComponent<{
         containerKls: ComputedRef<unknown[]>;
         wrapperKls: ComputedRef<string[]>;
         attrs: ComputedRef<Record<string, unknown>>;
-        form: import("element-plus/es/components/form").FormContext | undefined;
-        formItem: import("element-plus/es/components/form").FormItemContext | undefined;
+        elForm: import("element-plus/es/components/form").FormContext | undefined;
+        elFormItem: import("element-plus/es/components/form").FormItemContext | undefined;
         inputId: Ref<string | undefined>;
         inputSize: ComputedRef<"" | "default" | "small" | "large">;
         inputDisabled: ComputedRef<boolean>;
@@ -7615,7 +7675,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly role: StringConstructor;
             readonly ariaLabel: StringConstructor;
             readonly ariaOrientation: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -7658,7 +7718,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly role: StringConstructor;
             readonly ariaLabel: StringConstructor;
             readonly ariaOrientation: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -7686,7 +7746,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly role: StringConstructor;
                 readonly ariaLabel: StringConstructor;
                 readonly ariaOrientation: {
-                    readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>>;
+                    readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>>;
                     readonly required: false;
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
@@ -7724,22 +7784,20 @@ declare const _default: import("vue").DefineComponent<{
             scrollbarRef: Ref<HTMLDivElement | undefined>;
             wrapRef: Ref<HTMLDivElement | undefined>;
             resizeRef: Ref<HTMLElement | undefined>;
-            sizeWidth: Ref<string>;
-            sizeHeight: Ref<string>;
             barRef: Ref<({
                 $: import("vue").ComponentInternalInstance;
                 $data: {};
                 $props: Partial<{
                     readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                    readonly ratioX: number;
-                    readonly ratioY: number;
                 }> & Omit<Readonly<import("vue").ExtractPropTypes<{
                     readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly width: StringConstructor;
-                    readonly height: StringConstructor;
-                    readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                    readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "always" | "ratioX" | "ratioY">;
+                    readonly minSize: {
+                        readonly type: import("vue").PropType<number>;
+                        readonly required: true;
+                        readonly validator: ((val: unknown) => boolean) | undefined;
+                        __epPropKey: true;
+                    };
+                }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "always">;
                 $attrs: {
                     [x: string]: unknown;
                 };
@@ -7755,23 +7813,33 @@ declare const _default: import("vue").DefineComponent<{
                 $el: any;
                 $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
                     readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly width: StringConstructor;
-                    readonly height: StringConstructor;
-                    readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                    readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                    readonly minSize: {
+                        readonly type: import("vue").PropType<number>;
+                        readonly required: true;
+                        readonly validator: ((val: unknown) => boolean) | undefined;
+                        __epPropKey: true;
+                    };
                 }>>, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                         readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                        readonly width: StringConstructor;
-                        readonly height: StringConstructor;
-                        readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                        readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                        readonly minSize: {
+                            readonly type: import("vue").PropType<number>;
+                            readonly required: true;
+                            readonly validator: ((val: unknown) => boolean) | undefined;
+                            __epPropKey: true;
+                        };
                     }>> & {
                         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                     }>>;
+                    scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
                     moveX: Ref<number>;
                     moveY: Ref<number>;
+                    sizeWidth: Ref<string>;
+                    sizeHeight: Ref<string>;
+                    ratioY: Ref<number>;
+                    ratioX: Ref<number>;
                     handleScroll: (wrap: HTMLDivElement) => void;
+                    update: () => void;
                     Thumb: import("vue").DefineComponent<{
                         readonly vertical: BooleanConstructor;
                         readonly size: StringConstructor;
@@ -7874,8 +7942,6 @@ declare const _default: import("vue").DefineComponent<{
                     }>;
                 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
                     readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                    readonly ratioX: number;
-                    readonly ratioY: number;
                 }> & {
                     beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                     created?: ((() => void) | (() => void)[]) | undefined;
@@ -7898,23 +7964,33 @@ declare const _default: import("vue").DefineComponent<{
                 $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
             } & Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }>> & import("vue").ShallowUnwrapRef<{
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                     readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly width: StringConstructor;
-                    readonly height: StringConstructor;
-                    readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                    readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                    readonly minSize: {
+                        readonly type: import("vue").PropType<number>;
+                        readonly required: true;
+                        readonly validator: ((val: unknown) => boolean) | undefined;
+                        __epPropKey: true;
+                    };
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
+                scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
                 moveX: Ref<number>;
                 moveY: Ref<number>;
+                sizeWidth: Ref<string>;
+                sizeHeight: Ref<string>;
+                ratioY: Ref<number>;
+                ratioX: Ref<number>;
                 handleScroll: (wrap: HTMLDivElement) => void;
+                update: () => void;
                 Thumb: import("vue").DefineComponent<{
                     readonly vertical: BooleanConstructor;
                     readonly size: StringConstructor;
@@ -8016,8 +8092,6 @@ declare const _default: import("vue").DefineComponent<{
                     readonly always: boolean;
                 }>;
             }> & {} & import("vue").ComponentCustomProperties) | undefined>;
-            ratioY: Ref<number>;
-            ratioX: Ref<number>;
             wrapStyle: ComputedRef<StyleValue>;
             wrapKls: ComputedRef<(string | unknown[] | {
                 [x: string]: boolean;
@@ -8030,23 +8104,33 @@ declare const _default: import("vue").DefineComponent<{
             update: () => void;
             Bar: import("vue").DefineComponent<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                     readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly width: StringConstructor;
-                    readonly height: StringConstructor;
-                    readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                    readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                    readonly minSize: {
+                        readonly type: import("vue").PropType<number>;
+                        readonly required: true;
+                        readonly validator: ((val: unknown) => boolean) | undefined;
+                        __epPropKey: true;
+                    };
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
+                scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
                 moveX: Ref<number>;
                 moveY: Ref<number>;
+                sizeWidth: Ref<string>;
+                sizeHeight: Ref<string>;
+                ratioY: Ref<number>;
+                ratioX: Ref<number>;
                 handleScroll: (wrap: HTMLDivElement) => void;
+                update: () => void;
                 Thumb: import("vue").DefineComponent<{
                     readonly vertical: BooleanConstructor;
                     readonly size: StringConstructor;
@@ -8149,14 +8233,14 @@ declare const _default: import("vue").DefineComponent<{
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }>>, {
                 readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly ratioX: number;
-                readonly ratioY: number;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
             scroll: ({ scrollTop, scrollLeft, }: {
@@ -8211,7 +8295,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly role: StringConstructor;
         readonly ariaLabel: StringConstructor;
         readonly ariaOrientation: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -8239,7 +8323,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly role: StringConstructor;
             readonly ariaLabel: StringConstructor;
             readonly ariaOrientation: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -8277,22 +8361,20 @@ declare const _default: import("vue").DefineComponent<{
         scrollbarRef: Ref<HTMLDivElement | undefined>;
         wrapRef: Ref<HTMLDivElement | undefined>;
         resizeRef: Ref<HTMLElement | undefined>;
-        sizeWidth: Ref<string>;
-        sizeHeight: Ref<string>;
         barRef: Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
             $props: Partial<{
                 readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly ratioX: number;
-                readonly ratioY: number;
             }> & Omit<Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-            }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "always" | "ratioX" | "ratioY">;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
+            }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "always">;
             $attrs: {
                 [x: string]: unknown;
             };
@@ -8308,23 +8390,33 @@ declare const _default: import("vue").DefineComponent<{
             $el: any;
             $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }>>, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                     readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly width: StringConstructor;
-                    readonly height: StringConstructor;
-                    readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                    readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                    readonly minSize: {
+                        readonly type: import("vue").PropType<number>;
+                        readonly required: true;
+                        readonly validator: ((val: unknown) => boolean) | undefined;
+                        __epPropKey: true;
+                    };
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
+                scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
                 moveX: Ref<number>;
                 moveY: Ref<number>;
+                sizeWidth: Ref<string>;
+                sizeHeight: Ref<string>;
+                ratioY: Ref<number>;
+                ratioX: Ref<number>;
                 handleScroll: (wrap: HTMLDivElement) => void;
+                update: () => void;
                 Thumb: import("vue").DefineComponent<{
                     readonly vertical: BooleanConstructor;
                     readonly size: StringConstructor;
@@ -8427,8 +8519,6 @@ declare const _default: import("vue").DefineComponent<{
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
                 readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly ratioX: number;
-                readonly ratioY: number;
             }> & {
                 beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                 created?: ((() => void) | (() => void)[]) | undefined;
@@ -8451,23 +8541,33 @@ declare const _default: import("vue").DefineComponent<{
             $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
         } & Readonly<import("vue").ExtractPropTypes<{
             readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly width: StringConstructor;
-            readonly height: StringConstructor;
-            readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-            readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+            readonly minSize: {
+                readonly type: import("vue").PropType<number>;
+                readonly required: true;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
         }>> & import("vue").ShallowUnwrapRef<{
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
+            scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
             moveX: Ref<number>;
             moveY: Ref<number>;
+            sizeWidth: Ref<string>;
+            sizeHeight: Ref<string>;
+            ratioY: Ref<number>;
+            ratioX: Ref<number>;
             handleScroll: (wrap: HTMLDivElement) => void;
+            update: () => void;
             Thumb: import("vue").DefineComponent<{
                 readonly vertical: BooleanConstructor;
                 readonly size: StringConstructor;
@@ -8569,8 +8669,6 @@ declare const _default: import("vue").DefineComponent<{
                 readonly always: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | undefined>;
-        ratioY: Ref<number>;
-        ratioX: Ref<number>;
         wrapStyle: ComputedRef<StyleValue>;
         wrapKls: ComputedRef<(string | unknown[] | {
             [x: string]: boolean;
@@ -8583,23 +8681,33 @@ declare const _default: import("vue").DefineComponent<{
         update: () => void;
         Bar: import("vue").DefineComponent<{
             readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly width: StringConstructor;
-            readonly height: StringConstructor;
-            readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-            readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+            readonly minSize: {
+                readonly type: import("vue").PropType<number>;
+                readonly required: true;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
+            scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
             moveX: Ref<number>;
             moveY: Ref<number>;
+            sizeWidth: Ref<string>;
+            sizeHeight: Ref<string>;
+            ratioY: Ref<number>;
+            ratioX: Ref<number>;
             handleScroll: (wrap: HTMLDivElement) => void;
+            update: () => void;
             Thumb: import("vue").DefineComponent<{
                 readonly vertical: BooleanConstructor;
                 readonly size: StringConstructor;
@@ -8702,14 +8810,14 @@ declare const _default: import("vue").DefineComponent<{
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly width: StringConstructor;
-            readonly height: StringConstructor;
-            readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-            readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+            readonly minSize: {
+                readonly type: import("vue").PropType<number>;
+                readonly required: true;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
         }>>, {
             readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly ratioX: number;
-            readonly ratioY: number;
         }>;
     }> & {} & import("vue").ComponentCustomProperties) | null>;
     popperVisible: Ref<boolean>;
@@ -8953,9 +9061,21 @@ declare const _default: import("vue").DefineComponent<{
         };
         readonly disabled: BooleanConstructor;
         readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown, "", boolean>;
+        readonly maxlength: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
+        readonly minlength: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
         readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
         readonly resize: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "both" | "horizontal" | "vertical", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -9019,9 +9139,21 @@ declare const _default: import("vue").DefineComponent<{
             };
             readonly disabled: BooleanConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown, "", boolean>;
+            readonly maxlength: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
+            readonly minlength: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
             readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
             readonly resize: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "both" | "horizontal" | "vertical", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -9099,8 +9231,8 @@ declare const _default: import("vue").DefineComponent<{
         containerKls: ComputedRef<unknown[]>;
         wrapperKls: ComputedRef<string[]>;
         attrs: ComputedRef<Record<string, unknown>>;
-        form: import("element-plus/es/components/form").FormContext | undefined;
-        formItem: import("element-plus/es/components/form").FormItemContext | undefined;
+        elForm: import("element-plus/es/components/form").FormContext | undefined;
+        elFormItem: import("element-plus/es/components/form").FormItemContext | undefined;
         inputId: Ref<string | undefined>;
         inputSize: ComputedRef<"" | "default" | "small" | "large">;
         inputDisabled: ComputedRef<boolean>;
@@ -9272,9 +9404,21 @@ declare const _default: import("vue").DefineComponent<{
         };
         readonly disabled: BooleanConstructor;
         readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown, "", boolean>;
+        readonly maxlength: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
+        readonly minlength: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
         readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "text", boolean>;
         readonly resize: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "both" | "horizontal" | "vertical", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "none" | "vertical" | "horizontal" | "both", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -11608,7 +11752,7 @@ declare const _default: import("vue").DefineComponent<{
                     onMouseleave?: ((evt: MouseEvent) => any) | undefined;
                     onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 }>>;
-                focusStartRef: Ref<HTMLElement | "first" | "container" | undefined>;
+                focusStartRef: Ref<HTMLElement | "container" | "first" | undefined>;
                 trapped: Ref<boolean>;
                 onFocusAfterReleased: (event: CustomEvent<any>) => void;
                 onFocusAfterTrapped: () => void;
@@ -11670,7 +11814,7 @@ declare const _default: import("vue").DefineComponent<{
                     trapped: BooleanConstructor;
                     focusTrapEl: import("vue").PropType<HTMLElement>;
                     focusStartEl: {
-                        type: import("vue").PropType<HTMLElement | "first" | "container">;
+                        type: import("vue").PropType<HTMLElement | "container" | "first">;
                         default: string;
                     };
                 }, {
@@ -11680,7 +11824,7 @@ declare const _default: import("vue").DefineComponent<{
                     trapped: BooleanConstructor;
                     focusTrapEl: import("vue").PropType<HTMLElement>;
                     focusStartEl: {
-                        type: import("vue").PropType<HTMLElement | "first" | "container">;
+                        type: import("vue").PropType<HTMLElement | "container" | "first">;
                         default: string;
                     };
                 }>> & {
@@ -11693,7 +11837,7 @@ declare const _default: import("vue").DefineComponent<{
                 }, {
                     trapped: boolean;
                     loop: boolean;
-                    focusStartEl: HTMLElement | "first" | "container";
+                    focusStartEl: HTMLElement | "container" | "first";
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
                 mouseenter: (evt: MouseEvent) => boolean;
@@ -12630,7 +12774,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly role: StringConstructor;
         readonly ariaLabel: StringConstructor;
         readonly ariaOrientation: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -12653,7 +12797,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly role: StringConstructor;
             readonly ariaLabel: StringConstructor;
             readonly ariaOrientation: {
-                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>>;
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>>;
                 readonly required: false;
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
@@ -12691,22 +12835,20 @@ declare const _default: import("vue").DefineComponent<{
         scrollbarRef: Ref<HTMLDivElement | undefined>;
         wrapRef: Ref<HTMLDivElement | undefined>;
         resizeRef: Ref<HTMLElement | undefined>;
-        sizeWidth: Ref<string>;
-        sizeHeight: Ref<string>;
         barRef: Ref<({
             $: import("vue").ComponentInternalInstance;
             $data: {};
             $props: Partial<{
                 readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly ratioX: number;
-                readonly ratioY: number;
             }> & Omit<Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-            }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "always" | "ratioX" | "ratioY">;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
+            }>> & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "always">;
             $attrs: {
                 [x: string]: unknown;
             };
@@ -12722,23 +12864,33 @@ declare const _default: import("vue").DefineComponent<{
             $el: any;
             $options: import("vue").ComponentOptionsBase<Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }>>, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                     readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly width: StringConstructor;
-                    readonly height: StringConstructor;
-                    readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                    readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                    readonly minSize: {
+                        readonly type: import("vue").PropType<number>;
+                        readonly required: true;
+                        readonly validator: ((val: unknown) => boolean) | undefined;
+                        __epPropKey: true;
+                    };
                 }>> & {
                     [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
                 }>>;
+                scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
                 moveX: Ref<number>;
                 moveY: Ref<number>;
+                sizeWidth: Ref<string>;
+                sizeHeight: Ref<string>;
+                ratioY: Ref<number>;
+                ratioX: Ref<number>;
                 handleScroll: (wrap: HTMLDivElement) => void;
+                update: () => void;
                 Thumb: import("vue").DefineComponent<{
                     readonly vertical: BooleanConstructor;
                     readonly size: StringConstructor;
@@ -12841,8 +12993,6 @@ declare const _default: import("vue").DefineComponent<{
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, {
                 readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly ratioX: number;
-                readonly ratioY: number;
             }> & {
                 beforeCreate?: ((() => void) | (() => void)[]) | undefined;
                 created?: ((() => void) | (() => void)[]) | undefined;
@@ -12865,23 +13015,33 @@ declare const _default: import("vue").DefineComponent<{
             $watch(source: string | Function, cb: Function, options?: import("vue").WatchOptions<boolean> | undefined): import("vue").WatchStopHandle;
         } & Readonly<import("vue").ExtractPropTypes<{
             readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly width: StringConstructor;
-            readonly height: StringConstructor;
-            readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-            readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+            readonly minSize: {
+                readonly type: import("vue").PropType<number>;
+                readonly required: true;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
         }>> & import("vue").ShallowUnwrapRef<{
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
+            scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
             moveX: Ref<number>;
             moveY: Ref<number>;
+            sizeWidth: Ref<string>;
+            sizeHeight: Ref<string>;
+            ratioY: Ref<number>;
+            ratioX: Ref<number>;
             handleScroll: (wrap: HTMLDivElement) => void;
+            update: () => void;
             Thumb: import("vue").DefineComponent<{
                 readonly vertical: BooleanConstructor;
                 readonly size: StringConstructor;
@@ -12983,8 +13143,6 @@ declare const _default: import("vue").DefineComponent<{
                 readonly always: boolean;
             }>;
         }> & {} & import("vue").ComponentCustomProperties) | undefined>;
-        ratioY: Ref<number>;
-        ratioX: Ref<number>;
         wrapStyle: ComputedRef<StyleValue>;
         wrapKls: ComputedRef<(string | unknown[] | {
             [x: string]: boolean;
@@ -12997,23 +13155,33 @@ declare const _default: import("vue").DefineComponent<{
         update: () => void;
         Bar: import("vue").DefineComponent<{
             readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly width: StringConstructor;
-            readonly height: StringConstructor;
-            readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-            readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+            readonly minSize: {
+                readonly type: import("vue").PropType<number>;
+                readonly required: true;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
                 readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly width: StringConstructor;
-                readonly height: StringConstructor;
-                readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-                readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+                readonly minSize: {
+                    readonly type: import("vue").PropType<number>;
+                    readonly required: true;
+                    readonly validator: ((val: unknown) => boolean) | undefined;
+                    __epPropKey: true;
+                };
             }>> & {
                 [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
             }>>;
+            scrollbar: import("element-plus/es/components/scrollbar").ScrollbarContext | undefined;
             moveX: Ref<number>;
             moveY: Ref<number>;
+            sizeWidth: Ref<string>;
+            sizeHeight: Ref<string>;
+            ratioY: Ref<number>;
+            ratioX: Ref<number>;
             handleScroll: (wrap: HTMLDivElement) => void;
+            update: () => void;
             Thumb: import("vue").DefineComponent<{
                 readonly vertical: BooleanConstructor;
                 readonly size: StringConstructor;
@@ -13116,14 +13284,14 @@ declare const _default: import("vue").DefineComponent<{
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
             readonly always: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-            readonly width: StringConstructor;
-            readonly height: StringConstructor;
-            readonly ratioX: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
-            readonly ratioY: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 1, boolean>;
+            readonly minSize: {
+                readonly type: import("vue").PropType<number>;
+                readonly required: true;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
         }>>, {
             readonly always: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly ratioX: number;
-            readonly ratioY: number;
         }>;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
         scroll: ({ scrollTop, scrollLeft, }: {
@@ -13146,7 +13314,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly role: StringConstructor;
         readonly ariaLabel: StringConstructor;
         readonly ariaOrientation: {
-            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "horizontal" | "vertical", unknown>>;
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>>;
             readonly required: false;
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
@@ -13170,22 +13338,32 @@ declare const _default: import("vue").DefineComponent<{
         readonly noresize: boolean;
     }>> & Record<string, any>;
     ElTag: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-        readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown, "", boolean>;
+        readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
         readonly closable: BooleanConstructor;
         readonly disableTransitions: BooleanConstructor;
         readonly hit: BooleanConstructor;
-        readonly color: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-        readonly size: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "default" | "small" | "large", unknown, "", boolean>;
+        readonly color: StringConstructor;
+        readonly size: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
         readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "light" | "dark" | "plain", unknown, "light", boolean>;
         readonly round: BooleanConstructor;
     }, {
         props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-            readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown, "", boolean>;
+            readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
             readonly closable: BooleanConstructor;
             readonly disableTransitions: BooleanConstructor;
             readonly hit: BooleanConstructor;
-            readonly color: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            readonly size: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "default" | "small" | "large", unknown, "", boolean>;
+            readonly color: StringConstructor;
+            readonly size: {
+                readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", unknown>>;
+                readonly required: false;
+                readonly validator: ((val: unknown) => boolean) | undefined;
+                __epPropKey: true;
+            };
             readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "light" | "dark" | "plain", unknown, "light", boolean>;
             readonly round: BooleanConstructor;
         }>> & {
@@ -13283,23 +13461,26 @@ declare const _default: import("vue").DefineComponent<{
         close: (evt: MouseEvent) => boolean;
         click: (evt: MouseEvent) => boolean;
     }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-        readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown, "", boolean>;
+        readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
         readonly closable: BooleanConstructor;
         readonly disableTransitions: BooleanConstructor;
         readonly hit: BooleanConstructor;
-        readonly color: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-        readonly size: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "" | "default" | "small" | "large", unknown, "", boolean>;
+        readonly color: StringConstructor;
+        readonly size: {
+            readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", unknown>>;
+            readonly required: false;
+            readonly validator: ((val: unknown) => boolean) | undefined;
+            __epPropKey: true;
+        };
         readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "light" | "dark" | "plain", unknown, "light", boolean>;
         readonly round: BooleanConstructor;
     }>> & {
         onClose?: ((evt: MouseEvent) => any) | undefined;
         onClick?: ((evt: MouseEvent) => any) | undefined;
     }, {
-        readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>;
+        readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
         readonly closable: boolean;
         readonly effect: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "light" | "dark" | "plain", unknown>;
-        readonly size: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", unknown>;
-        readonly color: string;
         readonly round: boolean;
         readonly disableTransitions: boolean;
         readonly hit: boolean;
@@ -13418,7 +13599,7 @@ declare const _default: import("vue").DefineComponent<{
     teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     tagType: {
         default: string;
-        type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>>;
+        type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>>;
         required: false;
         validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
@@ -13457,6 +13638,6 @@ declare const _default: import("vue").DefineComponent<{
     maxCollapseTags: number;
     collapseTagsTooltip: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     beforeFilter: (value: string) => boolean | Promise<any>;
-    tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "success" | "warning" | "info" | "danger", unknown>;
+    tagType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
 }>;
 export default _default;

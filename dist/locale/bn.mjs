@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var bn = {
   name: "bn",
@@ -125,6 +125,11 @@ var bn = {
     popconfirm: {
       confirmButtonText: "\u09B9\u09CD\u09AF\u09BE",
       cancelButtonText: "\u09A8\u09BE"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

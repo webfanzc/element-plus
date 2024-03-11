@@ -73,7 +73,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var ElTooltipTrigger = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\tooltip\\src\\trigger.vue"]]);
+var ElTooltipTrigger = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "trigger.vue"]]);
 
 export { ElTooltipTrigger as default };
 //# sourceMappingURL=trigger2.mjs.map

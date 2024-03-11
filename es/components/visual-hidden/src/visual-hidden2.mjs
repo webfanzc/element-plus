@@ -34,7 +34,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var ElVisuallyHidden = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\visual-hidden\\src\\visual-hidden.vue"]]);
+var ElVisuallyHidden = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "visual-hidden.vue"]]);
 
 export { ElVisuallyHidden as default };
 //# sourceMappingURL=visual-hidden2.mjs.map

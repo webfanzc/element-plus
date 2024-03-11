@@ -36,7 +36,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Icon = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\icon\\src\\icon.vue"]]);
+var Icon = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "icon.vue"]]);
 
 export { Icon as default };
 //# sourceMappingURL=icon.mjs.map

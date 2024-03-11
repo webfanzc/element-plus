@@ -137,6 +137,11 @@ var English = {
       clearFilter: "All",
       sumText: "Sum"
     },
+    tour: {
+      next: "Next",
+      previous: "Previous",
+      finish: "Finish"
+    },
     tree: {
       emptyText: "No Data"
     },
@@ -157,6 +162,11 @@ var English = {
     popconfirm: {
       confirmButtonText: "Yes",
       cancelButtonText: "No"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

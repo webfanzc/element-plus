@@ -1,4 +1,4 @@
-/*! Element Plus v2.5.6 */
+/*! Element Plus v2.4.1 */
 
 var arEg = {
   name: "ar-eg",

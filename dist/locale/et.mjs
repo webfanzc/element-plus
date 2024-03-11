@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var et = {
   name: "et",
@@ -123,6 +123,11 @@ var et = {
     popconfirm: {
       confirmButtonText: "Jah",
       cancelButtonText: "Ei"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

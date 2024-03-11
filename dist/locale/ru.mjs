@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.3 */
+/*! Element Plus v2.4.1 */
 
 var ru = {
   name: "ru",
@@ -104,6 +104,11 @@ var ru = {
       clearFilter: "\u0412\u0441\u0435",
       sumText: "\u0421\u0443\u043C\u043C\u0430"
     },
+    tour: {
+      next: "\u0414\u0430\u043B\u0435\u0435",
+      previous: "\u041D\u0430\u0437\u0430\u0434",
+      finish: "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044C"
+    },
     tree: {
       emptyText: "\u041D\u0435\u0442 \u0434\u0430\u043D\u043D\u044B\u0445"
     },
@@ -124,6 +129,11 @@ var ru = {
     popconfirm: {
       confirmButtonText: "OK",
       cancelButtonText: "\u041E\u0442\u043C\u0435\u043D\u0430"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

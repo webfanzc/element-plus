@@ -101,6 +101,11 @@ var sv = {
       clearFilter: "Alla",
       sumText: "Summa"
     },
+    tour: {
+      next: "N\xE4sta",
+      previous: "F\xF6reg\xE5ende",
+      finish: "Avsluta"
+    },
     tree: {
       emptyText: "Ingen data"
     },
@@ -121,6 +126,11 @@ var sv = {
     popconfirm: {
       confirmButtonText: "Ja",
       cancelButtonText: "Nej"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

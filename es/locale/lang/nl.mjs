@@ -121,6 +121,11 @@ var nl = {
     popconfirm: {
       confirmButtonText: "Ja",
       cancelButtonText: "Nee"
+    },
+    carousel: {
+      leftArrow: "Carousel arrow left",
+      rightArrow: "Carousel arrow right",
+      indicator: "Carousel switch to index {index}"
     }
   }
 };

@@ -115,6 +115,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const newVal = ensurePrecision(value);
       setCurrentValue(newVal);
       emit(INPUT_EVENT, data.currentValue);
+      setCurrentValueToModelValue();
     };
     const decrease = () => {
       if (props.readonly || inputNumberDisabled.value || minDisabled.value)
@@ -123,6 +124,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       const newVal = ensurePrecision(value, -1);
       setCurrentValue(newVal);
       emit(INPUT_EVENT, data.currentValue);
+      setCurrentValueToModelValue();
     };
     const verifyValue = (value, update) => {
       const { max, min, step, precision, stepStrictly, valueOnClear } = props;
@@ -159,11 +161,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         emit(UPDATE_MODEL_EVENT, newVal);
         return;
       }
-      if (oldVal === newVal)
+      if (oldVal === newVal && value)
         return;
       data.userInput = null;
       emit(UPDATE_MODEL_EVENT, newVal);
-      emit(CHANGE_EVENT, newVal, oldVal);
+      if (oldVal !== newVal) {
+        emit(CHANGE_EVENT, newVal, oldVal);
+      }
       if (props.validateEvent) {
         (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "change").catch((err) => debugWarn(err));
       }
@@ -180,6 +184,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (isNumber(newVal) && !Number.isNaN(newVal) || value === "") {
         setCurrentValue(newVal);
       }
+      setCurrentValueToModelValue();
       data.userInput = null;
     };
     const focus = () => {
@@ -195,17 +200,25 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const handleBlur = (event) => {
       var _a;
+      data.userInput = null;
       emit("blur", event);
       if (props.validateEvent) {
         (_a = formItem == null ? void 0 : formItem.validate) == null ? void 0 : _a.call(formItem, "blur").catch((err) => debugWarn(err));
       }
     };
-    watch(() => props.modelValue, (value) => {
-      const userInput = verifyValue(data.userInput);
+    const setCurrentValueToModelValue = () => {
+      if (data.currentValue !== props.modelValue) {
+        data.currentValue = props.modelValue;
+      }
+    };
+    const handleWheel = (e) => {
+      if (document.activeElement === e.target)
+        e.preventDefault();
+    };
+    watch(() => props.modelValue, (value, oldValue) => {
       const newValue = verifyValue(value, true);
-      if (!isNumber(userInput) && (!userInput || userInput !== newValue)) {
+      if (data.userInput === null && newValue !== oldValue) {
         data.currentValue = newValue;
-        data.userInput = null;
       }
     }, { immediate: true });
     onMounted(() => {
@@ -251,7 +264,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           unref(ns).is("without-controls", !_ctx.controls),
           unref(ns).is("controls-right", unref(controlsAtRight))
         ]),
-        onDragstart: _cache[1] || (_cache[1] = withModifiers(() => {
+        onDragstart: _cache[0] || (_cache[0] = withModifiers(() => {
         }, ["prevent"]))
       }, [
         _ctx.controls ? withDirectives((openBlock(), createElementBlock("span", {
@@ -302,8 +315,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
           name: _ctx.name,
           label: _ctx.label,
           "validate-event": false,
-          onWheel: _cache[0] || (_cache[0] = withModifiers(() => {
-          }, ["prevent"])),
+          onWheel: handleWheel,
           onKeydown: [
             withKeys(withModifiers(increase, ["prevent"]), ["up"]),
             withKeys(withModifiers(decrease, ["prevent"]), ["down"])
@@ -317,7 +329,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var InputNumber = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\input-number\\src\\input-number.vue"]]);
+var InputNumber = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "input-number.vue"]]);
 
 export { InputNumber as default };
 //# sourceMappingURL=input-number.mjs.map

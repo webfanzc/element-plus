@@ -1,7 +1,7 @@
 import { defineComponent, toRef, unref, openBlock, createElementBlock, mergeProps, Fragment, renderList, renderSlot, createVNode, normalizeClass, createBlock, createCommentVNode, normalizeProps } from 'vue';
 import '../../../hooks/index.mjs';
 import { skeletonProps } from './skeleton2.mjs';
-import SkeletonItem from './skeleton-item2.mjs';
+import SkeletonItem from './skeleton-item.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useThrottleRender } from '../../../hooks/use-throttle-render/index.mjs';
@@ -48,7 +48,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var Skeleton = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\skeleton\\src\\skeleton.vue"]]);
+var Skeleton = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "skeleton.vue"]]);
 
 export { Skeleton as default };
 //# sourceMappingURL=skeleton.mjs.map

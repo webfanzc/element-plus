@@ -71,7 +71,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
   }
 });
-var TimelineItem = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "D:\\OneDrive\\\u684C\u9762\\bhopMain\\element-plus\\packages\\components\\timeline\\src\\timeline-item.vue"]]);
+var TimelineItem = /* @__PURE__ */ _export_sfc(_sfc_main, [["__file", "timeline-item.vue"]]);
 
 export { TimelineItem as default };
 //# sourceMappingURL=timeline-item.mjs.map

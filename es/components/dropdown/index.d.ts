@@ -2,7 +2,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
     readonly trigger: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown, "hover", boolean>;
     readonly effect: {
         readonly default: "light";
-        readonly type: import("vue").PropType<string>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         readonly __epPropKey: true;
@@ -25,7 +25,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown, 0, boolean>;
     readonly maxHeight: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown, "", boolean>;
     readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly disabled: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly disabled: BooleanConstructor;
     readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "menu", boolean>;
     readonly buttonProps: {
         readonly type: import("vue").PropType<import("..").ButtonProps>;
@@ -75,7 +75,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
         $data: {};
         $props: Partial<{
             offset: number;
-            effect: string;
+            effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -93,8 +93,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             pure: boolean;
             virtualTriggering: boolean;
             content: string;
-            rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            rawContent: boolean;
             persistent: boolean;
             disabled: boolean;
             open: boolean;
@@ -160,6 +160,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             };
             id: StringConstructor;
             open: BooleanConstructor;
+            ariaLabel: StringConstructor;
             appendTo: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                 readonly required: false;
@@ -167,9 +168,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 __epPropKey: true;
             };
             content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            rawContent: BooleanConstructor;
             persistent: BooleanConstructor;
-            ariaLabel: StringConstructor;
             visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
             transition: StringConstructor;
             teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -281,7 +281,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+            effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
             enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             pure: BooleanConstructor;
             focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -427,7 +427,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "group" | "listbox" | "grid" | "menu" | "tooltip" | "dialog" | "navigation" | "tree", unknown, "tooltip", boolean>;
         }>> & {
             [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
-        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "offset" | "effect" | "placement" | "showAfter" | "hideAfter" | "autoClose" | "boundariesPadding" | "fallbackPlacements" | "gpuAcceleration" | "popperOptions" | "strategy" | "enterable" | "focusOnShow" | "trapping" | "stopPopperMouseEvent" | "visible" | "pure" | "virtualTriggering" | "content" | "rawContent" | "teleported" | "persistent" | "disabled" | "open" | "role" | "trigger" | "triggerKeys" | "arrowOffset" | "showArrow">;
+        } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, "offset" | "effect" | "placement" | "showAfter" | "hideAfter" | "autoClose" | "boundariesPadding" | "fallbackPlacements" | "gpuAcceleration" | "popperOptions" | "strategy" | "enterable" | "focusOnShow" | "trapping" | "stopPopperMouseEvent" | "visible" | "pure" | "virtualTriggering" | "content" | "teleported" | "rawContent" | "persistent" | "disabled" | "open" | "role" | "trigger" | "triggerKeys" | "arrowOffset" | "showArrow">;
         $attrs: {
             [x: string]: unknown;
         };
@@ -498,6 +498,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             };
             id: StringConstructor;
             open: BooleanConstructor;
+            ariaLabel: StringConstructor;
             appendTo: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                 readonly required: false;
@@ -505,9 +506,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 __epPropKey: true;
             };
             content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            rawContent: BooleanConstructor;
             persistent: BooleanConstructor;
-            ariaLabel: StringConstructor;
             visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
             transition: StringConstructor;
             teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -619,7 +619,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+            effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
             enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             pure: BooleanConstructor;
             focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -823,6 +823,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 };
                 id: StringConstructor;
                 open: BooleanConstructor;
+                ariaLabel: StringConstructor;
                 appendTo: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                     readonly required: false;
@@ -830,9 +831,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
                 content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-                rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                rawContent: BooleanConstructor;
                 persistent: BooleanConstructor;
-                ariaLabel: StringConstructor;
                 visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
                 transition: StringConstructor;
                 teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -944,7 +944,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 pure: BooleanConstructor;
                 focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -1616,6 +1616,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly triggerKeys: string[];
             }>;
             ElTooltipContent: import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly appendTo: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                     readonly required: false;
@@ -1623,9 +1624,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
                 readonly content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-                readonly rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly rawContent: BooleanConstructor;
                 readonly persistent: BooleanConstructor;
-                readonly ariaLabel: StringConstructor;
                 readonly visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
                 readonly transition: StringConstructor;
                 readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -1739,7 +1739,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly pure: BooleanConstructor;
                 readonly focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -1879,6 +1879,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly autoClose: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly appendTo: {
                         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                         readonly required: false;
@@ -1886,9 +1887,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                         __epPropKey: true;
                     };
                     readonly content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-                    readonly rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                    readonly rawContent: BooleanConstructor;
                     readonly persistent: BooleanConstructor;
-                    readonly ariaLabel: StringConstructor;
                     readonly visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
                     readonly transition: StringConstructor;
                     readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -2002,7 +2002,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                     readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                     readonly pure: BooleanConstructor;
                     readonly focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -2191,6 +2191,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 onBlur: () => void;
                 stopHandle: (() => void) | undefined;
                 ElPopperContent: import("vue").DefineComponent<{
+                    readonly ariaLabel: StringConstructor;
                     readonly id: StringConstructor;
                     readonly style: {
                         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -2300,7 +2301,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                     readonly visible: BooleanConstructor;
                     readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                     readonly pure: BooleanConstructor;
@@ -2427,7 +2428,6 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                         __epPropKey: true;
                     };
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                     readonly virtualTriggering: BooleanConstructor;
                     readonly zIndex: NumberConstructor;
                     readonly boundariesPadding: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -2440,6 +2440,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 }, {
                     emit: ((event: "close") => void) & ((event: "focus") => void) & ((event: "blur") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void);
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                        readonly ariaLabel: StringConstructor;
                         readonly id: StringConstructor;
                         readonly style: {
                             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -2549,7 +2550,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                             readonly validator: ((val: unknown) => boolean) | undefined;
                             __epPropKey: true;
                         };
-                        readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                        readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                         readonly visible: BooleanConstructor;
                         readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                         readonly pure: BooleanConstructor;
@@ -2676,7 +2677,6 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                             __epPropKey: true;
                         };
                         readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                        readonly ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                         readonly virtualTriggering: BooleanConstructor;
                         readonly zIndex: NumberConstructor;
                         readonly boundariesPadding: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -2787,6 +2787,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     blur: () => boolean;
                     close: () => boolean;
                 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly id: StringConstructor;
                     readonly style: {
                         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -2896,7 +2897,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                     readonly visible: BooleanConstructor;
                     readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                     readonly pure: BooleanConstructor;
@@ -3023,7 +3024,6 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                         __epPropKey: true;
                     };
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                     readonly virtualTriggering: BooleanConstructor;
                     readonly zIndex: NumberConstructor;
                     readonly boundariesPadding: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -3041,7 +3041,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     onMouseenter?: ((evt: MouseEvent) => any) | undefined;
                 }, {
                     readonly offset: number;
-                    readonly effect: string;
+                    readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
                     readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                     readonly boundariesPadding: number;
                     readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -3052,12 +3052,12 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                    readonly ariaLabel: string;
                     readonly visible: boolean;
                     readonly pure: boolean;
                     readonly virtualTriggering: boolean;
                 }>;
             }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly appendTo: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                     readonly required: false;
@@ -3065,9 +3065,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
                 readonly content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-                readonly rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly rawContent: BooleanConstructor;
                 readonly persistent: BooleanConstructor;
-                readonly ariaLabel: StringConstructor;
                 readonly visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
                 readonly transition: StringConstructor;
                 readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -3181,7 +3180,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly pure: BooleanConstructor;
                 readonly focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -3321,7 +3320,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly autoClose: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
             }>>, {
                 readonly offset: number;
-                readonly effect: string;
+                readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly showAfter: number;
                 readonly hideAfter: number;
@@ -3339,14 +3338,14 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
                 readonly content: string;
-                readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly rawContent: boolean;
                 readonly persistent: boolean;
                 readonly disabled: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, string[], string, {
             offset: number;
-            effect: string;
+            effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
             placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             showAfter: number;
             hideAfter: number;
@@ -3364,8 +3363,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             pure: boolean;
             virtualTriggering: boolean;
             content: string;
-            rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            rawContent: boolean;
             persistent: boolean;
             disabled: boolean;
             open: boolean;
@@ -3451,6 +3450,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
         };
         id: StringConstructor;
         open: BooleanConstructor;
+        ariaLabel: StringConstructor;
         appendTo: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
             readonly required: false;
@@ -3458,9 +3458,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             __epPropKey: true;
         };
         content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-        rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        rawContent: BooleanConstructor;
         persistent: BooleanConstructor;
-        ariaLabel: StringConstructor;
         visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
         transition: StringConstructor;
         teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -3572,7 +3571,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+        effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
         enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         pure: BooleanConstructor;
         focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -3776,6 +3775,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             };
             id: StringConstructor;
             open: BooleanConstructor;
+            ariaLabel: StringConstructor;
             appendTo: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                 readonly required: false;
@@ -3783,9 +3783,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 __epPropKey: true;
             };
             content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            rawContent: BooleanConstructor;
             persistent: BooleanConstructor;
-            ariaLabel: StringConstructor;
             visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
             transition: StringConstructor;
             teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -3897,7 +3896,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+            effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
             enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             pure: BooleanConstructor;
             focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -4569,6 +4568,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             readonly triggerKeys: string[];
         }>;
         ElTooltipContent: import("vue").DefineComponent<{
+            readonly ariaLabel: StringConstructor;
             readonly appendTo: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                 readonly required: false;
@@ -4576,9 +4576,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 __epPropKey: true;
             };
             readonly content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            readonly rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly rawContent: BooleanConstructor;
             readonly persistent: BooleanConstructor;
-            readonly ariaLabel: StringConstructor;
             readonly visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
             readonly transition: StringConstructor;
             readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -4692,7 +4691,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+            readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
             readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly pure: BooleanConstructor;
             readonly focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -4832,6 +4831,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             readonly autoClose: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly appendTo: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                     readonly required: false;
@@ -4839,9 +4839,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
                 readonly content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-                readonly rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly rawContent: BooleanConstructor;
                 readonly persistent: BooleanConstructor;
-                readonly ariaLabel: StringConstructor;
                 readonly visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
                 readonly transition: StringConstructor;
                 readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -4955,7 +4954,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly pure: BooleanConstructor;
                 readonly focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -5144,6 +5143,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             onBlur: () => void;
             stopHandle: (() => void) | undefined;
             ElPopperContent: import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: StringConstructor;
                 readonly style: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -5253,7 +5253,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 readonly visible: BooleanConstructor;
                 readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly pure: BooleanConstructor;
@@ -5380,7 +5380,6 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly virtualTriggering: BooleanConstructor;
                 readonly zIndex: NumberConstructor;
                 readonly boundariesPadding: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -5393,6 +5392,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             }, {
                 emit: ((event: "close") => void) & ((event: "focus") => void) & ((event: "blur") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void);
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly id: StringConstructor;
                     readonly style: {
                         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -5502,7 +5502,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                    readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                     readonly visible: BooleanConstructor;
                     readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                     readonly pure: BooleanConstructor;
@@ -5629,7 +5629,6 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                         __epPropKey: true;
                     };
                     readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                     readonly virtualTriggering: BooleanConstructor;
                     readonly zIndex: NumberConstructor;
                     readonly boundariesPadding: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -5740,6 +5739,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 blur: () => boolean;
                 close: () => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: StringConstructor;
                 readonly style: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -5849,7 +5849,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 readonly visible: BooleanConstructor;
                 readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly pure: BooleanConstructor;
@@ -5976,7 +5976,6 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                     __epPropKey: true;
                 };
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly ariaLabel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly virtualTriggering: BooleanConstructor;
                 readonly zIndex: NumberConstructor;
                 readonly boundariesPadding: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -5994,7 +5993,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             }, {
                 readonly offset: number;
-                readonly effect: string;
+                readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
                 readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly boundariesPadding: number;
                 readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -6005,12 +6004,12 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly focusOnShow: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly ariaLabel: string;
                 readonly visible: boolean;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            readonly ariaLabel: StringConstructor;
             readonly appendTo: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                 readonly required: false;
@@ -6018,9 +6017,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 __epPropKey: true;
             };
             readonly content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            readonly rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly rawContent: BooleanConstructor;
             readonly persistent: BooleanConstructor;
-            readonly ariaLabel: StringConstructor;
             readonly visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
             readonly transition: StringConstructor;
             readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -6134,7 +6132,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+            readonly effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
             readonly enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly pure: BooleanConstructor;
             readonly focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -6274,7 +6272,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             readonly autoClose: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
         }>>, {
             readonly offset: number;
-            readonly effect: string;
+            readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
             readonly placement: import("element-plus/es/utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             readonly showAfter: number;
             readonly hideAfter: number;
@@ -6292,8 +6290,8 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
             readonly pure: boolean;
             readonly virtualTriggering: boolean;
             readonly content: string;
-            readonly rawContent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly rawContent: boolean;
             readonly persistent: boolean;
             readonly disabled: boolean;
         }>;
@@ -6305,7 +6303,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
     readonly trigger: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>) | ((new (...args: any[]) => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType> & {}) | (() => import("element-plus/es/utils").Arrayable<import("..").TooltipTriggerType>))[], unknown, unknown, "hover", boolean>;
     readonly effect: {
         readonly default: "light";
-        readonly type: import("vue").PropType<string>;
+        readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         readonly __epPropKey: true;
@@ -6328,7 +6326,7 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown, 0, boolean>;
     readonly maxHeight: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown, "", boolean>;
     readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly disabled: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly disabled: BooleanConstructor;
     readonly role: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "menu", boolean>;
     readonly buttonProps: {
         readonly type: import("vue").PropType<import("..").ButtonProps>;
@@ -6342,13 +6340,13 @@ export declare const ElDropdown: import("element-plus/es/utils").SFCWithInstall<
     "onVisible-change"?: ((...args: any[]) => any) | undefined;
     onCommand?: ((...args: any[]) => any) | undefined;
 }, {
-    readonly effect: string;
+    readonly effect: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
     readonly size: string;
     readonly placement: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement) | ((new (...args: any[]) => import("@popperjs/core").Placement & {}) | (() => import("@popperjs/core").Placement))[], unknown, unknown>;
     readonly popperClass: string;
     readonly popperOptions: Partial<import("@popperjs/core").Options>;
     readonly teleported: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly disabled: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly disabled: boolean;
     readonly tabindex: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown>;
     readonly maxHeight: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown>;
     readonly role: string;

@@ -1,8 +1,11 @@
-/*! Element Plus v2.4.1 */
+/*! Element Plus v2.7.8 */
 
 var de = {
   name: "de",
   el: {
+    breadcrumb: {
+      label: "Breadcrumb"
+    },
     colorpicker: {
       confirm: "OK",
       clear: "Leeren"

@@ -8,6 +8,7 @@ export declare const DEFAULT_FORMATS_DATEPICKER: {
     year: string;
     years: string;
     month: string;
+    months: string;
     datetime: string;
     monthrange: string;
     daterange: string;

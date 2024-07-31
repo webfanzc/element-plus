@@ -1,6 +1,7 @@
 import type { ComputedRef, ExtractPropTypes, InjectionKey } from 'vue';
 import type ColorPicker from './color-picker.vue';
 export declare const colorPickerProps: {
+    readonly ariaLabel: StringConstructor;
     readonly modelValue: StringConstructor;
     readonly id: StringConstructor;
     readonly showAlpha: BooleanConstructor;
@@ -15,6 +16,7 @@ export declare const colorPickerProps: {
     readonly popperClass: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
     readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
+    readonly teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly predefine: {
         readonly type: import("vue").PropType<string[]>;
         readonly required: false;
@@ -27,8 +29,8 @@ export declare const colorPickerEmits: {
     "update:modelValue": (val: string | null) => boolean;
     change: (val: string | null) => boolean;
     activeChange: (val: string | null) => boolean;
-    focus: (event: FocusEvent) => boolean;
-    blur: (event: FocusEvent) => boolean;
+    focus: (evt: FocusEvent) => boolean;
+    blur: (evt: FocusEvent) => boolean;
 };
 export declare type ColorPickerProps = ExtractPropTypes<typeof colorPickerProps>;
 export declare type ColorPickerEmits = typeof colorPickerEmits;

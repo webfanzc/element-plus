@@ -82,8 +82,8 @@ export declare const ElSkeleton: import("element-plus/es/utils").SFCWithInstall<
         __epPropKey: true;
     };
 }>>, {
-    readonly loading: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly rows: number;
+    readonly loading: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly animated: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly count: number;
 }>> & {

@@ -34,7 +34,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly trapFocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly trapFocus: BooleanConstructor;
     readonly headerAriaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     readonly center: BooleanConstructor;
     readonly alignCenter: BooleanConstructor;
@@ -87,7 +87,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly trapFocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly trapFocus: BooleanConstructor;
         readonly headerAriaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
         readonly center: BooleanConstructor;
         readonly alignCenter: BooleanConstructor;
@@ -160,7 +160,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
     draggable: import("vue").ComputedRef<boolean>;
     ElOverlay: import("vue").DefineComponent<{
         readonly mask: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly customMaskEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly customMaskEvent: BooleanConstructor;
         readonly overlayClass: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | string[] | Record<string, boolean>) & {}) | (() => string | string[] | Record<string, boolean>) | ((new (...args: any[]) => (string | string[] | Record<string, boolean>) & {}) | (() => string | string[] | Record<string, boolean>))[], unknown, unknown>>;
             readonly required: false;
@@ -179,7 +179,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         click: (evt: MouseEvent) => boolean;
     }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         readonly mask: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly customMaskEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly customMaskEvent: BooleanConstructor;
         readonly overlayClass: {
             readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | string[] | Record<string, boolean>) & {}) | (() => string | string[] | Record<string, boolean>) | ((new (...args: any[]) => (string | string[] | Record<string, boolean>) & {}) | (() => string | string[] | Record<string, boolean>))[], unknown, unknown>>;
             readonly required: false;
@@ -196,7 +196,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         onClick?: ((evt: MouseEvent) => any) | undefined;
     }, {
         readonly mask: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly customMaskEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly customMaskEvent: boolean;
     }>;
     ElFocusTrap: import("vue").DefineComponent<{
         loop: BooleanConstructor;
@@ -429,7 +429,7 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly trapFocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly trapFocus: BooleanConstructor;
     readonly headerAriaLevel: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     readonly center: BooleanConstructor;
     readonly alignCenter: BooleanConstructor;
@@ -470,10 +470,10 @@ export declare const ElDialog: import("element-plus/es/utils").SFCWithInstall<im
     readonly modal: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly openDelay: number;
     readonly closeDelay: number;
-    readonly trapFocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly headerAriaLevel: string;
     readonly appendToBody: boolean;
     readonly destroyOnClose: boolean;
+    readonly trapFocus: boolean;
 }>> & Record<string, any>;
 export default ElDialog;
 export * from './src/use-dialog';

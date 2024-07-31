@@ -1,9 +1,10 @@
 import type Switch from './switch.vue';
 import type { ExtractPropTypes, PropType } from 'vue';
 export declare const switchProps: {
+    readonly ariaLabel: StringConstructor;
     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<readonly [BooleanConstructor, StringConstructor, NumberConstructor], unknown, unknown, false, boolean>;
-    readonly disabled: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-    readonly loading: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly disabled: BooleanConstructor;
+    readonly loading: BooleanConstructor;
     readonly size: {
         readonly type: PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("" | "default" | "small" | "large") & {}) | (() => "" | "default" | "small" | "large") | ((new (...args: any[]) => ("" | "default" | "small" | "large") & {}) | (() => "" | "default" | "small" | "large"))[], unknown, "" | "default" | "small" | "large">>;
         readonly required: false;
@@ -11,7 +12,7 @@ export declare const switchProps: {
         __epPropKey: true;
     };
     readonly width: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, "", boolean>;
-    readonly inlinePrompt: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly inlinePrompt: BooleanConstructor;
     readonly inactiveActionIcon: {
         readonly type: PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
         readonly required: false;

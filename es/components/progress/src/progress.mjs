@@ -28,11 +28,19 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       default: "#20a0ff"
     };
     const ns = useNamespace("progress");
-    const barStyle = computed(() => ({
-      width: `${props.percentage}%`,
-      animationDuration: `${props.duration}s`,
-      backgroundColor: getCurrentColor(props.percentage)
-    }));
+    const barStyle = computed(() => {
+      const barStyle2 = {
+        width: `${props.percentage}%`,
+        animationDuration: `${props.duration}s`
+      };
+      const color = getCurrentColor(props.percentage);
+      if (color.includes("gradient")) {
+        barStyle2.background = color;
+      } else {
+        barStyle2.backgroundColor = color;
+      }
+      return barStyle2;
+    });
     const relativeStrokeWidth = computed(() => (props.strokeWidth / props.width * 100).toFixed(1));
     const radius = computed(() => {
       if (["circle", "dashboard"].includes(props.type)) {

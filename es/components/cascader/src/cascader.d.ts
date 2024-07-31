@@ -1,5 +1,7 @@
 import type { CascaderNode, CascaderValue } from 'element-plus/es/components/cascader-panel';
 export declare const cascaderProps: {
+    emptyValues: ArrayConstructor;
+    valueOnClear: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor, BooleanConstructor, FunctionConstructor], unknown, unknown, undefined, boolean>;
     size: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
         readonly required: false;
@@ -43,7 +45,15 @@ export declare const cascaderProps: {
         validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
+    tagEffect: {
+        default: string;
+        type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "light" | "dark" | "plain", unknown>>;
+        required: false;
+        validator: ((val: unknown) => boolean) | undefined;
+        __epPropKey: true;
+    };
     validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
+    persistent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, boolean, boolean>;
     modelValue: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => import("../../cascader-panel/src/node").CascaderValue & {}) | (() => import("../../cascader-panel/src/node").CascaderValue) | ((new (...args: any[]) => import("../../cascader-panel/src/node").CascaderValue & {}) | (() => import("../../cascader-panel/src/node").CascaderValue))[], unknown, unknown>>;
         readonly required: false;
@@ -54,10 +64,11 @@ export declare const cascaderProps: {
     props: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("element-plus/es/components/cascader-panel").CascaderProps) | (() => import("element-plus/es/components/cascader-panel").CascaderProps) | ((new (...args: any[]) => import("element-plus/es/components/cascader-panel").CascaderProps) | (() => import("element-plus/es/components/cascader-panel").CascaderProps))[], unknown, unknown, () => import("element-plus/es/components/cascader-panel").CascaderProps, boolean>;
 };
 export declare const cascaderEmits: {
-    "update:modelValue": (val: CascaderValue) => boolean;
-    change: (val: CascaderValue) => boolean;
+    "update:modelValue": (_: CascaderValue) => boolean;
+    change: (_: CascaderValue) => boolean;
     focus: (evt: FocusEvent) => boolean;
     blur: (evt: FocusEvent) => boolean;
+    clear: () => boolean;
     visibleChange: (val: boolean) => boolean;
     expandChange: (val: CascaderValue) => boolean;
     removeTag: (val: CascaderNode['valueByOption']) => boolean;

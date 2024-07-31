@@ -1,7 +1,7 @@
 import { reactive, ref, computed, watch, watchEffect, nextTick, toRaw, onMounted } from 'vue';
 import { isArray, isFunction, toRawType, isObject } from '@vue/shared';
-import { isNil, isEqual, get, debounce, findLastIndex } from 'lodash-unified';
-import { isClient, useResizeObserver } from '@vueuse/core';
+import { isEqual, get, debounce, findLastIndex } from 'lodash-unified';
+import { isIOS, isClient, useResizeObserver } from '@vueuse/core';
 import '../../../constants/index.mjs';
 import '../../../utils/index.mjs';
 import '../../../hooks/index.mjs';
@@ -12,6 +12,7 @@ import { useId } from '../../../hooks/use-id/index.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
 import { useFocusController } from '../../../hooks/use-focus-controller/index.mjs';
 import { useFormItem, useFormItemInputId } from '../../form/src/hooks/use-form-item.mjs';
+import { useEmptyValues } from '../../../hooks/use-empty-values/index.mjs';
 import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { useFormSize } from '../../form/src/hooks/use-form-common-props.mjs';
 import { debugWarn } from '../../../utils/error.mjs';
@@ -77,14 +78,13 @@ const useSelect = (props, emit) => {
   const { inputId } = useFormItemInputId(props, {
     formItemContext: formItem
   });
+  const { valueOnClear, isEmptyValue } = useEmptyValues(props);
   const selectDisabled = computed(() => props.disabled || (form == null ? void 0 : form.disabled));
-  const hasEmptyStringOption = computed(() => optionsArray.value.some((option) => option.value === ""));
   const hasModelValue = computed(() => {
-    return props.multiple ? isArray(props.modelValue) && props.modelValue.length > 0 : !isNil(props.modelValue) && (props.modelValue !== "" || hasEmptyStringOption.value);
+    return props.multiple ? isArray(props.modelValue) && props.modelValue.length > 0 : !isEmptyValue(props.modelValue);
   });
   const showClose = computed(() => {
-    const criteria = props.clearable && !selectDisabled.value && states.inputHovering && hasModelValue.value;
-    return criteria;
+    return props.clearable && !selectDisabled.value && states.inputHovering && hasModelValue.value;
   });
   const iconComponent = computed(() => props.remote && props.filterable && !props.remoteShowSuffix ? "" : props.suffixIcon);
   const iconReverse = computed(() => nsSelect.is("reverse", iconComponent.value && expanded.value));
@@ -133,7 +133,8 @@ const useSelect = (props, emit) => {
     if (props.filterable && props.remote && isFunction(props.remoteMethod))
       return;
     optionsArray.value.forEach((option) => {
-      option.updateOption(states.inputValue);
+      var _a;
+      (_a = option.updateOption) == null ? void 0 : _a.call(option, states.inputValue);
     });
   };
   const selectSize = useFormSize();
@@ -157,6 +158,7 @@ const useSelect = (props, emit) => {
     const _placeholder = (_a = props.placeholder) != null ? _a : t("el.select.placeholder");
     return props.multiple || !hasModelValue.value ? _placeholder : states.selectedLabel;
   });
+  const mouseEnterEventName = computed(() => isIOS ? null : "mouseenter");
   watch(() => props.modelValue, (val, oldVal) => {
     if (props.multiple) {
       if (props.filterable && !props.reserveKeyword) {
@@ -262,7 +264,9 @@ const useSelect = (props, emit) => {
         option = {
           value,
           currentLabel: cachedOption.currentLabel,
-          isDisabled: cachedOption.isDisabled
+          get isDisabled() {
+            return cachedOption.isDisabled;
+          }
         };
         break;
       }
@@ -335,9 +339,11 @@ const useSelect = (props, emit) => {
       const lastNotDisabledIndex = getLastNotDisabledIndex(value);
       if (lastNotDisabledIndex < 0)
         return;
+      const removeTagValue = value[lastNotDisabledIndex];
       value.splice(lastNotDisabledIndex, 1);
       emit(UPDATE_MODEL_EVENT, value);
       emitChange(value);
+      emit("remove-tag", removeTagValue);
     }
   };
   const deleteTag = (event, tag) => {
@@ -354,7 +360,7 @@ const useSelect = (props, emit) => {
   };
   const deleteSelected = (event) => {
     event.stopPropagation();
-    const value = props.multiple ? [] : void 0;
+    const value = props.multiple ? [] : valueOnClear.value;
     if (props.multiple) {
       for (const item of states.selected) {
         if (item.isDisabled)
@@ -449,6 +455,7 @@ const useSelect = (props, emit) => {
     return (_b = (_a = tooltipRef.value) == null ? void 0 : _a.popperRef) == null ? void 0 : _b.contentRef;
   });
   const handleMenuEnter = () => {
+    states.isBeforeHide = false;
     nextTick(() => scrollToOption(states.selected));
   };
   const focus = () => {
@@ -478,6 +485,8 @@ const useSelect = (props, emit) => {
   const toggleMenu = () => {
     if (selectDisabled.value)
       return;
+    if (isIOS)
+      states.inputHovering = true;
     if (states.menuVisibleOnFocus) {
       states.menuVisibleOnFocus = false;
     } else {
@@ -592,6 +601,7 @@ const useSelect = (props, emit) => {
     hasModelValue,
     shouldShowPlaceholder,
     currentPlaceholder,
+    mouseEnterEventName,
     showClose,
     iconComponent,
     iconReverse,

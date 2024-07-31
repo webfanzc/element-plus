@@ -3,25 +3,25 @@ declare const _default: import("vue").DefineComponent<{
     nowrap: BooleanConstructor;
     ariaLabel: StringConstructor;
     arrowPadding: import("../../../utils").EpPropFinalized<(new (...args: any[]) => number & {}) | (() => number) | ((new (...args: any[]) => number & {}) | (() => number))[], unknown, unknown, 5, boolean>;
-    effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "light", boolean>;
     contentClass: StringConstructor;
     placement: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement) | ((new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement))[], "top" | "bottom" | "left" | "right" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end", unknown, "bottom", boolean>;
     reference: import("../../../utils").EpPropFinalized<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown, null, boolean>;
     offset: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 8, boolean>;
     strategy: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy) | ((new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy))[], "fixed" | "absolute", unknown, "absolute", boolean>;
-    showArrow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    showArrow: BooleanConstructor;
 }, {
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
         nowrap: BooleanConstructor;
         ariaLabel: StringConstructor;
         arrowPadding: import("../../../utils").EpPropFinalized<(new (...args: any[]) => number & {}) | (() => number) | ((new (...args: any[]) => number & {}) | (() => number))[], unknown, unknown, 5, boolean>;
-        effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+        effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "light", boolean>;
         contentClass: StringConstructor;
         placement: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement) | ((new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement))[], "top" | "bottom" | "left" | "right" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end", unknown, "bottom", boolean>;
         reference: import("../../../utils").EpPropFinalized<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown, null, boolean>;
         offset: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 8, boolean>;
         strategy: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy) | ((new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy))[], "fixed" | "absolute", unknown, "absolute", boolean>;
-        showArrow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        showArrow: BooleanConstructor;
     }>> & {
         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
     }>>;
@@ -122,20 +122,20 @@ declare const _default: import("vue").DefineComponent<{
     nowrap: BooleanConstructor;
     ariaLabel: StringConstructor;
     arrowPadding: import("../../../utils").EpPropFinalized<(new (...args: any[]) => number & {}) | (() => number) | ((new (...args: any[]) => number & {}) | (() => number))[], unknown, unknown, 5, boolean>;
-    effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
+    effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "light", boolean>;
     contentClass: StringConstructor;
     placement: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement) | ((new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement))[], "top" | "bottom" | "left" | "right" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end", unknown, "bottom", boolean>;
     reference: import("../../../utils").EpPropFinalized<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown, null, boolean>;
     offset: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 8, boolean>;
     strategy: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy) | ((new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy))[], "fixed" | "absolute", unknown, "absolute", boolean>;
-    showArrow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    showArrow: BooleanConstructor;
 }>>, {
     offset: number;
-    effect: string;
+    effect: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
     placement: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement) | ((new (...args: any[]) => import("@floating-ui/dom").Placement & {}) | (() => import("@floating-ui/dom").Placement))[], "top" | "bottom" | "left" | "right" | "top-start" | "top-end" | "bottom-start" | "bottom-end" | "right-start" | "right-end" | "left-start" | "left-end", unknown>;
     strategy: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy) | ((new (...args: any[]) => import("@floating-ui/dom").Strategy & {}) | (() => import("@floating-ui/dom").Strategy))[], "fixed" | "absolute", unknown>;
     nowrap: boolean;
-    showArrow: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    showArrow: boolean;
     arrowPadding: number;
     reference: import("../../../utils").EpPropMergeType<(new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null) | ((new (...args: any[]) => HTMLElement | import("@floating-ui/dom").VirtualElement) | (() => HTMLElement | import("@floating-ui/dom").VirtualElement | null))[], unknown, unknown>;
 }>;

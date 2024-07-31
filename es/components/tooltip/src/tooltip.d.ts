@@ -63,6 +63,7 @@ export declare const useTooltipProps: {
     };
     id: StringConstructor;
     open: BooleanConstructor;
+    ariaLabel: StringConstructor;
     appendTo: {
         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
         readonly required: false;
@@ -70,9 +71,8 @@ export declare const useTooltipProps: {
         __epPropKey: true;
     };
     content: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    rawContent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    rawContent: BooleanConstructor;
     persistent: BooleanConstructor;
-    ariaLabel: StringConstructor;
     visible: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
     transition: StringConstructor;
     teleported: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -184,7 +184,7 @@ export declare const useTooltipProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    effect: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+    effect: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
     enterable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     pure: BooleanConstructor;
     focusOnShow: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;

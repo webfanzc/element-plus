@@ -145,19 +145,25 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const selectionMode = computed(() => {
       const { type } = props;
-      if (["week", "month", "year", "years", "dates"].includes(type))
+      if (["week", "month", "months", "year", "years", "dates"].includes(type))
         return type;
       return "date";
+    });
+    const isMultipleType = computed(() => {
+      return selectionMode.value === "dates" || selectionMode.value === "months" || selectionMode.value === "years";
     });
     const keyboardMode = computed(() => {
       return selectionMode.value === "date" ? currentView.value : selectionMode.value;
     });
     const hasShortcuts = computed(() => !!shortcuts.length);
-    const handleMonthPick = async (month2) => {
-      innerDate.value = innerDate.value.startOf("month").month(month2);
+    const handleMonthPick = async (month2, keepOpen) => {
       if (selectionMode.value === "month") {
+        innerDate.value = innerDate.value.startOf("month").month(month2);
         emit(innerDate.value, false);
+      } else if (selectionMode.value === "months") {
+        emit(month2, keepOpen != null ? keepOpen : true);
       } else {
+        innerDate.value = innerDate.value.startOf("month").month(month2);
         currentView.value = "date";
         if (["month", "year", "date", "week"].includes(selectionMode.value)) {
           emit(innerDate.value, true);
@@ -193,9 +199,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const footerVisible = computed(() => {
       const showDateFooter = showTime.value || selectionMode.value === "dates";
       const showYearFooter = selectionMode.value === "years";
+      const showMonthFooter = selectionMode.value === "months";
       const isDateView = currentView.value === "date";
       const isYearView = currentView.value === "year";
-      return showDateFooter && isDateView || showYearFooter && isYearView;
+      const isMonthView = currentView.value === "month";
+      return showDateFooter && isDateView || showYearFooter && isYearView || showMonthFooter && isMonthView;
     });
     const disabledConfirm = computed(() => {
       if (!disabledDate)
@@ -208,7 +216,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return disabledDate(props.parsedValue.toDate());
     });
     const onConfirm = () => {
-      if (selectionMode.value === "dates" || selectionMode.value === "years") {
+      if (isMultipleType.value) {
         emit(props.parsedValue);
       } else {
         let result = props.parsedValue;
@@ -413,6 +421,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       } else if (val === "years") {
         currentView.value = "year";
         return;
+      } else if (val === "months") {
+        currentView.value = "month";
+        return;
       }
       currentView.value = "date";
     }, { immediate: true });
@@ -426,7 +437,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     }, { immediate: true });
     watch(() => props.parsedValue, (val) => {
       if (val) {
-        if (selectionMode.value === "dates" || selectionMode.value === "years")
+        if (isMultipleType.value)
           return;
         if (Array.isArray(val))
           return;
@@ -633,11 +644,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 key: 2,
                 ref_key: "currentViewRef",
                 ref: currentViewRef,
+                "selection-mode": unref(selectionMode),
                 date: innerDate.value,
                 "parsed-value": _ctx.parsedValue,
                 "disabled-date": unref(disabledDate),
                 onPick: handleMonthPick
-              }, null, 8, ["date", "parsed-value", "disabled-date"])) : createCommentVNode("v-if", true)
+              }, null, 8, ["selection-mode", "date", "parsed-value", "disabled-date"])) : createCommentVNode("v-if", true)
             ], 34)
           ], 2)
         ], 2),
@@ -656,7 +668,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             ]),
             _: 1
           }, 8, ["class", "disabled"]), [
-            [vShow, unref(selectionMode) !== "dates" && unref(selectionMode) !== "years"]
+            [vShow, !unref(isMultipleType)]
           ]),
           createVNode(unref(ElButton), {
             plain: "",

@@ -1,9 +1,9 @@
 export declare const ElCheckTag: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-    readonly checked: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly checked: BooleanConstructor;
     readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
 }, {
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-        readonly checked: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly checked: BooleanConstructor;
         readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
     }>> & {
         onChange?: ((value: boolean) => any) | undefined;
@@ -34,14 +34,14 @@ export declare const ElCheckTag: import("element-plus/es/utils").SFCWithInstall<
     'update:checked': (value: boolean) => boolean;
     change: (value: boolean) => boolean;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    readonly checked: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly checked: BooleanConstructor;
     readonly type: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
 }>> & {
     onChange?: ((value: boolean) => any) | undefined;
     "onUpdate:checked"?: ((value: boolean) => any) | undefined;
 }, {
     readonly type: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
-    readonly checked: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly checked: boolean;
 }>> & Record<string, any>;
 export default ElCheckTag;
 export * from './src/check-tag';

@@ -1,6 +1,7 @@
 import type { Component, ExtractPropTypes } from 'vue';
 import type Rate from './rate.vue';
 export declare const rateProps: {
+    readonly ariaLabel: StringConstructor;
     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly lowThreshold: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
@@ -26,7 +27,7 @@ export declare const rateProps: {
         __epPropKey: true;
     };
     readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
-    readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly clearable: BooleanConstructor;
 };
 export declare type RateProps = ExtractPropTypes<typeof rateProps>;
 export declare const rateEmits: {

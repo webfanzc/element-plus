@@ -34,7 +34,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly trapFocus: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly trapFocus: BooleanConstructor;
     readonly headerAriaLevel: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     readonly center: BooleanConstructor;
     readonly alignCenter: BooleanConstructor;
@@ -87,7 +87,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly trapFocus: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly trapFocus: BooleanConstructor;
         readonly headerAriaLevel: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
         readonly center: BooleanConstructor;
         readonly alignCenter: BooleanConstructor;
@@ -160,7 +160,7 @@ declare const _default: import("vue").DefineComponent<{
     draggable: import("vue").ComputedRef<boolean>;
     ElOverlay: import("vue").DefineComponent<{
         readonly mask: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly customMaskEvent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly customMaskEvent: BooleanConstructor;
         readonly overlayClass: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | string[] | Record<string, boolean>) & {}) | (() => string | string[] | Record<string, boolean>) | ((new (...args: any[]) => (string | string[] | Record<string, boolean>) & {}) | (() => string | string[] | Record<string, boolean>))[], unknown, unknown>>;
             readonly required: false;
@@ -179,7 +179,7 @@ declare const _default: import("vue").DefineComponent<{
         click: (evt: MouseEvent) => boolean;
     }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
         readonly mask: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly customMaskEvent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly customMaskEvent: BooleanConstructor;
         readonly overlayClass: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | string[] | Record<string, boolean>) & {}) | (() => string | string[] | Record<string, boolean>) | ((new (...args: any[]) => (string | string[] | Record<string, boolean>) & {}) | (() => string | string[] | Record<string, boolean>))[], unknown, unknown>>;
             readonly required: false;
@@ -196,7 +196,7 @@ declare const _default: import("vue").DefineComponent<{
         onClick?: ((evt: MouseEvent) => any) | undefined;
     }, {
         readonly mask: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly customMaskEvent: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        readonly customMaskEvent: boolean;
     }>;
     ElFocusTrap: import("vue").DefineComponent<{
         loop: BooleanConstructor;
@@ -429,7 +429,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly trapFocus: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly trapFocus: BooleanConstructor;
     readonly headerAriaLevel: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "2", boolean>;
     readonly center: BooleanConstructor;
     readonly alignCenter: BooleanConstructor;
@@ -470,9 +470,9 @@ declare const _default: import("vue").DefineComponent<{
     readonly modal: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly openDelay: number;
     readonly closeDelay: number;
-    readonly trapFocus: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly headerAriaLevel: string;
     readonly appendToBody: boolean;
     readonly destroyOnClose: boolean;
+    readonly trapFocus: boolean;
 }>;
 export default _default;

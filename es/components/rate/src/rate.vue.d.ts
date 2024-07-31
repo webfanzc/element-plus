@@ -1,5 +1,6 @@
 import type { CSSProperties, Component } from 'vue';
 declare const _default: import("vue").DefineComponent<{
+    readonly ariaLabel: StringConstructor;
     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly lowThreshold: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
@@ -25,7 +26,7 @@ declare const _default: import("vue").DefineComponent<{
         __epPropKey: true;
     };
     readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
-    readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly clearable: BooleanConstructor;
 }, {
     getValueFromMap: <T>(value: number, map: Record<string, T | {
         excluded?: boolean | undefined;
@@ -35,6 +36,7 @@ declare const _default: import("vue").DefineComponent<{
         value: T;
     };
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+        readonly ariaLabel: StringConstructor;
         readonly modelValue: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
         readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
         readonly lowThreshold: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
@@ -60,7 +62,7 @@ declare const _default: import("vue").DefineComponent<{
             __epPropKey: true;
         };
         readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
-        readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly clearable: BooleanConstructor;
     }>> & {
         onChange?: ((value: number) => any) | undefined;
         "onUpdate:modelValue"?: ((value: number) => any) | undefined;
@@ -213,6 +215,7 @@ declare const _default: import("vue").DefineComponent<{
     change: (value: number) => boolean;
     "update:modelValue": (value: number) => boolean;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    readonly ariaLabel: StringConstructor;
     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
     readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
     readonly lowThreshold: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
@@ -238,16 +241,16 @@ declare const _default: import("vue").DefineComponent<{
         __epPropKey: true;
     };
     readonly label: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
-    readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly clearable: BooleanConstructor;
 }>> & {
     onChange?: ((value: number) => any) | undefined;
     "onUpdate:modelValue"?: ((value: number) => any) | undefined;
 }, {
     readonly modelValue: number;
-    readonly label: string;
     readonly id: string;
     readonly disabled: boolean;
-    readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly clearable: boolean;
+    readonly label: string;
     readonly max: number;
     readonly textColor: string;
     readonly colors: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => string[] | Record<number, string>) | (() => string[] | Record<number, string>) | ((new (...args: any[]) => string[] | Record<number, string>) | (() => string[] | Record<number, string>))[], unknown, unknown>;

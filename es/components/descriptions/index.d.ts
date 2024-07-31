@@ -1,5 +1,5 @@
 export declare const ElDescriptions: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
-    readonly border: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly border: BooleanConstructor;
     readonly column: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
     readonly direction: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "horizontal", boolean>;
     readonly size: {
@@ -12,7 +12,7 @@ export declare const ElDescriptions: import("element-plus/es/utils").SFCWithInst
     readonly extra: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
 }, {
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-        readonly border: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly border: BooleanConstructor;
         readonly column: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
         readonly direction: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "horizontal", boolean>;
         readonly size: {
@@ -88,7 +88,7 @@ export declare const ElDescriptions: import("element-plus/es/utils").SFCWithInst
         readonly row: import("./src/description-item").DescriptionItemVNode[];
     }>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    readonly border: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly border: BooleanConstructor;
     readonly column: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 3, boolean>;
     readonly direction: import("element-plus/es/utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "horizontal", boolean>;
     readonly size: {
@@ -103,7 +103,7 @@ export declare const ElDescriptions: import("element-plus/es/utils").SFCWithInst
     readonly title: string;
     readonly direction: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "vertical" | "horizontal", unknown>;
     readonly column: number;
-    readonly border: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly border: boolean;
     readonly extra: string;
 }>> & {
     DescriptionsItem: import("vue").DefineComponent<{
@@ -126,8 +126,8 @@ export declare const ElDescriptions: import("element-plus/es/utils").SFCWithInst
         labelClassName: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
     }>>, {
         width: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | StringConstructor)[], unknown, unknown>;
-        label: string;
         className: string;
+        label: string;
         minWidth: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | StringConstructor)[], unknown, unknown>;
         span: number;
         align: string;
@@ -155,8 +155,8 @@ export declare const ElDescriptionsItem: import("element-plus/es/utils").SFCWith
     labelClassName: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, string, boolean>;
 }>>, {
     width: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | StringConstructor)[], unknown, unknown>;
-    label: string;
     className: string;
+    label: string;
     minWidth: import("element-plus/es/utils").EpPropMergeType<(NumberConstructor | StringConstructor)[], unknown, unknown>;
     span: number;
     align: string;
@@ -165,3 +165,4 @@ export declare const ElDescriptionsItem: import("element-plus/es/utils").SFCWith
 }>>;
 export default ElDescriptions;
 export * from './src/description';
+export * from './src/description-item';

@@ -126,7 +126,7 @@ export declare const popoverProps: {
     };
     readonly effect: {
         readonly default: "light";
-        readonly type: PropType<string>;
+        readonly type: PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>>;
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         readonly __epPropKey: true;

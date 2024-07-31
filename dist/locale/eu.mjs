@@ -1,8 +1,11 @@
-/*! Element Plus v2.4.1 */
+/*! Element Plus v2.7.8 */
 
 var eu = {
   name: "eu",
   el: {
+    breadcrumb: {
+      label: "Breadcrumb"
+    },
     colorpicker: {
       confirm: "Ados",
       clear: "Garbitu"

@@ -39,8 +39,9 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const formItemRef = ref();
     let initialValue = void 0;
     let isResettingField = false;
+    const labelPosition = computed(() => props.labelPosition || (formContext == null ? void 0 : formContext.labelPosition));
     const labelStyle = computed(() => {
-      if ((formContext == null ? void 0 : formContext.labelPosition) === "top") {
+      if (labelPosition.value === "top") {
         return {};
       }
       const labelWidth = addUnit(props.labelWidth || (formContext == null ? void 0 : formContext.labelWidth) || "");
@@ -49,7 +50,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return {};
     });
     const contentStyle = computed(() => {
-      if ((formContext == null ? void 0 : formContext.labelPosition) === "top" || (formContext == null ? void 0 : formContext.inline)) {
+      if (labelPosition.value === "top" || (formContext == null ? void 0 : formContext.inline)) {
         return {};
       }
       if (!props.label && !props.labelWidth && isNested) {
@@ -70,7 +71,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       ns.is("required", isRequired.value || props.required),
       ns.is("no-asterisk", formContext == null ? void 0 : formContext.hideRequiredAsterisk),
       (formContext == null ? void 0 : formContext.requireAsteriskPosition) === "right" ? "asterisk-right" : "asterisk-left",
-      { [ns.m("feedback")]: formContext == null ? void 0 : formContext.statusIcon }
+      {
+        [ns.m("feedback")]: formContext == null ? void 0 : formContext.statusIcon,
+        [ns.m(`label-${labelPosition.value}`)]: labelPosition.value
+      }
     ]);
     const _inlineMessage = computed(() => isBoolean(props.inlineMessage) ? props.inlineMessage : (formContext == null ? void 0 : formContext.inlineMessage) || false);
     const validateClasses = computed(() => [

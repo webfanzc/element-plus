@@ -5,7 +5,7 @@ import '../../form/index.mjs';
 import '../../../hooks/index.mjs';
 import { sliderContextKey } from './constants.mjs';
 import { sliderProps, sliderEmits } from './slider.mjs';
-import SliderButton from './button2.mjs';
+import SliderButton from './button.mjs';
 import SliderMarker from './marker.mjs';
 import './composables/index.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
@@ -19,6 +19,7 @@ import { useMarks } from './composables/use-marks.mjs';
 import { useWatch } from './composables/use-watch.mjs';
 import { useLifecycle } from './composables/use-lifecycle.mjs';
 import { CHANGE_EVENT } from '../../../constants/event.mjs';
+import { useDeprecated } from '../../../hooks/use-deprecated/index.mjs';
 
 const _hoisted_1 = ["id", "role", "aria-label", "aria-labelledby"];
 const _hoisted_2 = { key: 1 };
@@ -66,7 +67,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const sliderWrapperSize = useFormSize();
     const sliderInputSize = computed(() => props.inputSize || sliderWrapperSize.value);
     const groupLabel = computed(() => {
-      return props.label || t("el.slider.defaultLabel", {
+      return props.label || props.ariaLabel || t("el.slider.defaultLabel", {
         min: props.min,
         max: props.max
       });
@@ -122,6 +123,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       resetSize,
       updateDragging
     });
+    useDeprecated({
+      from: "label",
+      replacement: "aria-label",
+      version: "2.8.0",
+      scope: "el-slider",
+      ref: "https://element-plus.org/en-US/component/slider.html"
+    }, computed(() => !!props.label));
     expose({
       onSliderClick
     });

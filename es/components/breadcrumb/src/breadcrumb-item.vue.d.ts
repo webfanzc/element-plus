@@ -1,11 +1,11 @@
 import type { Router } from 'vue-router';
 declare const _default: import("vue").DefineComponent<{
     readonly to: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("vue-router").RouteLocationRaw & {}) | (() => import("vue-router").RouteLocationRaw) | ((new (...args: any[]) => import("vue-router").RouteLocationRaw & {}) | (() => import("vue-router").RouteLocationRaw))[], unknown, unknown, "", boolean>;
-    readonly replace: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly replace: BooleanConstructor;
 }, {
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
         readonly to: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("vue-router").RouteLocationRaw & {}) | (() => import("vue-router").RouteLocationRaw) | ((new (...args: any[]) => import("vue-router").RouteLocationRaw & {}) | (() => import("vue-router").RouteLocationRaw))[], unknown, unknown, "", boolean>;
-        readonly replace: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly replace: BooleanConstructor;
     }>> & {
         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
     }>>;
@@ -97,9 +97,9 @@ declare const _default: import("vue").DefineComponent<{
     }>>, {}>> & Record<string, any>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly to: import("../../../utils").EpPropFinalized<(new (...args: any[]) => import("vue-router").RouteLocationRaw & {}) | (() => import("vue-router").RouteLocationRaw) | ((new (...args: any[]) => import("vue-router").RouteLocationRaw & {}) | (() => import("vue-router").RouteLocationRaw))[], unknown, unknown, "", boolean>;
-    readonly replace: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly replace: BooleanConstructor;
 }>>, {
-    readonly replace: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly replace: boolean;
     readonly to: import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue-router").RouteLocationRaw & {}) | (() => import("vue-router").RouteLocationRaw) | ((new (...args: any[]) => import("vue-router").RouteLocationRaw & {}) | (() => import("vue-router").RouteLocationRaw))[], unknown, unknown>;
 }>;
 export default _default;

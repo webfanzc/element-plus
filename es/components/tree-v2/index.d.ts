@@ -93,10 +93,10 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
         onCheck?: ((data: import("../tree/src/tree.type").TreeNodeData, checkedInfo: import("./src/types").CheckedInfo) => any) | undefined;
         "onCheck-change"?: ((data: import("../tree/src/tree.type").TreeNodeData, checked: boolean) => any) | undefined;
         "onNode-click"?: ((data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode, e: MouseEvent) => any) | undefined;
-        "onNode-contextmenu"?: ((event: Event, data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => any) | undefined;
+        "onNode-contextmenu"?: ((evt: Event, data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => any) | undefined;
         "onNode-collapse"?: ((data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => any) | undefined;
     }>>;
-    emit: ((event: "current-change", data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => void) & ((event: "node-expand", data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => void) & ((event: "check-change", data: import("../tree/src/tree.type").TreeNodeData, checked: boolean) => void) & ((event: "node-click", data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode, e: MouseEvent) => void) & ((event: "node-contextmenu", event: Event, data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => void) & ((event: "node-collapse", data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => void) & ((event: "check", data: import("../tree/src/tree.type").TreeNodeData, checkedInfo: import("./src/types").CheckedInfo) => void);
+    emit: ((event: "current-change", data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => void) & ((event: "node-expand", data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => void) & ((event: "check-change", data: import("../tree/src/tree.type").TreeNodeData, checked: boolean) => void) & ((event: "node-click", data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode, e: MouseEvent) => void) & ((event: "node-contextmenu", evt: Event, data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => void) & ((event: "node-collapse", data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => void) & ((event: "check", data: import("../tree/src/tree.type").TreeNodeData, checkedInfo: import("./src/types").CheckedInfo) => void);
     slots: Readonly<{
         [name: string]: import("vue").Slot | undefined;
     }>;
@@ -434,6 +434,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
             };
         }>>, {}>> & Record<string, any>;
         ElCheckbox: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            ariaControls: StringConstructor;
             modelValue: {
                 type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                 default: undefined;
@@ -491,6 +492,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
             };
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -588,6 +590,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
             "update:modelValue": (val: import("..").CheckboxValueType) => boolean;
             change: (val: import("..").CheckboxValueType) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            ariaControls: StringConstructor;
             modelValue: {
                 type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                 default: undefined;
@@ -649,10 +652,10 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
         }, {
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
-            label: string | number | boolean | Record<string, any>;
             id: string;
             disabled: boolean;
             name: string;
+            label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
             border: boolean;
             indeterminate: boolean;
@@ -664,6 +667,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
             controls: string;
         }>> & {
             CheckboxButton: import("vue").DefineComponent<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -721,6 +725,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
                 };
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -818,6 +823,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
                 "update:modelValue": (val: import("..").CheckboxValueType) => boolean;
                 change: (val: import("..").CheckboxValueType) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -879,10 +885,10 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
             }, {
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
-                label: string | number | boolean | Record<string, any>;
                 id: string;
                 disabled: boolean;
                 name: string;
+                label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
                 border: boolean;
                 indeterminate: boolean;
@@ -894,6 +900,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
                 controls: string;
             }>;
             CheckboxGroup: import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("..").CheckboxGroupValueType) | (() => import("..").CheckboxGroupValueType) | ((new (...args: any[]) => import("..").CheckboxGroupValueType) | (() => import("..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -911,6 +918,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("..").CheckboxGroupValueType) | (() => import("..").CheckboxGroupValueType) | ((new (...args: any[]) => import("..").CheckboxGroupValueType) | (() => import("..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -958,6 +966,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
                 "update:modelValue": (val: import("..").CheckboxGroupValueType) => boolean;
                 change: (val: import("..").CheckboxValueType[]) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("..").CheckboxGroupValueType) | (() => import("..").CheckboxGroupValueType) | ((new (...args: any[]) => import("..").CheckboxGroupValueType) | (() => import("..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -1042,7 +1051,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
     "current-change": (data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => import("./src/types").TreeNode;
     check: (data: import("../tree/src/tree.type").TreeNodeData, checkedInfo: import("./src/types").CheckedInfo) => import("./src/types").CheckedInfo;
     "check-change": (data: import("../tree/src/tree.type").TreeNodeData, checked: boolean) => boolean;
-    "node-contextmenu": (event: Event, data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => import("./src/types").TreeNode;
+    "node-contextmenu": (evt: Event, data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => import("./src/types").TreeNode;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly data: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("./src/types").TreeData) | (() => import("./src/types").TreeData) | ((new (...args: any[]) => import("./src/types").TreeData) | (() => import("./src/types").TreeData))[], unknown, unknown, () => [], boolean>;
     readonly emptyText: {
@@ -1093,7 +1102,7 @@ export declare const ElTreeV2: import("element-plus/es/utils").SFCWithInstall<im
     onCheck?: ((data: import("../tree/src/tree.type").TreeNodeData, checkedInfo: import("./src/types").CheckedInfo) => any) | undefined;
     "onCheck-change"?: ((data: import("../tree/src/tree.type").TreeNodeData, checked: boolean) => any) | undefined;
     "onNode-click"?: ((data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode, e: MouseEvent) => any) | undefined;
-    "onNode-contextmenu"?: ((event: Event, data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => any) | undefined;
+    "onNode-contextmenu"?: ((evt: Event, data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => any) | undefined;
     "onNode-collapse"?: ((data: import("../tree/src/tree.type").TreeNodeData, node: import("./src/types").TreeNode) => any) | undefined;
 }, {
     readonly props: import("./src/types").TreeOptionProps;

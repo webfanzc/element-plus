@@ -1,7 +1,7 @@
 declare const _default: import("vue").DefineComponent<{
     readonly timestamp: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly hideTimestamp: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-    readonly center: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly hideTimestamp: BooleanConstructor;
+    readonly center: BooleanConstructor;
     readonly placement: import("../../../utils").EpPropFinalized<StringConstructor, "top" | "bottom", unknown, "bottom", boolean>;
     readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "", boolean>;
     readonly color: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -12,12 +12,12 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly hollow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly hollow: BooleanConstructor;
 }, {
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
         readonly timestamp: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-        readonly hideTimestamp: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-        readonly center: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly hideTimestamp: BooleanConstructor;
+        readonly center: BooleanConstructor;
         readonly placement: import("../../../utils").EpPropFinalized<StringConstructor, "top" | "bottom", unknown, "bottom", boolean>;
         readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "", boolean>;
         readonly color: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -28,7 +28,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        readonly hollow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly hollow: BooleanConstructor;
     }>> & {
         [x: string & `on${string}`]: ((...args: any[]) => any) | ((...args: unknown[]) => any) | undefined;
     }>>;
@@ -116,8 +116,8 @@ declare const _default: import("vue").DefineComponent<{
     }>>, {}>> & Record<string, any>;
 }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
     readonly timestamp: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-    readonly hideTimestamp: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-    readonly center: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly hideTimestamp: BooleanConstructor;
+    readonly center: BooleanConstructor;
     readonly placement: import("../../../utils").EpPropFinalized<StringConstructor, "top" | "bottom", unknown, "bottom", boolean>;
     readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "", boolean>;
     readonly color: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -128,15 +128,15 @@ declare const _default: import("vue").DefineComponent<{
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly hollow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly hollow: BooleanConstructor;
 }>>, {
     readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
-    readonly center: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly center: boolean;
     readonly size: import("../../../utils").EpPropMergeType<StringConstructor, "large" | "normal", unknown>;
     readonly color: string;
     readonly placement: import("../../../utils").EpPropMergeType<StringConstructor, "top" | "bottom", unknown>;
     readonly timestamp: string;
-    readonly hideTimestamp: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly hollow: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly hideTimestamp: boolean;
+    readonly hollow: boolean;
 }>;
 export default _default;

@@ -1,4 +1,4 @@
-import { defineComponent, getCurrentInstance, ref, watch, nextTick, provide, createVNode, renderSlot } from 'vue';
+import { defineComponent, computed, getCurrentInstance, ref, watch, nextTick, provide, createVNode, renderSlot } from 'vue';
 import '../../../utils/index.mjs';
 import '../../../constants/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
@@ -57,6 +57,7 @@ const Tabs = defineComponent({
   }) {
     var _a;
     const ns = useNamespace("tabs");
+    const isVertical = computed(() => ["left", "right"].includes(props.tabPosition));
     const {
       children: panes,
       addChild: registerPane,
@@ -115,8 +116,8 @@ const Tabs = defineComponent({
     });
     return () => {
       const addSlot = slots["add-icon"];
-      const newButton = props.editable || props.addable ? createVNode("span", {
-        "class": ns.e("new-tab"),
+      const newButton = props.editable || props.addable ? createVNode("div", {
+        "class": [ns.e("new-tab"), isVertical.value && ns.e("new-tab-vertical")],
         "tabindex": "0",
         "onClick": handleTabAdd,
         "onKeydown": (ev) => {
@@ -129,8 +130,8 @@ const Tabs = defineComponent({
         default: () => [createVNode(Plus, null, null)]
       })]) : null;
       const header = createVNode("div", {
-        "class": [ns.e("header"), ns.is(props.tabPosition)]
-      }, [newButton, createVNode(TabNav, {
+        "class": [ns.e("header"), isVertical.value && ns.e("header-vertical"), ns.is(props.tabPosition)]
+      }, [createVNode(TabNav, {
         "ref": nav$,
         "currentName": currentName.value,
         "editable": props.editable,
@@ -139,7 +140,7 @@ const Tabs = defineComponent({
         "stretch": props.stretch,
         "onTabClick": handleTabClick,
         "onTabRemove": handleTabRemove
-      }, null)]);
+      }, null), newButton]);
       const panels = createVNode("div", {
         "class": ns.e("content")
       }, [renderSlot(slots, "default")]);

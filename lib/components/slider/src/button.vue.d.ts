@@ -114,6 +114,7 @@ declare const _default: import("vue").DefineComponent<{
         };
         id: StringConstructor;
         open: BooleanConstructor;
+        ariaLabel: StringConstructor;
         appendTo: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
             readonly required: false;
@@ -121,9 +122,8 @@ declare const _default: import("vue").DefineComponent<{
             __epPropKey: true;
         };
         content: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-        rawContent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        rawContent: BooleanConstructor;
         persistent: BooleanConstructor;
-        ariaLabel: StringConstructor;
         visible: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
         transition: StringConstructor;
         teleported: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -235,7 +235,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+        effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
         enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         pure: BooleanConstructor;
         focusOnShow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -437,6 +437,7 @@ declare const _default: import("vue").DefineComponent<{
             };
             id: StringConstructor;
             open: BooleanConstructor;
+            ariaLabel: StringConstructor;
             appendTo: {
                 readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                 readonly required: false;
@@ -444,9 +445,8 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
             content: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            rawContent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            rawContent: BooleanConstructor;
             persistent: BooleanConstructor;
-            ariaLabel: StringConstructor;
             visible: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
             transition: StringConstructor;
             teleported: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -558,7 +558,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+            effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
             enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             pure: BooleanConstructor;
             focusOnShow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -1230,6 +1230,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly triggerKeys: string[];
         }>;
         ElTooltipContent: import("vue").DefineComponent<{
+            readonly ariaLabel: StringConstructor;
             readonly appendTo: {
                 readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                 readonly required: false;
@@ -1237,9 +1238,8 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
             readonly content: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            readonly rawContent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly rawContent: BooleanConstructor;
             readonly persistent: BooleanConstructor;
-            readonly ariaLabel: StringConstructor;
             readonly visible: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
             readonly transition: StringConstructor;
             readonly teleported: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -1353,7 +1353,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+            readonly effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
             readonly enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly pure: BooleanConstructor;
             readonly focusOnShow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -1493,6 +1493,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly autoClose: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly appendTo: {
                     readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                     readonly required: false;
@@ -1500,9 +1501,8 @@ declare const _default: import("vue").DefineComponent<{
                     __epPropKey: true;
                 };
                 readonly content: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-                readonly rawContent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly rawContent: BooleanConstructor;
                 readonly persistent: BooleanConstructor;
-                readonly ariaLabel: StringConstructor;
                 readonly visible: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
                 readonly transition: StringConstructor;
                 readonly teleported: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -1616,7 +1616,7 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                readonly effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 readonly enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly pure: BooleanConstructor;
                 readonly focusOnShow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -1805,6 +1805,7 @@ declare const _default: import("vue").DefineComponent<{
             onBlur: () => void;
             stopHandle: (() => void) | undefined;
             ElPopperContent: import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: StringConstructor;
                 readonly style: {
                     readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -1914,7 +1915,7 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                readonly effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 readonly visible: BooleanConstructor;
                 readonly enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly pure: BooleanConstructor;
@@ -2041,7 +2042,6 @@ declare const _default: import("vue").DefineComponent<{
                     __epPropKey: true;
                 };
                 readonly stopPopperMouseEvent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly ariaLabel: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly virtualTriggering: BooleanConstructor;
                 readonly zIndex: NumberConstructor;
                 readonly boundariesPadding: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -2054,6 +2054,7 @@ declare const _default: import("vue").DefineComponent<{
             }, {
                 emit: ((event: "close") => void) & ((event: "focus") => void) & ((event: "blur") => void) & ((event: "mouseleave", evt: MouseEvent) => void) & ((event: "mouseenter", evt: MouseEvent) => void);
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly id: StringConstructor;
                     readonly style: {
                         readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -2163,7 +2164,7 @@ declare const _default: import("vue").DefineComponent<{
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    readonly effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                    readonly effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                     readonly visible: BooleanConstructor;
                     readonly enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                     readonly pure: BooleanConstructor;
@@ -2290,7 +2291,6 @@ declare const _default: import("vue").DefineComponent<{
                         __epPropKey: true;
                     };
                     readonly stopPopperMouseEvent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                    readonly ariaLabel: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                     readonly virtualTriggering: BooleanConstructor;
                     readonly zIndex: NumberConstructor;
                     readonly boundariesPadding: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -2401,6 +2401,7 @@ declare const _default: import("vue").DefineComponent<{
                 blur: () => boolean;
                 close: () => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: StringConstructor;
                 readonly style: {
                     readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown>>;
@@ -2510,7 +2511,7 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+                readonly effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
                 readonly visible: BooleanConstructor;
                 readonly enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly pure: BooleanConstructor;
@@ -2637,7 +2638,6 @@ declare const _default: import("vue").DefineComponent<{
                     __epPropKey: true;
                 };
                 readonly stopPopperMouseEvent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-                readonly ariaLabel: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly virtualTriggering: BooleanConstructor;
                 readonly zIndex: NumberConstructor;
                 readonly boundariesPadding: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
@@ -2655,7 +2655,7 @@ declare const _default: import("vue").DefineComponent<{
                 onMouseenter?: ((evt: MouseEvent) => any) | undefined;
             }, {
                 readonly offset: number;
-                readonly effect: string;
+                readonly effect: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
                 readonly placement: import("../../../utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
                 readonly boundariesPadding: number;
                 readonly fallbackPlacements: import("@popperjs/core").Placement[];
@@ -2666,12 +2666,12 @@ declare const _default: import("vue").DefineComponent<{
                 readonly focusOnShow: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly trapping: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly stopPopperMouseEvent: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly ariaLabel: string;
                 readonly visible: boolean;
                 readonly pure: boolean;
                 readonly virtualTriggering: boolean;
             }>;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            readonly ariaLabel: StringConstructor;
             readonly appendTo: {
                 readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
                 readonly required: false;
@@ -2679,9 +2679,8 @@ declare const _default: import("vue").DefineComponent<{
                 __epPropKey: true;
             };
             readonly content: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-            readonly rawContent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly rawContent: BooleanConstructor;
             readonly persistent: BooleanConstructor;
-            readonly ariaLabel: StringConstructor;
             readonly visible: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
             readonly transition: StringConstructor;
             readonly teleported: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -2795,7 +2794,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+            readonly effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
             readonly enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly pure: BooleanConstructor;
             readonly focusOnShow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -2935,7 +2934,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly autoClose: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0, boolean>;
         }>>, {
             readonly offset: number;
-            readonly effect: string;
+            readonly effect: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
             readonly placement: import("../../../utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
             readonly showAfter: number;
             readonly hideAfter: number;
@@ -2953,8 +2952,8 @@ declare const _default: import("vue").DefineComponent<{
             readonly pure: boolean;
             readonly virtualTriggering: boolean;
             readonly content: string;
-            readonly rawContent: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly teleported: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly rawContent: boolean;
             readonly persistent: boolean;
             readonly disabled: boolean;
         }>;
@@ -3015,6 +3014,7 @@ declare const _default: import("vue").DefineComponent<{
         };
         id: StringConstructor;
         open: BooleanConstructor;
+        ariaLabel: StringConstructor;
         appendTo: {
             readonly type: import("vue").PropType<import("../../../utils").EpPropMergeType<(new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement) | ((new (...args: any[]) => (string | HTMLElement) & {}) | (() => string | HTMLElement))[], unknown, unknown>>;
             readonly required: false;
@@ -3022,9 +3022,8 @@ declare const _default: import("vue").DefineComponent<{
             __epPropKey: true;
         };
         content: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
-        rawContent: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        rawContent: BooleanConstructor;
         persistent: BooleanConstructor;
-        ariaLabel: StringConstructor;
         visible: import("../../../utils").EpPropFinalized<(new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null) | ((new (...args: any[]) => (boolean | null) & {}) | (() => boolean | null))[], unknown, unknown, null, boolean>;
         transition: StringConstructor;
         teleported: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
@@ -3136,7 +3135,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validator: ((val: unknown) => boolean) | undefined;
             __epPropKey: true;
         };
-        effect: import("../../../utils").EpPropFinalized<StringConstructor, unknown, unknown, "dark", boolean>;
+        effect: import("../../../utils").EpPropFinalized<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown, "dark", boolean>;
         enterable: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         pure: BooleanConstructor;
         focusOnShow: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
@@ -3284,7 +3283,7 @@ declare const _default: import("vue").DefineComponent<{
         [x: string & `on${string}`]: ((...args: any[]) => any) | undefined;
     }, {
         offset: number;
-        effect: string;
+        effect: import("../../../utils").EpPropMergeType<(new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark") | ((new (...args: any[]) => ("light" | "dark") & {}) | (() => "light" | "dark"))[], unknown, unknown>;
         placement: import("../../../utils").EpPropMergeType<StringConstructor, import("@popperjs/core").Placement, unknown>;
         showAfter: number;
         hideAfter: number;
@@ -3302,8 +3301,8 @@ declare const _default: import("vue").DefineComponent<{
         pure: boolean;
         virtualTriggering: boolean;
         content: string;
-        rawContent: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
         teleported: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+        rawContent: boolean;
         persistent: boolean;
         disabled: boolean;
         open: boolean;

@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.1 */
+/*! Element Plus v2.7.8 */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -9,6 +9,9 @@
   var nbNo = {
     name: "nb-no",
     el: {
+      breadcrumb: {
+        label: "Breadcrumb"
+      },
       colorpicker: {
         confirm: "OK",
         clear: "T\xF8m"

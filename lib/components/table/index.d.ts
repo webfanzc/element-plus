@@ -39,7 +39,7 @@ export declare const ElTable: import("element-plus/es/utils").SFCWithInstall<imp
     highlightCurrentRow: BooleanConstructor;
     currentRowKey: (NumberConstructor | StringConstructor)[];
     emptyText: StringConstructor;
-    expandRowKeys: import("vue").PropType<any[] | undefined>;
+    expandRowKeys: import("vue").PropType<string[] | undefined>;
     defaultExpandAll: BooleanConstructor;
     defaultSort: import("vue").PropType<import("./src/table/defaults").Sort | undefined>;
     tooltipEffect: StringConstructor;
@@ -109,6 +109,7 @@ export declare const ElTable: import("element-plus/es/utils").SFCWithInstall<imp
     };
     layout: import("./src/table-layout").default<any>;
     store: any;
+    columns: import("vue").ComputedRef<import("./src/table-column/defaults").TableColumnCtx<unknown>>;
     handleHeaderFooterMousewheel: (event: any, data: any) => void;
     handleMouseLeave: () => void;
     tableId: string;
@@ -216,7 +217,7 @@ export declare const ElTable: import("element-plus/es/utils").SFCWithInstall<imp
     highlightCurrentRow: BooleanConstructor;
     currentRowKey: (NumberConstructor | StringConstructor)[];
     emptyText: StringConstructor;
-    expandRowKeys: import("vue").PropType<any[] | undefined>;
+    expandRowKeys: import("vue").PropType<string[] | undefined>;
     defaultExpandAll: BooleanConstructor;
     defaultSort: import("vue").PropType<import("./src/table/defaults").Sort | undefined>;
     tooltipEffect: StringConstructor;

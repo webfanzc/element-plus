@@ -274,6 +274,7 @@ declare const _default: import("vue").DefineComponent<{
             query: import("vue").Ref<string>;
             isEmpty: (val: unknown) => boolean;
             ElCheckbox: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -331,6 +332,7 @@ declare const _default: import("vue").DefineComponent<{
                 };
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -428,6 +430,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -489,10 +492,10 @@ declare const _default: import("vue").DefineComponent<{
             }, {
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
-                label: string | number | boolean | Record<string, any>;
                 id: string;
                 disabled: boolean;
                 name: string;
+                label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
                 border: boolean;
                 indeterminate: boolean;
@@ -504,6 +507,7 @@ declare const _default: import("vue").DefineComponent<{
                 controls: string;
             }>> & {
                 CheckboxButton: import("vue").DefineComponent<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -561,6 +565,7 @@ declare const _default: import("vue").DefineComponent<{
                     };
                 }, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                        ariaControls: StringConstructor;
                         modelValue: {
                             type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                             default: undefined;
@@ -658,6 +663,7 @@ declare const _default: import("vue").DefineComponent<{
                     "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
                     change: (val: import("../..").CheckboxValueType) => boolean;
                 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -719,10 +725,10 @@ declare const _default: import("vue").DefineComponent<{
                 }, {
                     value: string | number | boolean | Record<string, any>;
                     modelValue: string | number | boolean;
-                    label: string | number | boolean | Record<string, any>;
                     id: string;
                     disabled: boolean;
                     name: string;
+                    label: string | number | boolean | Record<string, any>;
                     validateEvent: boolean;
                     border: boolean;
                     indeterminate: boolean;
@@ -734,6 +740,7 @@ declare const _default: import("vue").DefineComponent<{
                     controls: string;
                 }>;
                 CheckboxGroup: import("vue").DefineComponent<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -751,6 +758,7 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 }, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                        readonly ariaLabel: StringConstructor;
                         readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                         readonly disabled: BooleanConstructor;
                         readonly min: NumberConstructor;
@@ -798,6 +806,7 @@ declare const _default: import("vue").DefineComponent<{
                     "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
                     change: (val: import("../..").CheckboxValueType[]) => boolean;
                 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -824,6 +833,7 @@ declare const _default: import("vue").DefineComponent<{
                 }>;
             };
             ElCheckboxGroup: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -841,6 +851,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -888,6 +899,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType[]) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -913,6 +925,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tag: string;
             }>>;
             ElInput: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly size: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -967,10 +980,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly readonly: BooleanConstructor;
+                readonly clearable: BooleanConstructor;
+                readonly showPassword: BooleanConstructor;
+                readonly showWordLimit: BooleanConstructor;
                 readonly suffixIcon: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                     readonly required: false;
@@ -988,9 +1001,11 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly autofocus: BooleanConstructor;
+                readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                     readonly size: {
                         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -1045,10 +1060,10 @@ declare const _default: import("vue").DefineComponent<{
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                    readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                    readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                    readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                    readonly readonly: BooleanConstructor;
+                    readonly clearable: BooleanConstructor;
+                    readonly showPassword: BooleanConstructor;
+                    readonly showWordLimit: BooleanConstructor;
                     readonly suffixIcon: {
                         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                         readonly required: false;
@@ -1066,7 +1081,8 @@ declare const _default: import("vue").DefineComponent<{
                     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                     readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                    readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                    readonly autofocus: BooleanConstructor;
+                    readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
                 }>> & {
                     onChange?: ((value: string) => any) | undefined;
                     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -1256,6 +1272,7 @@ declare const _default: import("vue").DefineComponent<{
                 compositionupdate: (evt: CompositionEvent) => boolean;
                 compositionend: (evt: CompositionEvent) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly size: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -1310,10 +1327,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly readonly: BooleanConstructor;
+                readonly clearable: BooleanConstructor;
+                readonly showPassword: BooleanConstructor;
+                readonly showWordLimit: BooleanConstructor;
                 readonly suffixIcon: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                     readonly required: false;
@@ -1331,7 +1348,8 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly autofocus: BooleanConstructor;
+                readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
             }>> & {
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -1348,20 +1366,21 @@ declare const _default: import("vue").DefineComponent<{
             }, {
                 readonly type: string;
                 readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
-                readonly label: string;
                 readonly id: string;
                 readonly disabled: boolean;
-                readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly clearable: boolean;
                 readonly autosize: import("../..").InputAutoSize;
                 readonly autocomplete: string;
-                readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly containerRole: string;
+                readonly label: string;
                 readonly tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly inputStyle: import("vue").StyleValue;
-                readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly rows: number;
+                readonly readonly: boolean;
+                readonly showPassword: boolean;
+                readonly showWordLimit: boolean;
+                readonly autofocus: boolean;
             }>> & Record<string, any>;
             Search: any;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
@@ -1510,6 +1529,7 @@ declare const _default: import("vue").DefineComponent<{
         query: import("vue").Ref<string>;
         isEmpty: (val: unknown) => boolean;
         ElCheckbox: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            ariaControls: StringConstructor;
             modelValue: {
                 type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                 default: undefined;
@@ -1567,6 +1587,7 @@ declare const _default: import("vue").DefineComponent<{
             };
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -1664,6 +1685,7 @@ declare const _default: import("vue").DefineComponent<{
             "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
             change: (val: import("../..").CheckboxValueType) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            ariaControls: StringConstructor;
             modelValue: {
                 type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                 default: undefined;
@@ -1725,10 +1747,10 @@ declare const _default: import("vue").DefineComponent<{
         }, {
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
-            label: string | number | boolean | Record<string, any>;
             id: string;
             disabled: boolean;
             name: string;
+            label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
             border: boolean;
             indeterminate: boolean;
@@ -1740,6 +1762,7 @@ declare const _default: import("vue").DefineComponent<{
             controls: string;
         }>> & {
             CheckboxButton: import("vue").DefineComponent<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -1797,6 +1820,7 @@ declare const _default: import("vue").DefineComponent<{
                 };
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -1894,6 +1918,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -1955,10 +1980,10 @@ declare const _default: import("vue").DefineComponent<{
             }, {
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
-                label: string | number | boolean | Record<string, any>;
                 id: string;
                 disabled: boolean;
                 name: string;
+                label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
                 border: boolean;
                 indeterminate: boolean;
@@ -1970,6 +1995,7 @@ declare const _default: import("vue").DefineComponent<{
                 controls: string;
             }>;
             CheckboxGroup: import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -1987,6 +2013,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -2034,6 +2061,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType[]) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -2060,6 +2088,7 @@ declare const _default: import("vue").DefineComponent<{
             }>;
         };
         ElCheckboxGroup: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            readonly ariaLabel: StringConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
             readonly disabled: BooleanConstructor;
             readonly min: NumberConstructor;
@@ -2077,6 +2106,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -2124,6 +2154,7 @@ declare const _default: import("vue").DefineComponent<{
             "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
             change: (val: import("../..").CheckboxValueType[]) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            readonly ariaLabel: StringConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
             readonly disabled: BooleanConstructor;
             readonly min: NumberConstructor;
@@ -2149,6 +2180,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly tag: string;
         }>>;
         ElInput: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            readonly ariaLabel: StringConstructor;
             readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
             readonly size: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -2203,10 +2235,10 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly readonly: BooleanConstructor;
+            readonly clearable: BooleanConstructor;
+            readonly showPassword: BooleanConstructor;
+            readonly showWordLimit: BooleanConstructor;
             readonly suffixIcon: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                 readonly required: false;
@@ -2224,9 +2256,11 @@ declare const _default: import("vue").DefineComponent<{
             readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-            readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly autofocus: BooleanConstructor;
+            readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly size: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -2281,10 +2315,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly readonly: BooleanConstructor;
+                readonly clearable: BooleanConstructor;
+                readonly showPassword: BooleanConstructor;
+                readonly showWordLimit: BooleanConstructor;
                 readonly suffixIcon: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                     readonly required: false;
@@ -2302,7 +2336,8 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly autofocus: BooleanConstructor;
+                readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
             }>> & {
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -2492,6 +2527,7 @@ declare const _default: import("vue").DefineComponent<{
             compositionupdate: (evt: CompositionEvent) => boolean;
             compositionend: (evt: CompositionEvent) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            readonly ariaLabel: StringConstructor;
             readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
             readonly size: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -2546,10 +2582,10 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly readonly: BooleanConstructor;
+            readonly clearable: BooleanConstructor;
+            readonly showPassword: BooleanConstructor;
+            readonly showWordLimit: BooleanConstructor;
             readonly suffixIcon: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                 readonly required: false;
@@ -2567,7 +2603,8 @@ declare const _default: import("vue").DefineComponent<{
             readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-            readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly autofocus: BooleanConstructor;
+            readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -2584,20 +2621,21 @@ declare const _default: import("vue").DefineComponent<{
         }, {
             readonly type: string;
             readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
-            readonly label: string;
             readonly id: string;
             readonly disabled: boolean;
-            readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly clearable: boolean;
             readonly autosize: import("../..").InputAutoSize;
             readonly autocomplete: string;
-            readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly containerRole: string;
+            readonly label: string;
             readonly tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
             readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly inputStyle: import("vue").StyleValue;
-            readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly rows: number;
+            readonly readonly: boolean;
+            readonly showPassword: boolean;
+            readonly showWordLimit: boolean;
+            readonly autofocus: boolean;
         }>> & Record<string, any>;
         Search: any;
     }> & {} & import("vue").ComponentCustomProperties) | undefined>;
@@ -2772,6 +2810,7 @@ declare const _default: import("vue").DefineComponent<{
             query: import("vue").Ref<string>;
             isEmpty: (val: unknown) => boolean;
             ElCheckbox: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -2829,6 +2868,7 @@ declare const _default: import("vue").DefineComponent<{
                 };
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -2926,6 +2966,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -2987,10 +3028,10 @@ declare const _default: import("vue").DefineComponent<{
             }, {
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
-                label: string | number | boolean | Record<string, any>;
                 id: string;
                 disabled: boolean;
                 name: string;
+                label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
                 border: boolean;
                 indeterminate: boolean;
@@ -3002,6 +3043,7 @@ declare const _default: import("vue").DefineComponent<{
                 controls: string;
             }>> & {
                 CheckboxButton: import("vue").DefineComponent<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -3059,6 +3101,7 @@ declare const _default: import("vue").DefineComponent<{
                     };
                 }, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                        ariaControls: StringConstructor;
                         modelValue: {
                             type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                             default: undefined;
@@ -3156,6 +3199,7 @@ declare const _default: import("vue").DefineComponent<{
                     "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
                     change: (val: import("../..").CheckboxValueType) => boolean;
                 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -3217,10 +3261,10 @@ declare const _default: import("vue").DefineComponent<{
                 }, {
                     value: string | number | boolean | Record<string, any>;
                     modelValue: string | number | boolean;
-                    label: string | number | boolean | Record<string, any>;
                     id: string;
                     disabled: boolean;
                     name: string;
+                    label: string | number | boolean | Record<string, any>;
                     validateEvent: boolean;
                     border: boolean;
                     indeterminate: boolean;
@@ -3232,6 +3276,7 @@ declare const _default: import("vue").DefineComponent<{
                     controls: string;
                 }>;
                 CheckboxGroup: import("vue").DefineComponent<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -3249,6 +3294,7 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 }, {
                     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                        readonly ariaLabel: StringConstructor;
                         readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                         readonly disabled: BooleanConstructor;
                         readonly min: NumberConstructor;
@@ -3296,6 +3342,7 @@ declare const _default: import("vue").DefineComponent<{
                     "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
                     change: (val: import("../..").CheckboxValueType[]) => boolean;
                 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -3322,6 +3369,7 @@ declare const _default: import("vue").DefineComponent<{
                 }>;
             };
             ElCheckboxGroup: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -3339,6 +3387,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -3386,6 +3435,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType[]) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -3411,6 +3461,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tag: string;
             }>>;
             ElInput: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly size: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -3465,10 +3516,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly readonly: BooleanConstructor;
+                readonly clearable: BooleanConstructor;
+                readonly showPassword: BooleanConstructor;
+                readonly showWordLimit: BooleanConstructor;
                 readonly suffixIcon: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                     readonly required: false;
@@ -3486,9 +3537,11 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly autofocus: BooleanConstructor;
+                readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                     readonly size: {
                         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -3543,10 +3596,10 @@ declare const _default: import("vue").DefineComponent<{
                         readonly validator: ((val: unknown) => boolean) | undefined;
                         __epPropKey: true;
                     };
-                    readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                    readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                    readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                    readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                    readonly readonly: BooleanConstructor;
+                    readonly clearable: BooleanConstructor;
+                    readonly showPassword: BooleanConstructor;
+                    readonly showWordLimit: BooleanConstructor;
                     readonly suffixIcon: {
                         readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                         readonly required: false;
@@ -3564,7 +3617,8 @@ declare const _default: import("vue").DefineComponent<{
                     readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                     readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                     readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                    readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                    readonly autofocus: BooleanConstructor;
+                    readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
                 }>> & {
                     onChange?: ((value: string) => any) | undefined;
                     "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -3754,6 +3808,7 @@ declare const _default: import("vue").DefineComponent<{
                 compositionupdate: (evt: CompositionEvent) => boolean;
                 compositionend: (evt: CompositionEvent) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly size: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -3808,10 +3863,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly readonly: BooleanConstructor;
+                readonly clearable: BooleanConstructor;
+                readonly showPassword: BooleanConstructor;
+                readonly showWordLimit: BooleanConstructor;
                 readonly suffixIcon: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                     readonly required: false;
@@ -3829,7 +3884,8 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly autofocus: BooleanConstructor;
+                readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
             }>> & {
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -3846,20 +3902,21 @@ declare const _default: import("vue").DefineComponent<{
             }, {
                 readonly type: string;
                 readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
-                readonly label: string;
                 readonly id: string;
                 readonly disabled: boolean;
-                readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly clearable: boolean;
                 readonly autosize: import("../..").InputAutoSize;
                 readonly autocomplete: string;
-                readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly containerRole: string;
+                readonly label: string;
                 readonly tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
                 readonly inputStyle: import("vue").StyleValue;
-                readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+                readonly rows: number;
+                readonly readonly: boolean;
+                readonly showPassword: boolean;
+                readonly showWordLimit: boolean;
+                readonly autofocus: boolean;
             }>> & Record<string, any>;
             Search: any;
         }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
@@ -4008,6 +4065,7 @@ declare const _default: import("vue").DefineComponent<{
         query: import("vue").Ref<string>;
         isEmpty: (val: unknown) => boolean;
         ElCheckbox: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            ariaControls: StringConstructor;
             modelValue: {
                 type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                 default: undefined;
@@ -4065,6 +4123,7 @@ declare const _default: import("vue").DefineComponent<{
             };
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -4162,6 +4221,7 @@ declare const _default: import("vue").DefineComponent<{
             "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
             change: (val: import("../..").CheckboxValueType) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            ariaControls: StringConstructor;
             modelValue: {
                 type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                 default: undefined;
@@ -4223,10 +4283,10 @@ declare const _default: import("vue").DefineComponent<{
         }, {
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
-            label: string | number | boolean | Record<string, any>;
             id: string;
             disabled: boolean;
             name: string;
+            label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
             border: boolean;
             indeterminate: boolean;
@@ -4238,6 +4298,7 @@ declare const _default: import("vue").DefineComponent<{
             controls: string;
         }>> & {
             CheckboxButton: import("vue").DefineComponent<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -4295,6 +4356,7 @@ declare const _default: import("vue").DefineComponent<{
                 };
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -4392,6 +4454,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -4453,10 +4516,10 @@ declare const _default: import("vue").DefineComponent<{
             }, {
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
-                label: string | number | boolean | Record<string, any>;
                 id: string;
                 disabled: boolean;
                 name: string;
+                label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
                 border: boolean;
                 indeterminate: boolean;
@@ -4468,6 +4531,7 @@ declare const _default: import("vue").DefineComponent<{
                 controls: string;
             }>;
             CheckboxGroup: import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -4485,6 +4549,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -4532,6 +4597,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType[]) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -4558,6 +4624,7 @@ declare const _default: import("vue").DefineComponent<{
             }>;
         };
         ElCheckboxGroup: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            readonly ariaLabel: StringConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
             readonly disabled: BooleanConstructor;
             readonly min: NumberConstructor;
@@ -4575,6 +4642,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -4622,6 +4690,7 @@ declare const _default: import("vue").DefineComponent<{
             "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
             change: (val: import("../..").CheckboxValueType[]) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            readonly ariaLabel: StringConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
             readonly disabled: BooleanConstructor;
             readonly min: NumberConstructor;
@@ -4647,6 +4716,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly tag: string;
         }>>;
         ElInput: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            readonly ariaLabel: StringConstructor;
             readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
             readonly size: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -4701,10 +4771,10 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly readonly: BooleanConstructor;
+            readonly clearable: BooleanConstructor;
+            readonly showPassword: BooleanConstructor;
+            readonly showWordLimit: BooleanConstructor;
             readonly suffixIcon: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                 readonly required: false;
@@ -4722,9 +4792,11 @@ declare const _default: import("vue").DefineComponent<{
             readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-            readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly autofocus: BooleanConstructor;
+            readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly size: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -4779,10 +4851,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly readonly: BooleanConstructor;
+                readonly clearable: BooleanConstructor;
+                readonly showPassword: BooleanConstructor;
+                readonly showWordLimit: BooleanConstructor;
                 readonly suffixIcon: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                     readonly required: false;
@@ -4800,7 +4872,8 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly autofocus: BooleanConstructor;
+                readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
             }>> & {
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -4990,6 +5063,7 @@ declare const _default: import("vue").DefineComponent<{
             compositionupdate: (evt: CompositionEvent) => boolean;
             compositionend: (evt: CompositionEvent) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            readonly ariaLabel: StringConstructor;
             readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
             readonly size: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -5044,10 +5118,10 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly readonly: BooleanConstructor;
+            readonly clearable: BooleanConstructor;
+            readonly showPassword: BooleanConstructor;
+            readonly showWordLimit: BooleanConstructor;
             readonly suffixIcon: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                 readonly required: false;
@@ -5065,7 +5139,8 @@ declare const _default: import("vue").DefineComponent<{
             readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-            readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly autofocus: BooleanConstructor;
+            readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -5082,20 +5157,21 @@ declare const _default: import("vue").DefineComponent<{
         }, {
             readonly type: string;
             readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
-            readonly label: string;
             readonly id: string;
             readonly disabled: boolean;
-            readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly clearable: boolean;
             readonly autosize: import("../..").InputAutoSize;
             readonly autocomplete: string;
-            readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly containerRole: string;
+            readonly label: string;
             readonly tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
             readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly inputStyle: import("vue").StyleValue;
-            readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly rows: number;
+            readonly readonly: boolean;
+            readonly showPassword: boolean;
+            readonly showWordLimit: boolean;
+            readonly autofocus: boolean;
         }>> & Record<string, any>;
         Search: any;
     }> & {} & import("vue").ComponentCustomProperties) | undefined>;
@@ -5210,6 +5286,7 @@ declare const _default: import("vue").DefineComponent<{
         }>;
         shouldAddSpace: import("vue").ComputedRef<boolean>;
         handleClick: (evt: MouseEvent) => void;
+        buttonKls: import("vue").ComputedRef<string[]>;
         ElIcon: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
             readonly size: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number) & {}) | (() => string | number) | ((new (...args: any[]) => (string | number) & {}) | (() => string | number))[], unknown, unknown>>;
@@ -5316,10 +5393,10 @@ declare const _default: import("vue").DefineComponent<{
         readonly round: boolean;
         readonly circle: boolean;
         readonly tag: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
+        readonly loading: boolean;
         readonly nativeType: import("element-plus/es/utils").EpPropMergeType<StringConstructor, "button" | "reset" | "submit", unknown>;
         readonly loadingIcon: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>;
         readonly autoInsertSpace: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-        readonly loading: boolean;
         readonly plain: boolean;
         readonly bg: boolean;
     }>> & {
@@ -5554,6 +5631,7 @@ declare const _default: import("vue").DefineComponent<{
         query: import("vue").Ref<string>;
         isEmpty: (val: unknown) => boolean;
         ElCheckbox: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            ariaControls: StringConstructor;
             modelValue: {
                 type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                 default: undefined;
@@ -5611,6 +5689,7 @@ declare const _default: import("vue").DefineComponent<{
             };
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -5708,6 +5787,7 @@ declare const _default: import("vue").DefineComponent<{
             "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
             change: (val: import("../..").CheckboxValueType) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            ariaControls: StringConstructor;
             modelValue: {
                 type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                 default: undefined;
@@ -5769,10 +5849,10 @@ declare const _default: import("vue").DefineComponent<{
         }, {
             value: string | number | boolean | Record<string, any>;
             modelValue: string | number | boolean;
-            label: string | number | boolean | Record<string, any>;
             id: string;
             disabled: boolean;
             name: string;
+            label: string | number | boolean | Record<string, any>;
             validateEvent: boolean;
             border: boolean;
             indeterminate: boolean;
@@ -5784,6 +5864,7 @@ declare const _default: import("vue").DefineComponent<{
             controls: string;
         }>> & {
             CheckboxButton: import("vue").DefineComponent<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -5841,6 +5922,7 @@ declare const _default: import("vue").DefineComponent<{
                 };
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    ariaControls: StringConstructor;
                     modelValue: {
                         type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                         default: undefined;
@@ -5938,6 +6020,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                ariaControls: StringConstructor;
                 modelValue: {
                     type: (NumberConstructor | BooleanConstructor | StringConstructor)[];
                     default: undefined;
@@ -5999,10 +6082,10 @@ declare const _default: import("vue").DefineComponent<{
             }, {
                 value: string | number | boolean | Record<string, any>;
                 modelValue: string | number | boolean;
-                label: string | number | boolean | Record<string, any>;
                 id: string;
                 disabled: boolean;
                 name: string;
+                label: string | number | boolean | Record<string, any>;
                 validateEvent: boolean;
                 border: boolean;
                 indeterminate: boolean;
@@ -6014,6 +6097,7 @@ declare const _default: import("vue").DefineComponent<{
                 controls: string;
             }>;
             CheckboxGroup: import("vue").DefineComponent<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -6031,6 +6115,7 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             }, {
                 props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                    readonly ariaLabel: StringConstructor;
                     readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                     readonly disabled: BooleanConstructor;
                     readonly min: NumberConstructor;
@@ -6078,6 +6163,7 @@ declare const _default: import("vue").DefineComponent<{
                 "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
                 change: (val: import("../..").CheckboxValueType[]) => boolean;
             }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -6104,6 +6190,7 @@ declare const _default: import("vue").DefineComponent<{
             }>;
         };
         ElCheckboxGroup: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            readonly ariaLabel: StringConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
             readonly disabled: BooleanConstructor;
             readonly min: NumberConstructor;
@@ -6121,6 +6208,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
                 readonly disabled: BooleanConstructor;
                 readonly min: NumberConstructor;
@@ -6168,6 +6256,7 @@ declare const _default: import("vue").DefineComponent<{
             "update:modelValue": (val: import("../..").CheckboxGroupValueType) => boolean;
             change: (val: import("../..").CheckboxValueType[]) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            readonly ariaLabel: StringConstructor;
             readonly modelValue: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType) | ((new (...args: any[]) => import("../..").CheckboxGroupValueType) | (() => import("../..").CheckboxGroupValueType))[], unknown, unknown, () => never[], boolean>;
             readonly disabled: BooleanConstructor;
             readonly min: NumberConstructor;
@@ -6193,6 +6282,7 @@ declare const _default: import("vue").DefineComponent<{
             readonly tag: string;
         }>>;
         ElInput: import("element-plus/es/utils").SFCWithInstall<import("vue").DefineComponent<{
+            readonly ariaLabel: StringConstructor;
             readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
             readonly size: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -6247,10 +6337,10 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly readonly: BooleanConstructor;
+            readonly clearable: BooleanConstructor;
+            readonly showPassword: BooleanConstructor;
+            readonly showWordLimit: BooleanConstructor;
             readonly suffixIcon: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                 readonly required: false;
@@ -6268,9 +6358,11 @@ declare const _default: import("vue").DefineComponent<{
             readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-            readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly autofocus: BooleanConstructor;
+            readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
         }, {
             props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
+                readonly ariaLabel: StringConstructor;
                 readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
                 readonly size: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -6325,10 +6417,10 @@ declare const _default: import("vue").DefineComponent<{
                     readonly validator: ((val: unknown) => boolean) | undefined;
                     __epPropKey: true;
                 };
-                readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-                readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly readonly: BooleanConstructor;
+                readonly clearable: BooleanConstructor;
+                readonly showPassword: BooleanConstructor;
+                readonly showWordLimit: BooleanConstructor;
                 readonly suffixIcon: {
                     readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                     readonly required: false;
@@ -6346,7 +6438,8 @@ declare const _default: import("vue").DefineComponent<{
                 readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
                 readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
                 readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-                readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+                readonly autofocus: BooleanConstructor;
+                readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
             }>> & {
                 onChange?: ((value: string) => any) | undefined;
                 "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -6536,6 +6629,7 @@ declare const _default: import("vue").DefineComponent<{
             compositionupdate: (evt: CompositionEvent) => boolean;
             compositionend: (evt: CompositionEvent) => boolean;
         }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+            readonly ariaLabel: StringConstructor;
             readonly id: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, undefined, boolean>;
             readonly size: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<StringConstructor, "" | "default" | "small" | "large", never>>;
@@ -6590,10 +6684,10 @@ declare const _default: import("vue").DefineComponent<{
                 readonly validator: ((val: unknown) => boolean) | undefined;
                 __epPropKey: true;
             };
-            readonly readonly: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly clearable: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showPassword: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly readonly: BooleanConstructor;
+            readonly clearable: BooleanConstructor;
+            readonly showPassword: BooleanConstructor;
+            readonly showWordLimit: BooleanConstructor;
             readonly suffixIcon: {
                 readonly type: import("vue").PropType<import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) | ((new (...args: any[]) => (string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>) & {}) | (() => string | import("vue").Component<any, any, any, import("vue").ComputedOptions, import("vue").MethodOptions>))[], unknown, unknown>>;
                 readonly required: false;
@@ -6611,7 +6705,8 @@ declare const _default: import("vue").DefineComponent<{
             readonly tabindex: import("element-plus/es/utils").EpPropFinalized<readonly [StringConstructor, NumberConstructor], unknown, unknown, 0, boolean>;
             readonly validateEvent: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
             readonly inputStyle: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue) | ((new (...args: any[]) => import("vue").StyleValue & {}) | (() => import("vue").StyleValue))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-            readonly autofocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+            readonly autofocus: BooleanConstructor;
+            readonly rows: import("element-plus/es/utils").EpPropFinalized<NumberConstructor, unknown, unknown, 2, boolean>;
         }>> & {
             onChange?: ((value: string) => any) | undefined;
             "onUpdate:modelValue"?: ((value: string) => any) | undefined;
@@ -6628,20 +6723,21 @@ declare const _default: import("vue").DefineComponent<{
         }, {
             readonly type: string;
             readonly modelValue: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined) | ((new (...args: any[]) => (string | number | null | undefined) & {}) | (() => string | number | null | undefined))[], unknown, unknown>;
-            readonly label: string;
             readonly id: string;
             readonly disabled: boolean;
-            readonly clearable: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly clearable: boolean;
             readonly autosize: import("../..").InputAutoSize;
             readonly autocomplete: string;
-            readonly readonly: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly showPassword: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-            readonly showWordLimit: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly containerRole: string;
+            readonly label: string;
             readonly tabindex: import("element-plus/es/utils").EpPropMergeType<readonly [StringConstructor, NumberConstructor], unknown, unknown>;
             readonly validateEvent: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
             readonly inputStyle: import("vue").StyleValue;
-            readonly autofocus: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+            readonly rows: number;
+            readonly readonly: boolean;
+            readonly showPassword: boolean;
+            readonly showWordLimit: boolean;
+            readonly autofocus: boolean;
         }>> & Record<string, any>;
         Search: any;
     }, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {

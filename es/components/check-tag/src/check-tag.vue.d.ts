@@ -1,9 +1,9 @@
 declare const _default: import("vue").DefineComponent<{
-    readonly checked: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly checked: BooleanConstructor;
     readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
 }, {
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
-        readonly checked: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly checked: BooleanConstructor;
         readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
     }>> & {
         onChange?: ((value: boolean) => any) | undefined;
@@ -34,13 +34,13 @@ declare const _default: import("vue").DefineComponent<{
     'update:checked': (value: boolean) => boolean;
     change: (value: boolean) => boolean;
 }, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
-    readonly checked: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly checked: BooleanConstructor;
     readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown, "primary", boolean>;
 }>> & {
     onChange?: ((value: boolean) => any) | undefined;
     "onUpdate:checked"?: ((value: boolean) => any) | undefined;
 }, {
     readonly type: import("../../../utils").EpPropMergeType<StringConstructor, "success" | "warning" | "info" | "primary" | "danger", unknown>;
-    readonly checked: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly checked: boolean;
 }>;
 export default _default;

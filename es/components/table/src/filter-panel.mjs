@@ -1,4 +1,4 @@
-import { defineComponent, getCurrentInstance, ref, computed, watch, resolveComponent, resolveDirective, openBlock, createBlock, withCtx, createElementBlock, createElementVNode, normalizeClass, createVNode, Fragment, renderList, createTextVNode, toDisplayString, withDirectives } from 'vue';
+import { defineComponent, getCurrentInstance, ref, computed, watch, resolveComponent, resolveDirective, openBlock, createBlock, withCtx, createElementBlock, createElementVNode, normalizeClass, createVNode, Fragment, renderList, createTextVNode, toDisplayString, withDirectives, renderSlot } from 'vue';
 import { ElCheckbox } from '../../checkbox/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
 import { ArrowDown, ArrowUp } from '@element-plus/icons-vue';
@@ -266,15 +266,17 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       }, [
         createVNode(_component_el_icon, null, {
           default: withCtx(() => [
-            _ctx.column.filterOpened ? (openBlock(), createBlock(_component_arrow_up, { key: 0 })) : (openBlock(), createBlock(_component_arrow_down, { key: 1 }))
+            renderSlot(_ctx.$slots, "filter-icon", {}, () => [
+              _ctx.column.filterOpened ? (openBlock(), createBlock(_component_arrow_up, { key: 0 })) : (openBlock(), createBlock(_component_arrow_down, { key: 1 }))
+            ])
           ]),
-          _: 1
+          _: 3
         })
       ], 2)), [
         [_directive_click_outside, _ctx.hideFilterPanel, _ctx.popperPaneRef]
       ])
     ]),
-    _: 1
+    _: 3
   }, 8, ["visible", "placement", "popper-class"]);
 }
 var FilterPanel = /* @__PURE__ */ _export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "filter-panel.vue"]]);

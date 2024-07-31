@@ -1,4 +1,4 @@
-/*! Element Plus v2.4.1 */
+/*! Element Plus v2.7.8 */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
@@ -9,6 +9,9 @@
   var uzUz = {
     name: "uz-uz",
     el: {
+      breadcrumb: {
+        label: "Breadcrumb"
+      },
       colorpicker: {
         confirm: "Qabul qilish",
         clear: "Tozalash"

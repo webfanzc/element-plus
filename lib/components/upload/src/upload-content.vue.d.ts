@@ -73,9 +73,9 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly method: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "post", boolean>;
     readonly data: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-    readonly multiple: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly multiple: BooleanConstructor;
     readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "file", boolean>;
-    readonly drag: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly drag: BooleanConstructor;
     readonly withCredentials: BooleanConstructor;
     readonly showFileList: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -167,9 +167,9 @@ declare const _default: import("vue").DefineComponent<{
         };
         readonly method: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "post", boolean>;
         readonly data: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-        readonly multiple: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly multiple: BooleanConstructor;
         readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "file", boolean>;
-        readonly drag: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly drag: BooleanConstructor;
         readonly withCredentials: BooleanConstructor;
         readonly showFileList: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -329,9 +329,9 @@ declare const _default: import("vue").DefineComponent<{
     };
     readonly method: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "post", boolean>;
     readonly data: import("element-plus/es/utils").EpPropFinalized<(new (...args: any[]) => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>))[], unknown, unknown, () => import("element-plus/es/utils").Mutable<{}>, boolean>;
-    readonly multiple: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly multiple: BooleanConstructor;
     readonly name: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "file", boolean>;
-    readonly drag: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly drag: BooleanConstructor;
     readonly withCredentials: BooleanConstructor;
     readonly showFileList: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly accept: import("element-plus/es/utils").EpPropFinalized<StringConstructor, unknown, unknown, "", boolean>;
@@ -352,8 +352,8 @@ declare const _default: import("vue").DefineComponent<{
 }>>, {
     readonly disabled: boolean;
     readonly name: string;
-    readonly drag: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly multiple: import("element-plus/es/utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly drag: boolean;
+    readonly multiple: boolean;
     readonly data: import("element-plus/es/utils").EpPropMergeType<(new (...args: any[]) => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | ((new (...args: any[]) => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Mutable<Record<string, any>> | Promise<import("element-plus/es/utils").Mutable<Record<string, any>>>) | (() => ((rawFile: UploadRawFile) => import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>) | import("element-plus/es/utils").Awaitable<import("element-plus/es/utils").Mutable<Record<string, any>>>))[], unknown, unknown>;
     readonly onError: (err: import("./ajax").UploadAjaxError, rawFile: UploadRawFile) => void;
     readonly onProgress: (evt: import("./upload").UploadProgressEvent, rawFile: UploadRawFile) => void;

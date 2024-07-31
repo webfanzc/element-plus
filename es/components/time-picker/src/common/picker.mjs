@@ -15,10 +15,12 @@ import _export_sfc from '../../../../_virtual/plugin-vue_export-helper.mjs';
 import { useLocale } from '../../../../hooks/use-locale/index.mjs';
 import { useNamespace } from '../../../../hooks/use-namespace/index.mjs';
 import { useFormItem } from '../../../form/src/hooks/use-form-item.mjs';
+import { useEmptyValues } from '../../../../hooks/use-empty-values/index.mjs';
 import { debugWarn } from '../../../../utils/error.mjs';
 import { isArray } from '@vue/shared';
 import { EVENT_CODE } from '../../../../constants/aria.mjs';
 import { useFormSize } from '../../../form/src/hooks/use-form-common-props.mjs';
+import { useDeprecated } from '../../../../hooks/use-deprecated/index.mjs';
 
 const _hoisted_1 = ["id", "name", "placeholder", "value", "disabled", "readonly"];
 const _hoisted_2 = ["id", "name", "placeholder", "value", "disabled", "readonly"];
@@ -33,6 +35,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     "change",
     "focus",
     "blur",
+    "clear",
     "calendar-change",
     "panel-change",
     "visible-change",
@@ -47,6 +50,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const nsRange = useNamespace("range");
     const { form, formItem } = useFormItem();
     const elPopperOptions = inject("ElPopperOptions", {});
+    const { valueOnClear } = useEmptyValues(props, null);
     const refPopper = ref();
     const inputRef = ref();
     const pickerVisible = ref(false);
@@ -249,13 +253,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (!pickerVisible.value && valueIsEmpty.value)
         return "";
       if (formattedValue) {
-        return isDatesPicker.value || isYearsPicker.value ? formattedValue.join(", ") : formattedValue;
+        return isDatesPicker.value || isMonthsPicker.value || isYearsPicker.value ? formattedValue.join(", ") : formattedValue;
       }
       return "";
     });
     const isTimeLikePicker = computed(() => props.type.includes("time"));
     const isTimePicker = computed(() => props.type.startsWith("time"));
     const isDatesPicker = computed(() => props.type === "dates");
+    const isMonthsPicker = computed(() => props.type === "months");
     const isYearsPicker = computed(() => props.type === "years");
     const triggerIcon = computed(() => props.prefixIcon || (isTimeLikePicker.value ? Clock : Calendar));
     const showClose = ref(false);
@@ -265,12 +270,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       if (showClose.value) {
         event.stopPropagation();
         focusOnInputBox();
-        emitInput(null);
-        emitChange(null, true);
+        emitInput(valueOnClear.value);
+        emitChange(valueOnClear.value, true);
         showClose.value = false;
         pickerVisible.value = false;
         pickerOptions.value.handleClear && pickerOptions.value.handleClear();
       }
+      emit("clear");
     };
     const valueIsEmpty = computed(() => {
       const { modelValue } = props;
@@ -336,8 +342,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         }
       }
       if (userInput.value === "") {
-        emitInput(null);
-        emitChange(null);
+        emitInput(valueOnClear.value);
+        emitChange(valueOnClear.value);
         userInput.value = null;
       }
     };
@@ -471,6 +477,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     provide("EP_PICKER_BASE", {
       props
     });
+    useDeprecated({
+      from: "label",
+      replacement: "aria-label",
+      version: "2.8.0",
+      scope: "el-time-picker",
+      ref: "https://element-plus.org/en-US/component/time-picker.html"
+    }, computed(() => !!props.label));
     expose({
       focus,
       handleFocusInput,
@@ -516,8 +529,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             placeholder: _ctx.placeholder,
             class: normalizeClass([unref(nsDate).b("editor"), unref(nsDate).bm("editor", _ctx.type), _ctx.$attrs.class]),
             style: normalizeStyle(_ctx.$attrs.style),
-            readonly: !_ctx.editable || _ctx.readonly || unref(isDatesPicker) || unref(isYearsPicker) || _ctx.type === "week",
-            label: _ctx.label,
+            readonly: !_ctx.editable || _ctx.readonly || unref(isDatesPicker) || unref(isMonthsPicker) || unref(isYearsPicker) || _ctx.type === "week",
+            "aria-label": _ctx.label || _ctx.ariaLabel,
             tabindex: _ctx.tabindex,
             "validate-event": false,
             onInput: onUserInput,
@@ -528,7 +541,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             onMousedown: onMouseDownInput,
             onMouseenter: onMouseEnter,
             onMouseleave: onMouseLeave,
-            onTouchstart: onTouchStartInput,
+            onTouchstartPassive: onTouchStartInput,
             onClick: _cache[0] || (_cache[0] = withModifiers(() => {
             }, ["stop"]))
           }, {
@@ -537,7 +550,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 key: 0,
                 class: normalizeClass(unref(nsInput).e("icon")),
                 onMousedown: withModifiers(onMouseDownInput, ["prevent"]),
-                onTouchstart: onTouchStartInput
+                onTouchstartPassive: onTouchStartInput
               }, {
                 default: withCtx(() => [
                   (openBlock(), createBlock(resolveDynamicComponent(unref(triggerIcon))))
@@ -558,7 +571,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true)
             ]),
             _: 1
-          }, 8, ["id", "model-value", "name", "size", "disabled", "placeholder", "class", "style", "readonly", "label", "tabindex", "onKeydown"])) : (openBlock(), createElementBlock("div", {
+          }, 8, ["id", "model-value", "name", "size", "disabled", "placeholder", "class", "style", "readonly", "aria-label", "tabindex", "onKeydown"])) : (openBlock(), createElementBlock("div", {
             key: 1,
             ref_key: "inputRef",
             ref: inputRef,
@@ -567,14 +580,14 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             onClick: handleFocusInput,
             onMouseenter: onMouseEnter,
             onMouseleave: onMouseLeave,
-            onTouchstart: onTouchStartInput,
+            onTouchstartPassive: onTouchStartInput,
             onKeydown: handleKeydownInput
           }, [
             unref(triggerIcon) ? (openBlock(), createBlock(unref(ElIcon), {
               key: 0,
               class: normalizeClass([unref(nsInput).e("icon"), unref(nsRange).e("icon")]),
               onMousedown: withModifiers(onMouseDownInput, ["prevent"]),
-              onTouchstart: onTouchStartInput
+              onTouchstartPassive: onTouchStartInput
             }, {
               default: withCtx(() => [
                 (openBlock(), createBlock(resolveDynamicComponent(unref(triggerIcon))))

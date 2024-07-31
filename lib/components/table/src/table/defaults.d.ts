@@ -40,7 +40,7 @@ declare type RenderExpanded<T> = ({ row, $index, store, expanded: boolean, }: RI
 declare type SummaryMethod<T> = (data: {
     columns: TableColumnCtx<T>[];
     data: T[];
-}) => string[];
+}) => (string | VNode)[];
 interface Table<T> extends ComponentInternalInstance {
     $ready: boolean;
     hoverState?: HoverState<T>;
@@ -98,7 +98,7 @@ interface TableProps<T> {
     highlightCurrentRow?: boolean;
     currentRowKey?: string | number;
     emptyText?: string;
-    expandRowKeys?: any[];
+    expandRowKeys?: string[];
     defaultExpandAll?: boolean;
     defaultSort?: Sort;
     tooltipEffect?: string;
@@ -266,7 +266,7 @@ declare const _default: {
     /**
      * @description set expanded rows by this prop, prop's value is the keys of expand rows, you should set row-key before using this prop
      */
-    expandRowKeys: PropType<any[] | undefined>;
+    expandRowKeys: PropType<string[] | undefined>;
     /**
      * @description whether expand all rows by default, works when the table has a column type="expand" or contains tree structure data
      */

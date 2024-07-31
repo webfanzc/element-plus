@@ -2,6 +2,7 @@ const datePickTypes = [
   "year",
   "years",
   "month",
+  "months",
   "date",
   "dates",
   "week",

@@ -21,10 +21,11 @@ import { useCursor } from '../../../hooks/use-cursor/index.mjs';
 import { isObject, NOOP } from '@vue/shared';
 import { UPDATE_MODEL_EVENT } from '../../../constants/event.mjs';
 import { isKorean } from '../../../utils/i18n.mjs';
+import { useDeprecated } from '../../../hooks/use-deprecated/index.mjs';
 
 const _hoisted_1 = ["role"];
 const _hoisted_2 = ["id", "minlength", "maxlength", "type", "disabled", "readonly", "autocomplete", "tabindex", "aria-label", "placeholder", "form", "autofocus"];
-const _hoisted_3 = ["id", "minlength", "maxlength", "tabindex", "disabled", "readonly", "autocomplete", "aria-label", "placeholder", "form", "autofocus"];
+const _hoisted_3 = ["id", "minlength", "maxlength", "tabindex", "disabled", "readonly", "autocomplete", "aria-label", "placeholder", "form", "autofocus", "rows"];
 const __default__ = defineComponent({
   name: "ElInput",
   inheritAttrs: false
@@ -53,8 +54,6 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       nsInput.is("exceed", inputExceed.value),
       {
         [nsInput.b("group")]: slots.prepend || slots.append,
-        [nsInput.bm("group", "append")]: slots.append,
-        [nsInput.bm("group", "prepend")]: slots.prepend,
         [nsInput.m("prefix")]: slots.prefix || props.prefixIcon,
         [nsInput.m("suffix")]: slots.suffix || props.suffixIcon || props.clearable || props.showPassword,
         [nsInput.bm("suffix", "password-clear")]: showClear.value && showPwdVisible.value,
@@ -264,6 +263,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       setNativeInputValue();
       nextTick(resizeTextarea);
     });
+    useDeprecated({
+      from: "label",
+      replacement: "aria-label",
+      version: "2.8.0",
+      scope: "el-input",
+      ref: "https://element-plus.org/en-US/component/input.html"
+    }, computed(() => !!props.label));
     expose({
       input,
       textarea,
@@ -278,7 +284,13 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     });
     return (_ctx, _cache) => {
       return openBlock(), createElementBlock("div", mergeProps(unref(containerAttrs), {
-        class: unref(containerKls),
+        class: [
+          unref(containerKls),
+          {
+            [unref(nsInput).bm("group", "append")]: _ctx.$slots.append,
+            [unref(nsInput).bm("group", "prepend")]: _ctx.$slots.prepend
+          }
+        ],
         style: unref(containerStyle),
         role: _ctx.containerRole,
         onMouseenter: handleMouseEnter,
@@ -331,7 +343,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
               readonly: _ctx.readonly,
               autocomplete: _ctx.autocomplete,
               tabindex: _ctx.tabindex,
-              "aria-label": _ctx.label,
+              "aria-label": _ctx.label || _ctx.ariaLabel,
               placeholder: _ctx.placeholder,
               style: _ctx.inputStyle,
               form: _ctx.form,
@@ -423,7 +435,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             id: unref(inputId),
             ref_key: "textarea",
             ref: textarea,
-            class: unref(nsTextarea).e("inner")
+            class: [unref(nsTextarea).e("inner"), unref(nsInput).is("focus", unref(isFocused))]
           }, unref(attrs), {
             minlength: _ctx.minlength,
             maxlength: _ctx.maxlength,
@@ -432,10 +444,11 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
             readonly: _ctx.readonly,
             autocomplete: _ctx.autocomplete,
             style: unref(textareaStyle),
-            "aria-label": _ctx.label,
+            "aria-label": _ctx.label || _ctx.ariaLabel,
             placeholder: _ctx.placeholder,
             form: _ctx.form,
             autofocus: _ctx.autofocus,
+            rows: _ctx.rows,
             onCompositionstart: handleCompositionStart,
             onCompositionupdate: handleCompositionUpdate,
             onCompositionend: handleCompositionEnd,

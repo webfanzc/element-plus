@@ -1,8 +1,9 @@
 import '../../../utils/index.mjs';
 import '../../../hooks/index.mjs';
-import { radioEmits } from './radio2.mjs';
+import { radioEmits } from './radio.mjs';
 import { buildProps } from '../../../utils/vue/props/runtime.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
+import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
 
 const radioGroupProps = buildProps({
   id: {
@@ -34,7 +35,8 @@ const radioGroupProps = buildProps({
   validateEvent: {
     type: Boolean,
     default: true
-  }
+  },
+  ...useAriaProps(["ariaLabel"])
 });
 const radioGroupEmits = radioEmits;
 

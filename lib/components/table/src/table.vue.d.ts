@@ -10,12 +10,12 @@ declare const _default: import("vue").DefineComponent<{
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
-    };
+    }; /**
+     * @description used in multiple selection Table, toggle if a certain row is selected. With the second parameter, you can directly set if this row is selected
+     */
     width: (NumberConstructor | StringConstructor)[];
     height: (NumberConstructor | StringConstructor)[];
-    maxHeight: (NumberConstructor | StringConstructor)[]; /**
-     * @description used in expandable Table or tree Table, toggle if a certain row is expanded. With the second parameter, you can directly set if this row is expanded or collapsed
-     */
+    maxHeight: (NumberConstructor | StringConstructor)[];
     fit: {
         type: BooleanConstructor;
         default: boolean;
@@ -41,7 +41,7 @@ declare const _default: import("vue").DefineComponent<{
     highlightCurrentRow: BooleanConstructor;
     currentRowKey: (NumberConstructor | StringConstructor)[];
     emptyText: StringConstructor;
-    expandRowKeys: import("vue").PropType<any[] | undefined>;
+    expandRowKeys: import("vue").PropType<string[] | undefined>;
     defaultExpandAll: BooleanConstructor;
     defaultSort: import("vue").PropType<import("./table/defaults").Sort | undefined>;
     tooltipEffect: StringConstructor;
@@ -111,6 +111,7 @@ declare const _default: import("vue").DefineComponent<{
     };
     layout: TableLayout<any>;
     store: any;
+    columns: import("vue").ComputedRef<import("./table-column/defaults").TableColumnCtx<unknown>>;
     handleHeaderFooterMousewheel: (event: any, data: any) => void;
     handleMouseLeave: () => void;
     tableId: string;
@@ -228,12 +229,12 @@ declare const _default: import("vue").DefineComponent<{
         readonly required: false;
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
-    };
+    }; /**
+     * @description used in multiple selection Table, toggle if a certain row is selected. With the second parameter, you can directly set if this row is selected
+     */
     width: (NumberConstructor | StringConstructor)[];
     height: (NumberConstructor | StringConstructor)[];
-    maxHeight: (NumberConstructor | StringConstructor)[]; /**
-     * @description used in expandable Table or tree Table, toggle if a certain row is expanded. With the second parameter, you can directly set if this row is expanded or collapsed
-     */
+    maxHeight: (NumberConstructor | StringConstructor)[];
     fit: {
         type: BooleanConstructor;
         default: boolean;
@@ -259,7 +260,7 @@ declare const _default: import("vue").DefineComponent<{
     highlightCurrentRow: BooleanConstructor;
     currentRowKey: (NumberConstructor | StringConstructor)[];
     emptyText: StringConstructor;
-    expandRowKeys: import("vue").PropType<any[] | undefined>;
+    expandRowKeys: import("vue").PropType<string[] | undefined>;
     defaultExpandAll: BooleanConstructor;
     defaultSort: import("vue").PropType<import("./table/defaults").Sort | undefined>;
     tooltipEffect: StringConstructor;

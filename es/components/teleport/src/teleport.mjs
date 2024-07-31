@@ -6,10 +6,7 @@ const teleportProps = buildProps({
     type: definePropType(String),
     default: "body"
   },
-  disabled: {
-    type: Boolean,
-    default: false
-  },
+  disabled: Boolean,
   style: {
     type: definePropType([String, Array, Object])
   },

@@ -40,7 +40,7 @@ export declare const drawerProps: {
         readonly validator: ((val: unknown) => boolean) | undefined;
         __epPropKey: true;
     };
-    readonly trapFocus: import("element-plus/es/utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly trapFocus: BooleanConstructor;
     readonly center: BooleanConstructor;
     readonly alignCenter: BooleanConstructor;
     readonly closeIcon: {

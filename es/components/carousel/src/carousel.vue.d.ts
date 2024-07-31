@@ -7,10 +7,11 @@ declare const _default: import("vue").DefineComponent<{
     readonly indicatorPosition: import("../../../utils").EpPropFinalized<StringConstructor, "" | "none" | "outside", unknown, "", boolean>;
     readonly arrow: import("../../../utils").EpPropFinalized<StringConstructor, "always" | "never" | "hover", unknown, "hover", boolean>;
     readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "card", unknown, "", boolean>;
+    readonly cardScale: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0.83, boolean>;
     readonly loop: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly direction: import("../../../utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "horizontal", boolean>;
     readonly pauseOnHover: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly motionBlur: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly motionBlur: BooleanConstructor;
 }, {
     COMPONENT_NAME: string;
     props: Readonly<import("@vue/shared").LooseRequired<Readonly<import("vue").ExtractPropTypes<{
@@ -22,10 +23,11 @@ declare const _default: import("vue").DefineComponent<{
         readonly indicatorPosition: import("../../../utils").EpPropFinalized<StringConstructor, "" | "none" | "outside", unknown, "", boolean>;
         readonly arrow: import("../../../utils").EpPropFinalized<StringConstructor, "always" | "never" | "hover", unknown, "hover", boolean>;
         readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "card", unknown, "", boolean>;
+        readonly cardScale: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0.83, boolean>;
         readonly loop: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
         readonly direction: import("../../../utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "horizontal", boolean>;
         readonly pauseOnHover: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-        readonly motionBlur: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+        readonly motionBlur: BooleanConstructor;
     }>> & {
         onChange?: ((current: number, prev: number) => any) | undefined;
     }>>;
@@ -160,10 +162,11 @@ declare const _default: import("vue").DefineComponent<{
     readonly indicatorPosition: import("../../../utils").EpPropFinalized<StringConstructor, "" | "none" | "outside", unknown, "", boolean>;
     readonly arrow: import("../../../utils").EpPropFinalized<StringConstructor, "always" | "never" | "hover", unknown, "hover", boolean>;
     readonly type: import("../../../utils").EpPropFinalized<StringConstructor, "" | "card", unknown, "", boolean>;
+    readonly cardScale: import("../../../utils").EpPropFinalized<NumberConstructor, unknown, unknown, 0.83, boolean>;
     readonly loop: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
     readonly direction: import("../../../utils").EpPropFinalized<StringConstructor, "vertical" | "horizontal", unknown, "horizontal", boolean>;
     readonly pauseOnHover: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, true, boolean>;
-    readonly motionBlur: import("../../../utils").EpPropFinalized<BooleanConstructor, unknown, unknown, false, boolean>;
+    readonly motionBlur: BooleanConstructor;
 }>> & {
     onChange?: ((current: number, prev: number) => any) | undefined;
 }, {
@@ -177,7 +180,8 @@ declare const _default: import("vue").DefineComponent<{
     readonly autoplay: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly interval: number;
     readonly indicatorPosition: import("../../../utils").EpPropMergeType<StringConstructor, "" | "none" | "outside", unknown>;
+    readonly cardScale: number;
     readonly pauseOnHover: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
-    readonly motionBlur: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
+    readonly motionBlur: boolean;
 }>;
 export default _default;

@@ -1,6 +1,9 @@
 declare const _default: {
     name: string;
     el: {
+        breadcrumb: {
+            label: string;
+        };
         colorpicker: {
             confirm: string;
             clear: string;
@@ -133,6 +136,11 @@ declare const _default: {
             resetFilter: string;
             clearFilter: string;
             sumText: string;
+        };
+        tour: {
+            next: string;
+            previous: string;
+            finish: string;
         };
         tree: {
             emptyText: string;

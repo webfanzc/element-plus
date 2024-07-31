@@ -9,7 +9,9 @@ import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs
 import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
-import { tagProps } from '../../tag/src/tag2.mjs';
+import { tagProps } from '../../tag/src/tag.mjs';
+import { useEmptyValuesProps } from '../../../hooks/use-empty-values/index.mjs';
+import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
 
 const SelectProps = buildProps({
   allowCreate: Boolean,
@@ -113,10 +115,9 @@ const SelectProps = buildProps({
     default: ["bottom-start", "top-start", "right", "left"]
   },
   tagType: { ...tagProps.type, default: "info" },
-  ariaLabel: {
-    type: String,
-    default: void 0
-  }
+  tagEffect: { ...tagProps.effect, default: "light" },
+  ...useEmptyValuesProps,
+  ...useAriaProps(["ariaLabel"])
 });
 const OptionProps = buildProps({
   data: Array,

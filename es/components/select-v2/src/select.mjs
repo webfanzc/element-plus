@@ -1,4 +1,4 @@
-import { defineComponent, computed, reactive, toRefs, provide, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, withModifiers, createVNode, withCtx, createElementVNode, renderSlot, createCommentVNode, Fragment, renderList, normalizeStyle, toDisplayString, createBlock, withKeys, vModelText, resolveDynamicComponent, vShow, createSlots, normalizeProps, guardReactiveProps } from 'vue';
+import { defineComponent, computed, reactive, toRefs, provide, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, createVNode, withCtx, createElementVNode, withModifiers, renderSlot, createCommentVNode, Fragment, renderList, normalizeStyle, createTextVNode, toDisplayString, createBlock, withKeys, vModelText, resolveDynamicComponent, vShow, createSlots, normalizeProps, guardReactiveProps } from 'vue';
 import '../../../utils/index.mjs';
 import '../../../directives/index.mjs';
 import { ElTooltip } from '../../tooltip/index.mjs';
@@ -66,6 +66,7 @@ const _sfc_main = defineComponent({
 });
 const _hoisted_1 = ["id", "autocomplete", "aria-expanded", "aria-label", "disabled", "readonly", "name"];
 const _hoisted_2 = ["textContent"];
+const _hoisted_3 = { key: 1 };
 function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tag = resolveComponent("el-tag");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -75,9 +76,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
   return withDirectives((openBlock(), createElementBlock("div", {
     ref: "selectRef",
     class: normalizeClass([_ctx.nsSelect.b(), _ctx.nsSelect.m(_ctx.selectSize)]),
-    onMouseenter: _cache[14] || (_cache[14] = ($event) => _ctx.states.inputHovering = true),
-    onMouseleave: _cache[15] || (_cache[15] = ($event) => _ctx.states.inputHovering = false),
-    onClick: _cache[16] || (_cache[16] = withModifiers((...args) => _ctx.toggleMenu && _ctx.toggleMenu(...args), ["stop"]))
+    onMouseenter: _cache[15] || (_cache[15] = ($event) => _ctx.states.inputHovering = true),
+    onMouseleave: _cache[16] || (_cache[16] = ($event) => _ctx.states.inputHovering = false)
   }, [
     createVNode(_component_el_tooltip, {
       ref: "tooltipRef",
@@ -95,7 +95,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       trigger: "click",
       persistent: _ctx.persistent,
       onBeforeShow: _ctx.handleMenuEnter,
-      onHide: _cache[13] || (_cache[13] = ($event) => _ctx.states.isBeforeHide = false)
+      onHide: _cache[14] || (_cache[14] = ($event) => _ctx.states.isBeforeHide = false)
     }, {
       default: withCtx(() => [
         createElementVNode("div", {
@@ -106,7 +106,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             _ctx.nsSelect.is("hovering", _ctx.states.inputHovering),
             _ctx.nsSelect.is("filterable", _ctx.filterable),
             _ctx.nsSelect.is("disabled", _ctx.selectDisabled)
-          ])
+          ]),
+          onClick: _cache[13] || (_cache[13] = withModifiers((...args) => _ctx.toggleMenu && _ctx.toggleMenu(...args), ["prevent", "stop"]))
         }, [
           _ctx.$slots.prefix ? (openBlock(), createElementBlock("div", {
             key: 0,
@@ -132,6 +133,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                     closable: !_ctx.selectDisabled && !_ctx.getDisabled(item),
                     size: _ctx.collapseTagSize,
                     type: _ctx.tagType,
+                    effect: _ctx.tagEffect,
                     "disable-transitions": "",
                     style: normalizeStyle(_ctx.tagStyle),
                     onClose: ($event) => _ctx.deleteTag($event, item)
@@ -139,10 +141,17 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                     default: withCtx(() => [
                       createElementVNode("span", {
                         class: normalizeClass(_ctx.nsSelect.e("tags-text"))
-                      }, toDisplayString(_ctx.getLabel(item)), 3)
+                      }, [
+                        renderSlot(_ctx.$slots, "label", {
+                          label: _ctx.getLabel(item),
+                          value: _ctx.getValue(item)
+                        }, () => [
+                          createTextVNode(toDisplayString(_ctx.getLabel(item)), 1)
+                        ])
+                      ], 2)
                     ]),
                     _: 2
-                  }, 1032, ["closable", "size", "type", "style", "onClose"])
+                  }, 1032, ["closable", "size", "type", "effect", "style", "onClose"])
                 ], 2);
               }), 128)),
               _ctx.collapseTags && _ctx.modelValue.length > _ctx.maxCollapseTags ? (openBlock(), createBlock(_component_el_tooltip, {
@@ -163,6 +172,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                       closable: false,
                       size: _ctx.collapseTagSize,
                       type: _ctx.tagType,
+                      effect: _ctx.tagEffect,
                       style: normalizeStyle(_ctx.collapseTagStyle),
                       "disable-transitions": ""
                     }, {
@@ -172,7 +182,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                         }, " + " + toDisplayString(_ctx.modelValue.length - _ctx.maxCollapseTags), 3)
                       ]),
                       _: 1
-                    }, 8, ["size", "type", "style"])
+                    }, 8, ["size", "type", "effect", "style"])
                   ], 2)
                 ]),
                 content: withCtx(() => [
@@ -190,21 +200,29 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                           closable: !_ctx.selectDisabled && !_ctx.getDisabled(selected),
                           size: _ctx.collapseTagSize,
                           type: _ctx.tagType,
+                          effect: _ctx.tagEffect,
                           "disable-transitions": "",
                           onClose: ($event) => _ctx.deleteTag($event, selected)
                         }, {
                           default: withCtx(() => [
                             createElementVNode("span", {
                               class: normalizeClass(_ctx.nsSelect.e("tags-text"))
-                            }, toDisplayString(_ctx.getLabel(selected)), 3)
+                            }, [
+                              renderSlot(_ctx.$slots, "label", {
+                                label: _ctx.getLabel(selected),
+                                value: _ctx.getValue(selected)
+                              }, () => [
+                                createTextVNode(toDisplayString(_ctx.getLabel(selected)), 1)
+                              ])
+                            ], 2)
                           ]),
                           _: 2
-                        }, 1032, ["closable", "size", "type", "onClose"])
+                        }, 1032, ["closable", "size", "type", "effect", "onClose"])
                       ], 2);
                     }), 128))
                   ], 2)
                 ]),
-                _: 1
+                _: 3
               }, 8, ["disabled", "effect", "teleported"])) : createCommentVNode("v-if", true)
             ]) : createCommentVNode("v-if", true),
             !_ctx.selectDisabled ? (openBlock(), createElementBlock("div", {
@@ -266,7 +284,13 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 _ctx.nsSelect.is("transparent", !_ctx.hasModelValue || _ctx.expanded && !_ctx.states.inputValue)
               ])
             }, [
-              createElementVNode("span", null, toDisplayString(_ctx.currentPlaceholder), 1)
+              _ctx.hasModelValue ? renderSlot(_ctx.$slots, "label", {
+                key: 0,
+                label: _ctx.currentPlaceholder,
+                value: _ctx.modelValue
+              }, () => [
+                createElementVNode("span", null, toDisplayString(_ctx.currentPlaceholder), 1)
+              ]) : (openBlock(), createElementBlock("span", _hoisted_3, toDisplayString(_ctx.currentPlaceholder), 1))
             ], 2)) : createCommentVNode("v-if", true)
           ], 2),
           createElementVNode("div", {

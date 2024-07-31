@@ -82,8 +82,8 @@ declare const _default: import("vue").DefineComponent<{
         __epPropKey: true;
     };
 }>>, {
-    readonly loading: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly rows: number;
+    readonly loading: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly animated: import("../../../utils").EpPropMergeType<BooleanConstructor, unknown, unknown>;
     readonly count: number;
 }>;

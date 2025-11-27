@@ -2,6 +2,9 @@
   "name": "element-plus",
   "version": "2.11.8",
   "description": "A Component Library for Vue 3",
+  "files": [
+    "dist"
+  ],
   "keywords": [
     "element-plus",
     "element",

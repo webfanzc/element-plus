@@ -2,26 +2,33 @@ import { isNil } from 'lodash-unified';
 import { buildProps, definePropType } from '../../../utils/vue/props/runtime.mjs';
 import { useSizeProp } from '../../../hooks/use-size/index.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
+import { useEmptyValuesProps } from '../../../hooks/use-empty-values/index.mjs';
 import { useAriaProps } from '../../../hooks/use-aria/index.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 import { isString } from '@vue/shared';
 
 const colorPickerProps = buildProps({
-  modelValue: String,
+  persistent: {
+    type: Boolean,
+    default: true
+  },
+  modelValue: {
+    type: definePropType(String),
+    default: void 0
+  },
   id: String,
   showAlpha: Boolean,
   colorFormat: String,
   disabled: Boolean,
   size: useSizeProp,
-  popperClass: {
-    type: String,
-    default: ""
-  },
+  popperClass: useTooltipContentProps.popperClass,
+  popperStyle: useTooltipContentProps.popperStyle,
   tabindex: {
     type: [String, Number],
     default: 0
   },
   teleported: useTooltipContentProps.teleported,
+  appendTo: useTooltipContentProps.appendTo,
   predefine: {
     type: definePropType(Array)
   },
@@ -29,6 +36,7 @@ const colorPickerProps = buildProps({
     type: Boolean,
     default: true
   },
+  ...useEmptyValuesProps,
   ...useAriaProps(["ariaLabel"])
 });
 const colorPickerEmits = {
@@ -38,7 +46,6 @@ const colorPickerEmits = {
   focus: (evt) => evt instanceof FocusEvent,
   blur: (evt) => evt instanceof FocusEvent
 };
-const colorPickerContextKey = Symbol("colorPickerContextKey");
 
-export { colorPickerContextKey, colorPickerEmits, colorPickerProps };
+export { colorPickerEmits, colorPickerProps };
 //# sourceMappingURL=color-picker.mjs.map

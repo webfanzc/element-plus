@@ -1,7 +1,6 @@
 import { reactive, ref, computed, nextTick, watch, watchEffect, onMounted } from 'vue';
-import { debounce, get, findLastIndex, isEqual } from 'lodash-unified';
-import { useResizeObserver } from '@vueuse/core';
-import { ArrowDown } from '@element-plus/icons-vue';
+import { get, isEqual, findLastIndex } from 'lodash-unified';
+import { useDebounceFn, useResizeObserver } from '@vueuse/core';
 import { useAllowCreate } from './useAllowCreate.mjs';
 import { useProps } from './useProps.mjs';
 import { useLocale } from '../../../hooks/use-locale/index.mjs';
@@ -10,15 +9,17 @@ import { useFormItem, useFormItemInputId } from '../../form/src/hooks/use-form-i
 import { useEmptyValues } from '../../../hooks/use-empty-values/index.mjs';
 import { useComposition } from '../../../hooks/use-composition/index.mjs';
 import { useFocusController } from '../../../hooks/use-focus-controller/index.mjs';
-import { isArray, isObject, isFunction } from '@vue/shared';
-import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
-import { useFormSize } from '../../form/src/hooks/use-form-common-props.mjs';
-import { EVENT_CODE } from '../../../constants/aria.mjs';
 import { debugWarn } from '../../../utils/error.mjs';
-import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
+import { isArray, isFunction, isObject } from '@vue/shared';
+import { ValidateComponentsMap } from '../../../utils/vue/icon.mjs';
 import { escapeStringRegexp } from '../../../utils/strings.mjs';
+import { useFormSize } from '../../form/src/hooks/use-form-common-props.mjs';
+import { MINIMUM_INPUT_WIDTH } from '../../../constants/form.mjs';
+import { isEmpty, isUndefined, isNumber } from '../../../utils/types.mjs';
+import { getEventCode } from '../../../utils/dom/event.mjs';
+import { EVENT_CODE } from '../../../constants/aria.mjs';
+import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
 
-const MINIMUM_INPUT_WIDTH = 11;
 const useSelect = (props, emit) => {
   const { t } = useLocale();
   const nsSelect = useNamespace("select");
@@ -36,7 +37,6 @@ const useSelect = (props, emit) => {
     hoveringIndex: -1,
     inputHovering: false,
     selectionWidth: 0,
-    calculatorWidth: 0,
     collapseItemWidth: 0,
     previousQuery: null,
     previousValue: void 0,
@@ -45,12 +45,12 @@ const useSelect = (props, emit) => {
     isBeforeHide: false
   });
   const popperSize = ref(-1);
+  const debouncing = ref(false);
   const selectRef = ref();
   const selectionRef = ref();
   const tooltipRef = ref();
   const tagTooltipRef = ref();
   const inputRef = ref();
-  const calculatorRef = ref();
   const prefixRef = ref();
   const suffixRef = ref();
   const menuRef = ref();
@@ -64,10 +64,9 @@ const useSelect = (props, emit) => {
   } = useComposition({
     afterComposition: (e) => onInput(e)
   });
+  const selectDisabled = computed(() => props.disabled || !!(elForm == null ? void 0 : elForm.disabled));
   const { wrapperRef, isFocused, handleBlur } = useFocusController(inputRef, {
-    beforeFocus() {
-      return selectDisabled.value;
-    },
+    disabled: selectDisabled,
     afterFocus() {
       if (props.automaticDropdown && !expanded.value) {
         expanded.value = true;
@@ -79,14 +78,22 @@ const useSelect = (props, emit) => {
       return ((_a = tooltipRef.value) == null ? void 0 : _a.isFocusInsideContent(event)) || ((_b = tagTooltipRef.value) == null ? void 0 : _b.isFocusInsideContent(event));
     },
     afterBlur() {
+      var _a;
       expanded.value = false;
       states.menuVisibleOnFocus = false;
+      if (props.validateEvent) {
+        (_a = elFormItem == null ? void 0 : elFormItem.validate) == null ? void 0 : _a.call(elFormItem, "blur").catch((err) => debugWarn(err));
+      }
     }
   });
-  const allOptions = ref([]);
+  const allOptions = computed(() => filterOptions(""));
+  const hasOptions = computed(() => {
+    if (props.loading)
+      return false;
+    return props.options.length > 0 || states.createdOptions.length > 0;
+  });
   const filteredOptions = ref([]);
   const expanded = ref(false);
-  const selectDisabled = computed(() => props.disabled || (elForm == null ? void 0 : elForm.disabled));
   const needStatusIcon = computed(() => {
     var _a;
     return (_a = elForm == null ? void 0 : elForm.statusIcon) != null ? _a : false;
@@ -99,9 +106,9 @@ const useSelect = (props, emit) => {
     return props.multiple ? isArray(props.modelValue) && props.modelValue.length > 0 : !isEmptyValue(props.modelValue);
   });
   const showClearBtn = computed(() => {
-    return props.clearable && !selectDisabled.value && states.inputHovering && hasModelValue.value;
+    return props.clearable && !selectDisabled.value && hasModelValue.value && (isFocused.value || states.inputHovering);
   });
-  const iconComponent = computed(() => props.remote && props.filterable ? "" : ArrowDown);
+  const iconComponent = computed(() => props.remote && props.filterable ? "" : props.suffixIcon);
   const iconReverse = computed(() => iconComponent.value && nsSelect.is("reverse", expanded.value));
   const validateState = computed(() => (elFormItem == null ? void 0 : elFormItem.validateState) || "");
   const validateIcon = computed(() => {
@@ -109,29 +116,28 @@ const useSelect = (props, emit) => {
       return;
     return ValidateComponentsMap[validateState.value];
   });
-  const debounce$1 = computed(() => props.remote ? 300 : 0);
+  const debounce = computed(() => props.remote ? props.debounce : 0);
+  const isRemoteSearchEmpty = computed(() => props.remote && !states.inputValue && !hasOptions.value);
   const emptyText = computed(() => {
     if (props.loading) {
       return props.loadingText || t("el.select.loading");
     } else {
-      if (props.remote && !states.inputValue && allOptions.value.length === 0)
-        return false;
-      if (props.filterable && states.inputValue && allOptions.value.length > 0 && filteredOptions.value.length === 0) {
+      if (props.filterable && states.inputValue && hasOptions.value && filteredOptions.value.length === 0) {
         return props.noMatchText || t("el.select.noMatch");
       }
-      if (allOptions.value.length === 0) {
+      if (!hasOptions.value) {
         return props.noDataText || t("el.select.noData");
       }
     }
     return null;
   });
+  const isFilterMethodValid = computed(() => props.filterable && isFunction(props.filterMethod));
+  const isRemoteMethodValid = computed(() => props.filterable && props.remote && isFunction(props.remoteMethod));
   const filterOptions = (query) => {
+    const regexp = new RegExp(escapeStringRegexp(query), "i");
     const isValidOption = (o) => {
-      if (props.filterable && isFunction(props.filterMethod))
+      if (isFilterMethodValid.value || isRemoteMethodValid.value)
         return true;
-      if (props.filterable && props.remote && isFunction(props.remoteMethod))
-        return true;
-      const regexp = new RegExp(escapeStringRegexp(query), "i");
       return query ? regexp.test(getLabel(o) || "") : true;
     };
     if (props.loading) {
@@ -154,7 +160,6 @@ const useSelect = (props, emit) => {
     }, []);
   };
   const updateOptions = () => {
-    allOptions.value = filterOptions("");
     filteredOptions.value = filterOptions(states.inputValue);
   };
   const allOptionsValueMap = computed(() => {
@@ -176,7 +181,36 @@ const useSelect = (props, emit) => {
   const collapseTagSize = computed(() => selectSize.value === "small" ? "small" : "default");
   const calculatePopperSize = () => {
     var _a;
-    popperSize.value = ((_a = selectRef.value) == null ? void 0 : _a.offsetWidth) || 200;
+    if (isNumber(props.fitInputWidth)) {
+      popperSize.value = props.fitInputWidth;
+      return;
+    }
+    const width = ((_a = selectRef.value) == null ? void 0 : _a.offsetWidth) || 200;
+    if (!props.fitInputWidth && hasOptions.value) {
+      nextTick(() => {
+        popperSize.value = Math.max(width, calculateLabelMaxWidth());
+      });
+    } else {
+      popperSize.value = width;
+    }
+  };
+  const calculateLabelMaxWidth = () => {
+    var _a, _b;
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    const selector = nsSelect.be("dropdown", "item");
+    const dom = ((_b = (_a = menuRef.value) == null ? void 0 : _a.listRef) == null ? void 0 : _b.innerRef) || document;
+    const dropdownItemEl = dom.querySelector(`.${selector}`);
+    if (dropdownItemEl === null || ctx === null)
+      return 0;
+    const style = getComputedStyle(dropdownItemEl);
+    const padding = Number.parseFloat(style.paddingLeft) + Number.parseFloat(style.paddingRight);
+    ctx.font = `bold ${style.font.replace(new RegExp(`\\b${style.fontWeight}\\b`), "")}`;
+    const maxWidth = filteredOptions.value.reduce((max, option) => {
+      const metrics = ctx.measureText(getLabel(option));
+      return Math.max(metrics.width, max);
+    }, 0);
+    return maxWidth + padding;
   };
   const getGapWidth = () => {
     if (!selectionRef.value)
@@ -186,15 +220,13 @@ const useSelect = (props, emit) => {
   };
   const tagStyle = computed(() => {
     const gapWidth = getGapWidth();
-    const maxWidth = collapseItemRef.value && props.maxCollapseTags === 1 ? states.selectionWidth - states.collapseItemWidth - gapWidth : states.selectionWidth;
+    const inputSlotWidth = props.filterable ? gapWidth + MINIMUM_INPUT_WIDTH : 0;
+    const maxWidth = collapseItemRef.value && props.maxCollapseTags === 1 ? states.selectionWidth - states.collapseItemWidth - gapWidth - inputSlotWidth : states.selectionWidth - inputSlotWidth;
     return { maxWidth: `${maxWidth}px` };
   });
   const collapseTagStyle = computed(() => {
     return { maxWidth: `${states.selectionWidth}px` };
   });
-  const inputStyle = computed(() => ({
-    width: `${Math.max(states.calculatorWidth, MINIMUM_INPUT_WIDTH)}px`
-  }));
   const shouldShowPlaceholder = computed(() => {
     if (isArray(props.modelValue)) {
       return props.modelValue.length === 0 && !states.inputValue;
@@ -213,7 +245,7 @@ const useSelect = (props, emit) => {
   const indexRef = computed(() => {
     if (props.multiple) {
       const len = props.modelValue.length;
-      if (props.modelValue.length > 0 && filteredOptionsValueMap.value.has(props.modelValue[len - 1])) {
+      if (len > 0 && filteredOptionsValueMap.value.has(props.modelValue[len - 1])) {
         const { index } = filteredOptionsValueMap.value.get(props.modelValue[len - 1]);
         return index;
       }
@@ -227,7 +259,7 @@ const useSelect = (props, emit) => {
   });
   const dropdownMenuVisible = computed({
     get() {
-      return expanded.value && emptyText.value !== false;
+      return expanded.value && (props.loading || !isRemoteSearchEmpty.value) && (!debouncing.value || !isEmpty(states.previousQuery));
     },
     set(val) {
       expanded.value = val;
@@ -265,9 +297,14 @@ const useSelect = (props, emit) => {
       expanded.value = true;
     }
     createNewOption(states.inputValue);
-    handleQueryChange(states.inputValue);
+    nextTick(() => {
+      handleQueryChange(states.inputValue);
+    });
   };
-  const debouncedOnInputChange = debounce(onInputChange, debounce$1.value);
+  const debouncedOnInputChange = useDebounceFn(() => {
+    onInputChange();
+    debouncing.value = false;
+  }, debounce);
   const handleQueryChange = (val) => {
     if (states.previousQuery === val || isComposing.value) {
       return;
@@ -299,6 +336,17 @@ const useSelect = (props, emit) => {
     emit(UPDATE_MODEL_EVENT, val);
     emitChange(val);
     states.previousValue = props.multiple ? String(val) : val;
+    nextTick(() => {
+      if (props.multiple && isArray(props.modelValue)) {
+        const cachedOptions = states.cachedOptions.slice();
+        const selectedOptions = props.modelValue.map((value) => getOption(value, cachedOptions));
+        if (!isEqual(states.cachedOptions, selectedOptions)) {
+          states.cachedOptions = selectedOptions;
+        }
+      } else {
+        initStates(true);
+      }
+    });
   };
   const getValueIndex = (arr = [], value) => {
     if (!isObject(value)) {
@@ -322,10 +370,7 @@ const useSelect = (props, emit) => {
     calculatePopperSize();
   };
   const resetSelectionWidth = () => {
-    states.selectionWidth = selectionRef.value.getBoundingClientRect().width;
-  };
-  const resetCalculatorWidth = () => {
-    states.calculatorWidth = calculatorRef.value.getBoundingClientRect().width;
+    states.selectionWidth = Number.parseFloat(window.getComputedStyle(selectionRef.value).width);
   };
   const resetCollapseItemWidth = () => {
     states.collapseItemWidth = collapseItemRef.value.getBoundingClientRect().width;
@@ -339,9 +384,10 @@ const useSelect = (props, emit) => {
     (_b = (_a = tagTooltipRef.value) == null ? void 0 : _a.updatePopper) == null ? void 0 : _b.call(_a);
   };
   const onSelect = (option) => {
+    const optionValue = getValue(option);
     if (props.multiple) {
       let selectedOptions = props.modelValue.slice();
-      const index = getValueIndex(selectedOptions, getValue(option));
+      const index = getValueIndex(selectedOptions, optionValue);
       if (index > -1) {
         selectedOptions = [
           ...selectedOptions.slice(0, index),
@@ -350,7 +396,7 @@ const useSelect = (props, emit) => {
         states.cachedOptions.splice(index, 1);
         removeNewOption(option);
       } else if (props.multipleLimit <= 0 || selectedOptions.length < props.multipleLimit) {
-        selectedOptions = [...selectedOptions, getValue(option)];
+        selectedOptions = [...selectedOptions, optionValue];
         states.cachedOptions.push(option);
         selectNewOption(option);
       }
@@ -363,7 +409,7 @@ const useSelect = (props, emit) => {
       }
     } else {
       states.selectedLabel = getLabel(option);
-      update(getValue(option));
+      !isEqual(props.modelValue, optionValue) && update(optionValue);
       expanded.value = false;
       selectNewOption(option);
       if (!option.created) {
@@ -413,9 +459,10 @@ const useSelect = (props, emit) => {
   };
   const getLastNotDisabledIndex = (value) => findLastIndex(value, (it) => !states.cachedOptions.some((option) => getValue(option) === it && getDisabled(option)));
   const handleDel = (e) => {
+    const code = getEventCode(e);
     if (!props.multiple)
       return;
-    if (e.code === EVENT_CODE.delete)
+    if (code === EVENT_CODE.delete)
       return;
     if (states.inputValue.length === 0) {
       e.preventDefault();
@@ -439,11 +486,7 @@ const useSelect = (props, emit) => {
     } else {
       emptyValue = valueOnClear.value;
     }
-    if (props.multiple) {
-      states.cachedOptions = [];
-    } else {
-      states.selectedLabel = "";
-    }
+    states.selectedLabel = "";
     expanded.value = false;
     update(emptyValue);
     emit("clear");
@@ -458,7 +501,7 @@ const useSelect = (props, emit) => {
     if (!expanded.value) {
       return toggleMenu();
     }
-    if (hoveringIndex === void 0) {
+    if (isUndefined(hoveringIndex)) {
       hoveringIndex = states.hoveringIndex;
     }
     let newIndex = -1;
@@ -494,15 +537,16 @@ const useSelect = (props, emit) => {
   const updateHoveringIndex = () => {
     if (!props.multiple) {
       states.hoveringIndex = filteredOptions.value.findIndex((item) => {
-        return getValueKey(item) === getValueKey(props.modelValue);
+        return getValueKey(getValue(item)) === getValueKey(props.modelValue);
       });
     } else {
-      states.hoveringIndex = filteredOptions.value.findIndex((item) => props.modelValue.some((modelValue) => getValueKey(modelValue) === getValueKey(item)));
+      states.hoveringIndex = filteredOptions.value.findIndex((item) => props.modelValue.some((modelValue) => getValueKey(modelValue) === getValueKey(getValue(item))));
     }
   };
   const onInput = (event) => {
     states.inputValue = event.target.value;
     if (props.remote) {
+      debouncing.value = true;
       debouncedOnInputChange();
     } else {
       return onInputChange();
@@ -511,7 +555,7 @@ const useSelect = (props, emit) => {
   const handleClickOutside = (event) => {
     expanded.value = false;
     if (isFocused.value) {
-      const _event = new FocusEvent("focus", event);
+      const _event = new FocusEvent("blur", event);
       handleBlur(_event);
     }
   };
@@ -519,7 +563,7 @@ const useSelect = (props, emit) => {
     states.isBeforeHide = false;
     return nextTick(() => {
       if (~indexRef.value) {
-        scrollToItem(states.hoveringIndex);
+        scrollToItem(indexRef.value);
       }
     });
   };
@@ -542,6 +586,10 @@ const useSelect = (props, emit) => {
       [aliasProps.value.value]: value,
       [aliasProps.value.label]: value
     };
+  };
+  const getIndex = (option) => {
+    var _a, _b;
+    return (_b = (_a = allOptionsValueMap.value.get(getValue(option))) == null ? void 0 : _a.index) != null ? _b : -1;
   };
   const initStates = (needUpdateSelectedLabel = false) => {
     if (props.multiple) {
@@ -577,8 +625,14 @@ const useSelect = (props, emit) => {
     clearAllNewOption();
     calculatePopperSize();
   };
+  watch(() => props.fitInputWidth, () => {
+    calculatePopperSize();
+  });
   watch(expanded, (val) => {
     if (val) {
+      if (!props.persistent) {
+        calculatePopperSize();
+      }
       handleQueryChange("");
     } else {
       states.inputValue = "";
@@ -610,6 +664,7 @@ const useSelect = (props, emit) => {
     flush: "post"
   });
   watch(() => filteredOptions.value, () => {
+    calculatePopperSize();
     return menuRef.value && nextTick(menuRef.value.resetScrollTop);
   });
   watchEffect(() => {
@@ -639,7 +694,6 @@ const useSelect = (props, emit) => {
   });
   useResizeObserver(selectRef, handleResize);
   useResizeObserver(selectionRef, resetSelectionWidth);
-  useResizeObserver(calculatorRef, resetCalculatorWidth);
   useResizeObserver(menuRef, updateTooltip);
   useResizeObserver(wrapperRef, updateTooltip);
   useResizeObserver(tagMenuRef, updateTagTooltip);
@@ -651,14 +705,14 @@ const useSelect = (props, emit) => {
     expanded,
     emptyText,
     popupHeight,
-    debounce: debounce$1,
+    debounce,
     allOptions,
+    allOptionsValueMap,
     filteredOptions,
     iconComponent,
     iconReverse,
     tagStyle,
     collapseTagStyle,
-    inputStyle,
     popperSize,
     dropdownMenuVisible,
     hasModelValue,
@@ -671,7 +725,6 @@ const useSelect = (props, emit) => {
     isFocused,
     nsSelect,
     nsInput,
-    calculatorRef,
     inputRef,
     menuRef,
     tagMenuRef,
@@ -694,6 +747,7 @@ const useSelect = (props, emit) => {
     getValue,
     getDisabled,
     getValueKey,
+    getIndex,
     handleClear,
     handleClickOutside,
     handleDel,
@@ -703,7 +757,6 @@ const useSelect = (props, emit) => {
     handleMenuEnter,
     handleResize,
     resetSelectionWidth,
-    resetCalculatorWidth,
     updateTooltip,
     updateTagTooltip,
     updateOptions,

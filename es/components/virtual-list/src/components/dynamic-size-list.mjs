@@ -142,7 +142,7 @@ const DynamicSizeList = createList({
   },
   clearCache: false,
   validateProps: ({ itemSize }) => {
-    if (process.env.NODE_ENV !== "production") {
+    if (typeof process !== "undefined" && process.env.NODE_ENV !== "production") {
       if (typeof itemSize !== "function") {
         throwError(SCOPE, `
           itemSize is required as function, but the given value was ${typeof itemSize}

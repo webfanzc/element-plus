@@ -32,7 +32,8 @@ const anchorProps = buildProps({
   direction: {
     type: definePropType(String),
     default: "vertical"
-  }
+  },
+  selectScrollTop: Boolean
 });
 const anchorEmits = {
   change: (href) => isString(href),

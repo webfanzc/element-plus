@@ -227,7 +227,7 @@ const DynamicSizeGrid = createGrid({
   },
   clearCache: false,
   validateProps: ({ columnWidth, rowHeight }) => {
-    if (process.env.NODE_ENV !== "production") {
+    if (typeof process !== "undefined" && process.env.NODE_ENV !== "production") {
       if (!isFunction(columnWidth)) {
         throwError(SCOPE, `
           "columnWidth" must be passed as function,

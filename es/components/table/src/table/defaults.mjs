@@ -75,11 +75,18 @@ var defaultProps = {
   scrollbarAlwaysOn: Boolean,
   flexible: Boolean,
   showOverflowTooltip: [Boolean, Object],
+  tooltipFormatter: Function,
   appendFilterPanelTo: String,
   scrollbarTabindex: {
     type: [Number, String],
     default: void 0
-  }
+  },
+  allowDragLastColumn: {
+    type: Boolean,
+    default: true
+  },
+  preserveExpandedContent: Boolean,
+  nativeScrollbar: Boolean
 };
 
 export { defaultProps as default };

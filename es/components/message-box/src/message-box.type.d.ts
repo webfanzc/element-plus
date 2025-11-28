@@ -1,6 +1,7 @@
 import type { AppContext, CSSProperties, Component, VNode } from 'vue';
 import type { ComponentSize } from 'element-plus/es/constants';
-type MessageType = '' | 'success' | 'warning' | 'info' | 'error';
+import type { InputType } from 'element-plus/es/components/input/src/input';
+type MessageType = '' | 'primary' | 'success' | 'warning' | 'info' | 'error';
 export type Action = 'confirm' | 'close' | 'cancel';
 export type MessageBoxType = '' | 'prompt' | 'alert' | 'confirm';
 export type MessageBoxData = MessageBoxInputData & Action;
@@ -8,22 +9,21 @@ export interface MessageBoxInputData {
     value: string;
     action: Action;
 }
-export interface MessageBoxInputValidator {
-    (value: string): boolean | string;
-}
+export type MessageBoxInputValidator = ((value: string) => boolean | string) | undefined;
 export declare interface MessageBoxState {
     autofocus: boolean;
-    title: string;
+    title: string | undefined;
     message: string;
     type: MessageType;
     icon: string | Component;
+    closeIcon: string | Component;
     customClass: string;
     customStyle: CSSProperties;
     showInput: boolean;
     inputValue: string;
     inputPlaceholder: string;
-    inputType: string;
-    inputPattern: RegExp;
+    inputType: InputType;
+    inputPattern: RegExp | null;
     inputValidator: MessageBoxInputValidator;
     inputErrorMessage: string;
     showConfirmButton: boolean;
@@ -61,6 +61,10 @@ export interface ElMessageBoxOptions {
     customClass?: string;
     /** Custom inline style for MessageBox */
     customStyle?: CSSProperties;
+    /** Whether a mask is displayed */
+    modal?: boolean;
+    /** modal class name for MessageBox */
+    modalClass?: string;
     /** MessageBox closing callback if you don't prefer Promise */
     callback?: Callback;
     /** Text content of cancel button */
@@ -91,6 +95,8 @@ export interface ElMessageBoxOptions {
     boxType?: MessageBoxType;
     /** Custom icon component */
     icon?: string | Component;
+    /** Custom close icon component */
+    closeIcon?: string | Component;
     /** Whether message is treated as HTML string */
     dangerouslyUseHTMLString?: boolean;
     /** Whether to distinguish canceling and closing */
@@ -119,8 +125,8 @@ export interface ElMessageBoxOptions {
     inputValue?: string;
     /** Regexp for the input */
     inputPattern?: RegExp;
-    /** Input Type: text, textArea, password or number */
-    inputType?: string;
+    /** type of input, see more in [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#Form_%3Cinput%3E_types) */
+    inputType?: InputType;
     /** Validation function for the input. Should returns a boolean or string. If a string is returned, it will be assigned to inputErrorMessage */
     inputValidator?: MessageBoxInputValidator;
     /** Error message when validation fails */

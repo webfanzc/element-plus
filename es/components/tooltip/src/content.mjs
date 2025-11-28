@@ -1,13 +1,16 @@
-import { defineComponent, ref, inject, computed, onBeforeUnmount, unref, watch, openBlock, createBlock, withCtx, createVNode, Transition, withDirectives, mergeProps, renderSlot, vShow, createCommentVNode } from 'vue';
-import { onClickOutside } from '@vueuse/core';
+import { defineComponent, ref, inject, computed, onBeforeUnmount, unref, watch, openBlock, createBlock, withCtx, Transition, withDirectives, createVNode, mergeProps, renderSlot, vShow, createCommentVNode } from 'vue';
+import { computedEager, onClickOutside } from '@vueuse/core';
 import '../../popper/index.mjs';
 import { ElTeleport } from '../../teleport/index.mjs';
 import { TOOLTIP_INJECTION_KEY } from './constants.mjs';
 import { useTooltipContentProps } from './content2.mjs';
+import { isTriggerType } from './utils.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import { usePopperContainerId } from '../../../hooks/use-popper-container/index.mjs';
-import ElPopperContent from '../../popper/src/content2.mjs';
+import { castArray } from '../../../utils/arrays.mjs';
+import ElPopperContent from '../../popper/src/content.mjs';
 import { useNamespace } from '../../../hooks/use-namespace/index.mjs';
+import { focusElement } from '../../../utils/dom/aria.mjs';
 import { composeEventHandlers } from '../../../utils/dom/event.mjs';
 
 const __default__ = defineComponent({
@@ -22,6 +25,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const { selector } = usePopperContainerId();
     const ns = useNamespace("tooltip");
     const contentRef = ref();
+    const popperContentRef = computedEager(() => {
+      var _a;
+      return (_a = contentRef.value) == null ? void 0 : _a.popperContentRef;
+    });
     let stopHandle;
     const {
       controlled,
@@ -39,8 +46,10 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       return props.transition || `${ns.namespace.value}-fade-in-linear`;
     });
     const persistentRef = computed(() => {
-      if (process.env.NODE_ENV === "test") {
-        return true;
+      if (typeof process !== "undefined") {
+        if (process.env.NODE_ENV === "test" && !process.env.RUN_TEST_WITH_PERSISTENT) {
+          return true;
+        }
       }
       return props.persistent;
     });
@@ -63,6 +72,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     const ariaHidden = ref(true);
     const onTransitionLeave = () => {
       onHide();
+      isFocusInsideContent() && focusElement(document.body, { preventScroll: true });
       ariaHidden.value = true;
     };
     const stopWhenControlled = () => {
@@ -70,12 +80,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         return true;
     };
     const onContentEnter = composeEventHandlers(stopWhenControlled, () => {
-      if (props.enterable && unref(trigger) === "hover") {
+      if (props.enterable && isTriggerType(unref(trigger), "hover")) {
         onOpen();
       }
     });
     const onContentLeave = composeEventHandlers(stopWhenControlled, () => {
-      if (unref(trigger) === "hover") {
+      if (isTriggerType(unref(trigger), "hover")) {
         onClose();
       }
     });
@@ -89,28 +99,33 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
     };
     const onAfterShow = () => {
       onShow();
-      stopHandle = onClickOutside(computed(() => {
-        var _a;
-        return (_a = contentRef.value) == null ? void 0 : _a.popperContentRef;
-      }), () => {
-        if (unref(controlled))
-          return;
-        const $trigger = unref(trigger);
-        if ($trigger !== "hover") {
-          onClose();
-        }
-      });
     };
     const onBlur = () => {
       if (!props.virtualTriggering) {
         onClose();
       }
     };
+    const isFocusInsideContent = (event) => {
+      var _a;
+      const popperContent = (_a = contentRef.value) == null ? void 0 : _a.popperContentRef;
+      const activeElement = (event == null ? void 0 : event.relatedTarget) || document.activeElement;
+      return popperContent == null ? void 0 : popperContent.contains(activeElement);
+    };
     watch(() => unref(open), (val) => {
       if (!val) {
         stopHandle == null ? void 0 : stopHandle();
       } else {
         ariaHidden.value = false;
+        stopHandle = onClickOutside(popperContentRef, () => {
+          if (unref(controlled))
+            return;
+          const needClose = castArray(unref(trigger)).every((item) => {
+            return item !== "hover" && item !== "focus";
+          });
+          if (needClose) {
+            onClose();
+          }
+        }, { detectIframe: true });
       }
     }, {
       flush: "post"
@@ -120,7 +135,8 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
       (_b = (_a = contentRef.value) == null ? void 0 : _a.updatePopper) == null ? void 0 : _b.call(_a);
     });
     expose({
-      contentRef
+      contentRef,
+      isFocusInsideContent
     });
     return (_ctx, _cache) => {
       return openBlock(), createBlock(unref(ElTeleport), {
@@ -128,16 +144,18 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
         to: unref(appendTo)
       }, {
         default: withCtx(() => [
-          createVNode(Transition, {
+          unref(shouldRender) || !ariaHidden.value ? (openBlock(), createBlock(Transition, {
+            key: 0,
             name: unref(transitionClass),
+            appear: !unref(persistentRef),
             onAfterLeave: onTransitionLeave,
             onBeforeEnter,
             onAfterEnter: onAfterShow,
-            onBeforeLeave
+            onBeforeLeave,
+            persisted: ""
           }, {
             default: withCtx(() => [
-              unref(shouldRender) ? withDirectives((openBlock(), createBlock(unref(ElPopperContent), mergeProps({
-                key: 0,
+              withDirectives(createVNode(unref(ElPopperContent), mergeProps({
                 id: unref(id),
                 ref_key: "contentRef",
                 ref: contentRef
@@ -150,6 +168,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 offset: _ctx.offset,
                 placement: _ctx.placement,
                 "popper-options": _ctx.popperOptions,
+                "arrow-offset": _ctx.arrowOffset,
                 strategy: _ctx.strategy,
                 effect: _ctx.effect,
                 enterable: _ctx.enterable,
@@ -160,6 +179,7 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                 "trigger-target-el": _ctx.triggerTargetEl,
                 visible: unref(shouldShow),
                 "z-index": _ctx.zIndex,
+                loop: _ctx.loop,
                 onMouseenter: unref(onContentEnter),
                 onMouseleave: unref(onContentLeave),
                 onBlur,
@@ -169,12 +189,12 @@ const _sfc_main = /* @__PURE__ */ defineComponent({
                   renderSlot(_ctx.$slots, "default")
                 ]),
                 _: 3
-              }, 16, ["id", "aria-label", "aria-hidden", "boundaries-padding", "fallback-placements", "gpu-acceleration", "offset", "placement", "popper-options", "strategy", "effect", "enterable", "pure", "popper-class", "popper-style", "reference-el", "trigger-target-el", "visible", "z-index", "onMouseenter", "onMouseleave", "onClose"])), [
+              }, 16, ["id", "aria-label", "aria-hidden", "boundaries-padding", "fallback-placements", "gpu-acceleration", "offset", "placement", "popper-options", "arrow-offset", "strategy", "effect", "enterable", "pure", "popper-class", "popper-style", "reference-el", "trigger-target-el", "visible", "z-index", "loop", "onMouseenter", "onMouseleave", "onClose"]), [
                 [vShow, unref(shouldShow)]
-              ]) : createCommentVNode("v-if", true)
+              ])
             ]),
             _: 3
-          }, 8, ["name"])
+          }, 8, ["name", "appear"])) : createCommentVNode("v-if", true)
         ]),
         _: 3
       }, 8, ["disabled", "to"]);

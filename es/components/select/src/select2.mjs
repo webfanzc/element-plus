@@ -1,20 +1,51 @@
-import { defineComponent, computed, reactive, toRefs, provide, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, toHandlerKey, createVNode, withCtx, createElementVNode, withModifiers, renderSlot, createCommentVNode, Fragment, renderList, normalizeStyle, createTextVNode, toDisplayString, createBlock, withKeys, vModelText, resolveDynamicComponent, vShow } from 'vue';
+import { defineComponent, getCurrentInstance, computed, reactive, toRefs, watch, provide, onBeforeUnmount, resolveComponent, resolveDirective, withDirectives, openBlock, createElementBlock, normalizeClass, toHandlerKey, createVNode, withCtx, createElementVNode, withModifiers, renderSlot, createCommentVNode, Fragment, renderList, normalizeStyle, createTextVNode, toDisplayString, createBlock, vModelText, resolveDynamicComponent, mergeProps, normalizeProps, vShow } from 'vue';
 import { ElTooltip } from '../../tooltip/index.mjs';
 import { ElScrollbar } from '../../scrollbar/index.mjs';
 import { ElTag } from '../../tag/index.mjs';
 import { ElIcon } from '../../icon/index.mjs';
-import Option from './option.mjs';
+import { useProps } from '../../select-v2/src/useProps.mjs';
+import Option from './option2.mjs';
 import ElSelectMenu from './select-dropdown.mjs';
 import { useSelect } from './useSelect.mjs';
 import { selectKey } from './token.mjs';
 import ElOptions from './options.mjs';
-import { SelectProps } from './select.mjs';
+import { selectProps } from './select.mjs';
+import OptionGroup from './option-group.mjs';
 import _export_sfc from '../../../_virtual/plugin-vue_export-helper.mjs';
 import ClickOutside from '../../../directives/click-outside/index.mjs';
 import { UPDATE_MODEL_EVENT, CHANGE_EVENT } from '../../../constants/event.mjs';
-import { isArray } from '@vue/shared';
+import { isArray, isObject } from '@vue/shared';
+import { useCalcInputWidth } from '../../../hooks/use-calc-input-width/index.mjs';
+import { flattedChildren } from '../../../utils/vue/vnode.mjs';
 
 const COMPONENT_NAME = "ElSelect";
+const warnHandlerMap = /* @__PURE__ */ new WeakMap();
+const createSelectWarnHandler = (appContext) => {
+  return (...args) => {
+    var _a, _b;
+    const message = args[0];
+    if (!message || message.includes('Slot "default" invoked outside of the render function') && ((_a = args[2]) == null ? void 0 : _a.includes("ElTreeSelect")))
+      return;
+    const original = (_b = warnHandlerMap.get(appContext)) == null ? void 0 : _b.originalWarnHandler;
+    if (original) {
+      original(...args);
+      return;
+    }
+    console.warn(...args);
+  };
+};
+const getWarnHandlerRecord = (appContext) => {
+  let record = warnHandlerMap.get(appContext);
+  if (!record) {
+    record = {
+      originalWarnHandler: appContext.config.warnHandler,
+      handler: createSelectWarnHandler(appContext),
+      count: 0
+    };
+    warnHandlerMap.set(appContext, record);
+  }
+  return record;
+};
 const _sfc_main = defineComponent({
   name: COMPONENT_NAME,
   componentName: COMPONENT_NAME,
@@ -22,13 +53,14 @@ const _sfc_main = defineComponent({
     ElSelectMenu,
     ElOption: Option,
     ElOptions,
+    ElOptionGroup: OptionGroup,
     ElTag,
     ElScrollbar,
     ElTooltip,
     ElIcon
   },
   directives: { ClickOutside },
-  props: SelectProps,
+  props: selectProps,
   emits: [
     UPDATE_MODEL_EVENT,
     CHANGE_EVENT,
@@ -36,9 +68,14 @@ const _sfc_main = defineComponent({
     "clear",
     "visible-change",
     "focus",
-    "blur"
+    "blur",
+    "popup-scroll"
   ],
-  setup(props, { emit }) {
+  setup(props, { emit, slots }) {
+    const instance = getCurrentInstance();
+    const warnRecord = getWarnHandlerRecord(instance.appContext);
+    warnRecord.count += 1;
+    instance.appContext.config.warnHandler = warnRecord.handler;
     const modelValue = computed(() => {
       const { modelValue: rawModelValue, multiple } = props;
       const fallback = multiple ? [] : void 0;
@@ -52,15 +89,65 @@ const _sfc_main = defineComponent({
       modelValue
     });
     const API = useSelect(_props, emit);
+    const { calculatorRef, inputStyle } = useCalcInputWidth();
+    const { getLabel, getValue, getOptions, getDisabled } = useProps(props);
+    const getOptionProps = (option) => ({
+      label: getLabel(option),
+      value: getValue(option),
+      disabled: getDisabled(option)
+    });
+    const flatTreeSelectData = (data) => {
+      return data.reduce((acc, item) => {
+        acc.push(item);
+        if (item.children && item.children.length > 0) {
+          acc.push(...flatTreeSelectData(item.children));
+        }
+        return acc;
+      }, []);
+    };
+    const manuallyRenderSlots = (vnodes) => {
+      const children = flattedChildren(vnodes || []);
+      children.forEach((item) => {
+        var _a;
+        if (isObject(item) && (item.type.name === "ElOption" || item.type.name === "ElTree")) {
+          const _name = item.type.name;
+          if (_name === "ElTree") {
+            const treeData = ((_a = item.props) == null ? void 0 : _a.data) || [];
+            const flatData = flatTreeSelectData(treeData);
+            flatData.forEach((treeItem) => {
+              treeItem.currentLabel = treeItem.label || (isObject(treeItem.value) ? "" : treeItem.value);
+              API.onOptionCreate(treeItem);
+            });
+          } else if (_name === "ElOption") {
+            const obj = { ...item.props };
+            obj.currentLabel = obj.label || (isObject(obj.value) ? "" : obj.value);
+            API.onOptionCreate(obj);
+          }
+        }
+      });
+    };
+    watch(() => {
+      var _a;
+      return [(_a = slots.default) == null ? void 0 : _a.call(slots), modelValue.value];
+    }, () => {
+      var _a;
+      if (props.persistent || API.expanded.value) {
+        return;
+      }
+      API.states.options.clear();
+      manuallyRenderSlots((_a = slots.default) == null ? void 0 : _a.call(slots));
+    }, {
+      immediate: true
+    });
     provide(selectKey, reactive({
       props: _props,
       states: API.states,
+      selectRef: API.selectRef,
       optionsArray: API.optionsArray,
+      setSelected: API.setSelected,
       handleOptionSelect: API.handleOptionSelect,
       onOptionCreate: API.onOptionCreate,
-      onOptionDestroy: API.onOptionDestroy,
-      selectRef: API.selectRef,
-      setSelected: API.setSelected
+      onOptionDestroy: API.onOptionDestroy
     }));
     const selectedLabel = computed(() => {
       if (!props.multiple) {
@@ -68,18 +155,36 @@ const _sfc_main = defineComponent({
       }
       return API.states.selected.map((i) => i.currentLabel);
     });
+    onBeforeUnmount(() => {
+      const record = warnHandlerMap.get(instance.appContext);
+      if (!record)
+        return;
+      record.count -= 1;
+      if (record.count <= 0) {
+        instance.appContext.config.warnHandler = record.originalWarnHandler;
+        warnHandlerMap.delete(instance.appContext);
+      }
+    });
     return {
       ...API,
       modelValue,
-      selectedLabel
+      selectedLabel,
+      calculatorRef,
+      inputStyle,
+      getLabel,
+      getValue,
+      getOptions,
+      getDisabled,
+      getOptionProps
     };
   }
 });
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render(_ctx, _cache) {
   const _component_el_tag = resolveComponent("el-tag");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_el_option = resolveComponent("el-option");
+  const _component_el_option_group = resolveComponent("el-option-group");
   const _component_el_options = resolveComponent("el-options");
   const _component_el_scrollbar = resolveComponent("el-scrollbar");
   const _component_el_select_menu = resolveComponent("el-select-menu");
@@ -96,6 +201,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       placement: _ctx.placement,
       teleported: _ctx.teleported,
       "popper-class": [_ctx.nsSelect.e("popper"), _ctx.popperClass],
+      "popper-style": _ctx.popperStyle,
       "popper-options": _ctx.popperOptions,
       "fallback-placements": _ctx.fallbackPlacements,
       effect: _ctx.effect,
@@ -139,7 +245,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 _ctx.nsSelect.is("near", _ctx.multiple && !_ctx.$slots.prefix && !!_ctx.states.selected.length)
               ])
             }, [
-              _ctx.multiple ? renderSlot(_ctx.$slots, "tag", { key: 0 }, () => [
+              _ctx.multiple ? renderSlot(_ctx.$slots, "tag", {
+                key: 0,
+                data: _ctx.states.selected,
+                deleteTag: _ctx.deleteTag,
+                selectDisabled: _ctx.selectDisabled
+              }, () => [
                 (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.showTagList, (item) => {
                   return openBlock(), createElementBlock("div", {
                     key: _ctx.getValueKey(item),
@@ -159,6 +270,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                           class: normalizeClass(_ctx.nsSelect.e("tags-text"))
                         }, [
                           renderSlot(_ctx.$slots, "label", {
+                            index: item.index,
                             label: item.currentLabel,
                             value: item.value
                           }, () => [
@@ -177,6 +289,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                   "fallback-placements": ["bottom", "top", "right", "left"],
                   effect: _ctx.effect,
                   placement: "bottom",
+                  "popper-class": _ctx.popperClass,
+                  "popper-style": _ctx.popperStyle,
                   teleported: _ctx.teleported
                 }, {
                   default: withCtx(() => [
@@ -225,6 +339,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                                 class: normalizeClass(_ctx.nsSelect.e("tags-text"))
                               }, [
                                 renderSlot(_ctx.$slots, "label", {
+                                  index: item.index,
                                   label: item.currentLabel,
                                   value: item.value
                                 }, () => [
@@ -239,13 +354,13 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                     ], 2)
                   ]),
                   _: 3
-                }, 8, ["disabled", "effect", "teleported"])) : createCommentVNode("v-if", true)
+                }, 8, ["disabled", "effect", "popper-class", "popper-style", "teleported"])) : createCommentVNode("v-if", true)
               ]) : createCommentVNode("v-if", true),
               createElementVNode("div", {
                 class: normalizeClass([
                   _ctx.nsSelect.e("selected-item"),
                   _ctx.nsSelect.e("input-wrapper"),
-                  _ctx.nsSelect.is("hidden", !_ctx.filterable)
+                  _ctx.nsSelect.is("hidden", !_ctx.filterable || _ctx.selectDisabled)
                 ])
               }, [
                 withDirectives(createElementVNode("input", {
@@ -268,13 +383,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                   "aria-label": _ctx.ariaLabel,
                   "aria-autocomplete": "none",
                   "aria-haspopup": "listbox",
-                  onKeydown: [
-                    withKeys(withModifiers(($event) => _ctx.navigateOptions("next"), ["stop", "prevent"]), ["down"]),
-                    withKeys(withModifiers(($event) => _ctx.navigateOptions("prev"), ["stop", "prevent"]), ["up"]),
-                    withKeys(withModifiers(_ctx.handleEsc, ["stop", "prevent"]), ["esc"]),
-                    withKeys(withModifiers(_ctx.selectOption, ["stop", "prevent"]), ["enter"]),
-                    withKeys(withModifiers(_ctx.deletePrevTag, ["stop"]), ["delete"])
-                  ],
+                  onKeydown: _ctx.handleKeydown,
                   onCompositionstart: _ctx.handleCompositionStart,
                   onCompositionupdate: _ctx.handleCompositionUpdate,
                   onCompositionend: _ctx.handleCompositionEnd,
@@ -301,6 +410,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               }, [
                 _ctx.hasModelValue ? renderSlot(_ctx.$slots, "label", {
                   key: 0,
+                  index: _ctx.getOption(_ctx.modelValue).index,
                   label: _ctx.currentPlaceholder,
                   value: _ctx.modelValue
                 }, () => [
@@ -312,7 +422,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               ref: "suffixRef",
               class: normalizeClass(_ctx.nsSelect.e("suffix"))
             }, [
-              _ctx.iconComponent && !_ctx.showClose ? (openBlock(), createBlock(_component_el_icon, {
+              _ctx.iconComponent && !_ctx.showClearBtn ? (openBlock(), createBlock(_component_el_icon, {
                 key: 0,
                 class: normalizeClass([_ctx.nsSelect.e("caret"), _ctx.nsSelect.e("icon"), _ctx.iconReverse])
               }, {
@@ -321,7 +431,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 ]),
                 _: 1
               }, 8, ["class"])) : createCommentVNode("v-if", true),
-              _ctx.showClose && _ctx.clearIcon ? (openBlock(), createBlock(_component_el_icon, {
+              _ctx.showClearBtn && _ctx.clearIcon ? (openBlock(), createBlock(_component_el_icon, {
                 key: 1,
                 class: normalizeClass([
                   _ctx.nsSelect.e("caret"),
@@ -337,7 +447,11 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               }, 8, ["class", "onClick"])) : createCommentVNode("v-if", true),
               _ctx.validateState && _ctx.validateIcon && _ctx.needStatusIcon ? (openBlock(), createBlock(_component_el_icon, {
                 key: 2,
-                class: normalizeClass([_ctx.nsInput.e("icon"), _ctx.nsInput.e("validateIcon")])
+                class: normalizeClass([
+                  _ctx.nsInput.e("icon"),
+                  _ctx.nsInput.e("validateIcon"),
+                  _ctx.nsInput.is("loading", _ctx.validateState === "validating")
+                ])
               }, {
                 default: withCtx(() => [
                   (openBlock(), createBlock(resolveDynamicComponent(_ctx.validateIcon)))
@@ -368,7 +482,8 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
               class: normalizeClass([_ctx.nsSelect.is("empty", _ctx.filteredOptionsCount === 0)]),
               role: "listbox",
               "aria-label": _ctx.ariaLabel,
-              "aria-orientation": "vertical"
+              "aria-orientation": "vertical",
+              onScroll: _ctx.popupScroll
             }, {
               default: withCtx(() => [
                 _ctx.showNewOption ? (openBlock(), createBlock(_component_el_option, {
@@ -378,13 +493,33 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
                 }, null, 8, ["value"])) : createCommentVNode("v-if", true),
                 createVNode(_component_el_options, null, {
                   default: withCtx(() => [
-                    renderSlot(_ctx.$slots, "default")
+                    renderSlot(_ctx.$slots, "default", {}, () => [
+                      (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.options, (option, index) => {
+                        var _a;
+                        return openBlock(), createElementBlock(Fragment, { key: index }, [
+                          ((_a = _ctx.getOptions(option)) == null ? void 0 : _a.length) ? (openBlock(), createBlock(_component_el_option_group, {
+                            key: 0,
+                            label: _ctx.getLabel(option),
+                            disabled: _ctx.getDisabled(option)
+                          }, {
+                            default: withCtx(() => [
+                              (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.getOptions(option), (item) => {
+                                return openBlock(), createBlock(_component_el_option, mergeProps({
+                                  key: _ctx.getValue(item)
+                                }, _ctx.getOptionProps(item)), null, 16);
+                              }), 128))
+                            ]),
+                            _: 2
+                          }, 1032, ["label", "disabled"])) : (openBlock(), createBlock(_component_el_option, normalizeProps(mergeProps({ key: 1 }, _ctx.getOptionProps(option))), null, 16))
+                        ], 64);
+                      }), 128))
+                    ])
                   ]),
                   _: 3
                 })
               ]),
               _: 3
-            }, 8, ["id", "wrap-class", "view-class", "class", "aria-label"]), [
+            }, 8, ["id", "wrap-class", "view-class", "class", "aria-label", "onScroll"]), [
               [vShow, _ctx.states.options.size > 0 && !_ctx.loading]
             ]),
             _ctx.$slots.loading && _ctx.loading ? (openBlock(), createElementBlock("div", {
@@ -413,7 +548,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         }, 512)
       ]),
       _: 3
-    }, 8, ["visible", "placement", "teleported", "popper-class", "popper-options", "fallback-placements", "effect", "transition", "persistent", "append-to", "show-arrow", "offset", "onBeforeShow", "onHide"])
+    }, 8, ["visible", "placement", "teleported", "popper-class", "popper-style", "popper-options", "fallback-placements", "effect", "transition", "persistent", "append-to", "show-arrow", "offset", "onBeforeShow", "onHide"])
   ], 16, ["onMouseleave"])), [
     [_directive_click_outside, _ctx.handleClickOutside, _ctx.popperRef]
   ]);

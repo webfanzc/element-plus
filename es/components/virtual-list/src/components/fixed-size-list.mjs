@@ -11,7 +11,7 @@ const FixedSizeList = createList({
   getEstimatedTotalSize: ({ total, itemSize }) => itemSize * total,
   getOffset: ({ height, total, itemSize, layout, width }, index, alignment, scrollOffset) => {
     const size = isHorizontal(layout) ? width : height;
-    if (process.env.NODE_ENV !== "production" && isString(size)) {
+    if (typeof process !== "undefined" && process.env.NODE_ENV !== "production" && isString(size)) {
       throwError("[ElVirtualList]", `
         You should set
           width/height

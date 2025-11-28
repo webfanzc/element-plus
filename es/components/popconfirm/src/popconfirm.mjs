@@ -1,8 +1,9 @@
 import { QuestionFilled } from '@element-plus/icons-vue';
-import { buttonTypes } from '../../button/src/button.mjs';
+import { buttonTypes } from '../../button/src/button2.mjs';
 import { buildProps } from '../../../utils/vue/props/runtime.mjs';
 import { iconPropType } from '../../../utils/vue/icon.mjs';
 import { useTooltipContentProps } from '../../tooltip/src/content2.mjs';
+import { useTooltipTriggerProps } from '../../tooltip/src/trigger.mjs';
 
 const popconfirmProps = buildProps({
   title: String,
@@ -26,20 +27,23 @@ const popconfirmProps = buildProps({
     type: String,
     default: "#f90"
   },
-  hideIcon: {
-    type: Boolean,
-    default: false
-  },
+  hideIcon: Boolean,
   hideAfter: {
     type: Number,
     default: 200
+  },
+  effect: {
+    ...useTooltipContentProps.effect,
+    default: "light"
   },
   teleported: useTooltipContentProps.teleported,
   persistent: useTooltipContentProps.persistent,
   width: {
     type: [String, Number],
     default: 150
-  }
+  },
+  virtualTriggering: useTooltipTriggerProps.virtualTriggering,
+  virtualRef: useTooltipTriggerProps.virtualRef
 });
 const popconfirmEmits = {
   confirm: (e) => e instanceof MouseEvent,

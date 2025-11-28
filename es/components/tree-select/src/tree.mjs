@@ -13,7 +13,7 @@ const useTree = (props, { attrs, slots, emit }, {
   tree,
   key
 }) => {
-  watch(() => props.modelValue, () => {
+  watch([() => props.modelValue, tree], () => {
     if (props.showCheckbox) {
       nextTick(() => {
         const treeInstance = tree.value;
@@ -95,7 +95,7 @@ const useTree = (props, { attrs, slots, emit }, {
       return regexp.test(getNodeValByProp("label", data) || "");
     },
     onNodeClick: (data, node, e) => {
-      var _a, _b, _c, _d;
+      var _a, _b, _c;
       (_a = attrs.onNodeClick) == null ? void 0 : _a.call(attrs, data, node, e);
       if (props.showCheckbox && props.checkOnClickNode)
         return;
@@ -107,7 +107,6 @@ const useTree = (props, { attrs, slots, emit }, {
       } else if (props.expandOnClickNode) {
         e.proxy.handleExpandIconClick();
       }
-      (_d = select.value) == null ? void 0 : _d.focus();
     },
     onCheck: (data, params) => {
       var _a;

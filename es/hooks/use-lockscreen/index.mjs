@@ -1,9 +1,8 @@
 import { isRef, computed, watch, onScopeDispose } from 'vue';
 import { useNamespace } from '../use-namespace/index.mjs';
 import { throwError } from '../../utils/error.mjs';
-import { hasClass, getStyle, addClass, removeClass } from '../../utils/dom/style.mjs';
+import { hasClass, addClass, getStyle, removeClass } from '../../utils/dom/style.mjs';
 import { getScrollBarWidth } from '../../utils/dom/scroll.mjs';
-import { isClient } from '@vueuse/core';
 
 const useLockscreen = (trigger, options = {}) => {
   if (!isRef(trigger)) {
@@ -11,9 +10,6 @@ const useLockscreen = (trigger, options = {}) => {
   }
   const ns = options.ns || useNamespace("popup");
   const hiddenCls = computed(() => ns.bm("parent", "hidden"));
-  if (!isClient || hasClass(document.body, hiddenCls.value)) {
-    return;
-  }
   let scrollBarWidth = 0;
   let withoutHiddenClass = false;
   let bodyWidth = "0";
@@ -21,9 +17,9 @@ const useLockscreen = (trigger, options = {}) => {
     setTimeout(() => {
       if (typeof document === "undefined")
         return;
-      removeClass(document == null ? void 0 : document.body, hiddenCls.value);
       if (withoutHiddenClass && document) {
         document.body.style.width = bodyWidth;
+        removeClass(document.body, hiddenCls.value);
       }
     }, 200);
   };
@@ -35,6 +31,7 @@ const useLockscreen = (trigger, options = {}) => {
     withoutHiddenClass = !hasClass(document.body, hiddenCls.value);
     if (withoutHiddenClass) {
       bodyWidth = document.body.style.width;
+      addClass(document.body, hiddenCls.value);
     }
     scrollBarWidth = getScrollBarWidth(ns.namespace.value);
     const bodyHasOverflow = document.documentElement.clientHeight < document.body.scrollHeight;
@@ -42,7 +39,6 @@ const useLockscreen = (trigger, options = {}) => {
     if (scrollBarWidth > 0 && (bodyHasOverflow || bodyOverflowY === "scroll") && withoutHiddenClass) {
       document.body.style.width = `calc(100% - ${scrollBarWidth}px)`;
     }
-    addClass(document.body, hiddenCls.value);
   });
   onScopeDispose(() => cleanup());
 };

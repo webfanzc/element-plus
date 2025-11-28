@@ -1,8 +1,9 @@
-import { defineComponent, getCurrentInstance, ref, computed, unref, onMounted, nextTick, resolveDynamicComponent, h, Fragment } from 'vue';
+import { defineComponent, getCurrentInstance, ref, computed, unref, onMounted, nextTick, resolveDynamicComponent, h, mergeProps, Fragment } from 'vue';
 import { useEventListener, isClient } from '@vueuse/core';
 import ScrollBar from '../components/scrollbar.mjs';
 import { useGridWheel } from '../hooks/use-grid-wheel.mjs';
 import { useCache } from '../hooks/use-cache.mjs';
+import { useGridTouch } from '../hooks/use-grid-touch.mjs';
 import { virtualizedGridProps } from '../props.mjs';
 import { getScrollDir, getRTLOffsetType, isRTL } from '../utils.mjs';
 import { ITEM_RENDER_EVT, SCROLL_EVT, FORWARD, BACKWARD, AUTO_ALIGNMENT, RTL, RTL_OFFSET_POS_ASC, RTL_OFFSET_NAG, RTL_OFFSET_POS_DESC } from '../defaults.mjs';
@@ -41,7 +42,7 @@ const createGrid = ({
       const windowRef = ref();
       const hScrollbar = ref();
       const vScrollbar = ref();
-      const innerRef = ref(null);
+      const innerRef = ref();
       const states = ref({
         isScrolling: false,
         scrollLeft: isNumber(props.initScrollLeft) ? props.initScrollLeft : 0,
@@ -243,6 +244,7 @@ const createGrid = ({
         onUpdated();
         emitEvents();
       };
+      const { touchStartX, touchStartY, handleTouchStart, handleTouchMove } = useGridTouch(windowRef, states, scrollTo, estimatedTotalWidth, estimatedTotalHeight, parsedWidth, parsedHeight);
       const scrollToItem = (rowIndex = 0, columnIdx = 0, alignment = AUTO_ALIGNMENT) => {
         const _states = unref(states);
         columnIdx = Math.max(0, Math.min(columnIdx, props.totalColumn - 1));
@@ -332,6 +334,10 @@ const createGrid = ({
         windowRef,
         innerRef,
         getItemStyleCache,
+        touchStartX,
+        touchStartY,
+        handleTouchStart,
+        handleTouchMove,
         scrollTo,
         scrollToItem,
         states,
@@ -411,10 +417,10 @@ const createGrid = ({
         const Inner = resolveDynamicComponent(props.innerElement);
         const children = renderItems();
         return [
-          h(Inner, {
+          h(Inner, mergeProps(props.innerProps, {
             style: unref(innerStyle),
             ref: innerRef
-          }, !isString(Inner) ? {
+          }), !isString(Inner) ? {
             default: () => children
           } : children)
         ];

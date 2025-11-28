@@ -90,7 +90,6 @@ const _sfc_main = defineComponent({
       handleHeaderFooterMousewheel,
       tableSize,
       emptyBlockStyle,
-      handleFixedMousewheel,
       resizeProxyVisible,
       bodyWidth,
       resizeState,
@@ -144,7 +143,6 @@ const _sfc_main = defineComponent({
       tableBodyStyles,
       emptyBlockStyle,
       debouncedUpdateLayout,
-      handleFixedMousewheel,
       setCurrentRow,
       getSelectionRows,
       toggleRowSelection,
@@ -167,7 +165,8 @@ const _sfc_main = defineComponent({
       scrollBarRef,
       scrollTo,
       setScrollLeft,
-      setScrollTop
+      setScrollTop,
+      allowDragLastColumn: props.allowDragLastColumn
     };
   }
 });
@@ -235,8 +234,9 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             "default-sort": _ctx.defaultSort,
             store: _ctx.store,
             "append-filter-panel-to": _ctx.appendFilterPanelTo,
+            "allow-drag-last-column": _ctx.allowDragLastColumn,
             onSetDragVisible: _ctx.setDragVisible
-          }, null, 8, ["border", "default-sort", "store", "append-filter-panel-to", "onSetDragVisible"])
+          }, null, 8, ["border", "default-sort", "store", "append-filter-panel-to", "allow-drag-last-column", "onSetDragVisible"])
         ], 6)
       ], 2)), [
         [_directive_mousewheel, _ctx.handleHeaderFooterMousewheel]
@@ -251,6 +251,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
           "wrap-style": _ctx.scrollbarStyle,
           always: _ctx.scrollbarAlwaysOn,
           tabindex: _ctx.scrollbarTabindex,
+          native: _ctx.nativeScrollbar,
           onScroll: ($event) => _ctx.$emit("scroll", $event)
         }, {
           default: withCtx(() => [
@@ -322,7 +323,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
             ], 2)) : createCommentVNode("v-if", true)
           ]),
           _: 3
-        }, 8, ["view-style", "wrap-style", "always", "tabindex", "onScroll"])
+        }, 8, ["view-style", "wrap-style", "always", "tabindex", "native", "onScroll"])
       ], 2),
       _ctx.showSummary && _ctx.tableLayout === "fixed" ? withDirectives((openBlock(), createElementBlock("div", {
         key: 1,

@@ -1,6 +1,6 @@
 import { isVNode, Fragment, Text, Comment, openBlock, createBlock, createCommentVNode } from 'vue';
-import { debugWarn } from '../error.mjs';
 import { isArray, hasOwn, camelize } from '@vue/shared';
+import { debugWarn } from '../error.mjs';
 
 const SCOPE = "utils/vue/vnode";
 var PatchFlags = /* @__PURE__ */ ((PatchFlags2) => {
@@ -74,12 +74,6 @@ const getNormalizedProps = (node) => {
   });
   return props;
 };
-const ensureOnlyChild = (children) => {
-  if (!isArray(children) || children.length > 1) {
-    throw new Error("expect to receive a single Vue element child");
-  }
-  return children[0];
-};
 const flattedChildren = (children) => {
   const vNodes = isArray(children) ? children : [children];
   const result = [];
@@ -91,6 +85,8 @@ const flattedChildren = (children) => {
       result.push(child, ...flattedChildren(child.component.subTree));
     } else if (isVNode(child) && isArray(child.children)) {
       result.push(...flattedChildren(child.children));
+    } else if (isVNode(child) && child.shapeFlag === 2) {
+      result.push(...flattedChildren(child.type()));
     } else {
       result.push(child);
     }
@@ -98,5 +94,5 @@ const flattedChildren = (children) => {
   return result;
 };
 
-export { PatchFlags, ensureOnlyChild, flattedChildren, getFirstValidNode, getNormalizedProps, isComment, isFragment, isTemplate, isText, isValidElementNode, renderBlock, renderIf };
+export { PatchFlags, flattedChildren, getFirstValidNode, getNormalizedProps, isComment, isFragment, isTemplate, isText, isValidElementNode, renderBlock, renderIf };
 //# sourceMappingURL=vnode.mjs.map

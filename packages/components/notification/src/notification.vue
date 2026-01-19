@@ -1,6 +1,7 @@
 <template>
   <transition
     :name="ns.b('fade')"
+    @after-enter="onAfterEnter"
     @before-leave="onClose"
     @after-leave="$emit('destroy')"
   >
@@ -32,7 +33,7 @@
           </slot>
         </div>
         <el-icon v-if="showClose" :class="ns.e('closeBtn')" @click.stop="close">
-          <component :is="closeIcon" />
+          <component :is="props.closeIcon" />
         </el-icon>
       </div>
     </div>
@@ -64,6 +65,7 @@ const { nextZIndex, currentZIndex } = zIndex
 const notificationRef = ref<HTMLDivElement>()
 const visible = ref(false)
 const height = ref(0)
+const useReactivePosition = ref(false)
 let timer: (() => void) | undefined = undefined
 
 const typeClass = computed(() => {
@@ -86,10 +88,18 @@ const verticalProperty = computed(() =>
 
 const position = computed(() => props.position)
 const lastOffset = computed(() => getLastOffset(props.id, position.value))
-const offset = computed(
-  () =>
+// Use reactive offset calculation only after enter animation completes
+// Before that, use the pre-calculated props.offset to ensure correct initial position
+const offset = computed(() => {
+  if (!useReactivePosition.value) {
+    // Use pre-calculated offset during initial animation
+    return props.offset
+  }
+  // Use reactive calculation after animation completes
+  return (
     getOffsetOrSpace(props.id, props.offset, position.value) + lastOffset.value
-)
+  )
+})
 const bottom = computed(() => height.value + offset.value)
 
 const positionStyle = computed<CSSProperties>(() => {
@@ -113,6 +123,13 @@ function clearTimer() {
 
 function close() {
   visible.value = false
+}
+
+function onAfterEnter() {
+  // Enable reactive position calculation after enter animation completes
+  // This ensures initial position is correct (using pre-calculated offset)
+  // and then switches to reactive calculation for dynamic updates
+  useReactivePosition.value = true
 }
 
 function onKeydown(event: KeyboardEvent) {

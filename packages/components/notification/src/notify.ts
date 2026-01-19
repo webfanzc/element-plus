@@ -31,11 +31,21 @@ const notify: NotifyFn & Partial<Notify> = function (options = {}, context) {
   const position = options.position || 'top-right'
   const positionInstances = notifications[position]
 
+  // Calculate initial offset based on existing notifications' heights
+  // This ensures correct initial position before animation starts
+  // The position will still be reactive and update when heights change
+  let verticalOffset = options.offset || 0
+  positionInstances.forEach(({ vm }) => {
+    console.log('vm.el?.offsetHeight', vm?.el?.offsetHeight)
+    verticalOffset += (vm.el?.offsetHeight || 0) + GAP_SIZE
+  })
+  verticalOffset += GAP_SIZE
+  console.log('verticalOffset', verticalOffset)
   const id = `notification_${seed++}`
   const userOnClose = options.onClose
   const props: Partial<NotificationProps> = {
     ...options,
-    offset: options.offset ?? GAP_SIZE,
+    offset: verticalOffset,
     id,
     onClose: () => {
       close(id, position, userOnClose)
